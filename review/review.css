@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.scene {
+  width: 100vw;
+  height: 100vh;
+  background: #2f145e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.8s ease-in-out;
+  opacity: 1;
+}
+
+.sceneExit {
+  opacity: 0;
+}
+
+.vantaBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  filter: blur(2.6px) brightness(0.68) saturate(0.82);
+  transform: scale(1.04);
+  transform-origin: center;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.launchButton {
+  position: absolute;
+  z-index: 3;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  border: 1px solid rgba(152, 182, 255, 0.42);
+  background: linear-gradient(135deg, rgba(12, 11, 36, 0.9), rgba(14, 24, 59, 0.76));
+  color: #dfebff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 11px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 1px rgba(170, 196, 255, 0.1) inset, 0 10px 28px rgba(3, 5, 25, 0.55);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  animation: buttonFloat 2.4s ease-in-out infinite;
+}
+
+.launchButton:hover {
+  transform: translateX(-50%) translateY(-2px) scale(1.02);
+  border-color: rgba(196, 214, 255, 0.7);
+  box-shadow: 0 0 0 1px rgba(207, 222, 255, 0.18) inset, 0 12px 34px rgba(6, 9, 34, 0.7), 0 0 26px rgba(80, 138, 255, 0.25);
+}
+
+.welcomeOverlay {
+  --mx: -500px;
+  --my: -500px;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.965);
+  -webkit-mask-image: radial-gradient(
+    circle 190px at var(--mx) var(--my),
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(0, 0, 0, 0.45) 52%,
+    rgba(0, 0, 0, 0.85) 72%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-image: radial-gradient(
+    circle 190px at var(--mx) var(--my),
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 24%,
+    rgba(0, 0, 0, 0.45) 52%,
+    rgba(0, 0, 0, 0.85) 72%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: welcomeFadeIn 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.welcomeOverlay::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;
+  background: linear-gradient(110deg, rgba(115, 156, 255, 0) 35%, rgba(115, 156, 255, 0.14) 50%, rgba(115, 156, 255, 0) 65%);
+  transform: translateX(-30%);
+  animation: overlaySweep 2.4s ease forwards;
+}
+
+.welcomeOverlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 4px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.welcomePanel {
+  position: relative;
+  z-index: 1;
+  padding: 30px 36px;
+  border: 1px solid rgba(168, 188, 255, 0.2);
+  background: rgba(7, 10, 22, 0.42);
+  box-shadow: 0 0 0 1px rgba(186, 205, 255, 0.08) inset, 0 18px 50px rgba(0, 0, 0, 0.55);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+}
+
+.welcomeText {
+  margin: 0;
+  color: #f5f7ff;
+  font-size: clamp(1rem, 2.1vw, 1.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+  animation: textReveal 0.9s 0.2s ease forwards;
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+
+.closeOverlay {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(190, 207, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(132, 160, 255, 0.1);
+  color: #dfe7ff;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.closeOverlay:hover {
+  background: rgba(168, 190, 255, 0.2);
+  transform: scale(1.06);
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    letter-spacing: 0.16em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: 0.08em;
+  }
+}
+
+@keyframes overlaySweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-34%);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(34%);
+  }
+}
+
+@keyframes buttonFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-2px);
+  }
+}
+
+/* ─── Logo wrapper ─── */
+.logoWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.logoVisible {
+  opacity: 1;
+}
+
+.ensitLogo {
+  width: min(46vw, 300px);
+  height: auto;
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(2px) brightness(0.8) contrast(1.05);
+  clip-path: inset(0 100% 0 0);
+  transition: transform 0.8s ease, filter 0.8s ease;
+  will-change: clip-path, opacity, filter, transform;
+}
+
+.logoDraft {
+  animation: logoDraw 1.55s steps(18, end) forwards;
+}
+
+.logoBuilt {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+  filter: blur(0) brightness(1) contrast(1.05) drop-shadow(0 0 16px rgba(194, 235, 228, 0.35));
+}
+
+@keyframes logoDraw {
+  0% {
+    opacity: 0.08;
+    clip-path: inset(0 100% 0 0);
+    transform: scale(0.92);
+    filter: blur(2.2px) brightness(0.78) contrast(1.03);
+  }
+  35% {
+    opacity: 0.4;
+    clip-path: inset(0 70% 0 0);
+    transform: scale(0.95);
+    filter: blur(1.4px) brightness(0.86) contrast(1.07);
+  }
+  70% {
+    opacity: 0.78;
+    clip-path: inset(0 28% 0 0);
+    transform: scale(0.985);
+    filter: blur(0.8px) brightness(0.94) contrast(1.08);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: scale(1);
+    filter: blur(0.12px) brightness(0.98) contrast(1.05);
+  }
+}

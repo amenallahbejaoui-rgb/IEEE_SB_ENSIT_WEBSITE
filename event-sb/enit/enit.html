@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>IEEE ENSIT SB</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link href="../../img/logos/ieee%20(3)%20-%20Copy.png" rel="icon">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../shared/event-pages.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="event-card">
+            <div class="event-content">
+                <div>
+                    <img src="1.jpg" alt="Event Image" class="event-image" id="mainEventImage">
+                    <div class="thumbnail-container2">
+                        <img src="1.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage('1.jpg')">
+                        <img src="2.jpg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('2.jpg')">
+                        <img src="3.jpg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('3.jpg')">
+                    </div>
+                 </div>
+                <div class="event-text">
+                    <h1>Participation in Orientational Forum ENIT</h1>
+                    <p class="text-primary">Date: 20/07/2024</p>
+                    <div class="event-info">
+                        <div class="event-description text-justify">
+                            <p>
+                                Our participation in the Orientation Forum at ENIT has been truly rewarding! Together with IEEE ENSIT SB, we engaged with students, shared insights about our activities, and encouraged them to get involved with IEEE and explore the world of engineering and technology. It was inspiring to connect with so many enthusiastic students and introduce them to the opportunities IEEE offers. Grateful for the experience and excited to welcome new members into our community!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function changeImage(imageName) {
+                document.getElementById("mainEventImage").src = imageName;
+            }
+        </script>
+    </body>
+</html>

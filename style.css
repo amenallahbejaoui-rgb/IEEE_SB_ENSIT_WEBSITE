@@ -1,0 +1,384 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	color-scheme: dark;
+	--bg-deep: #0f241d;
+	--bg-mid: #1b4332;
+	--bg-soft: #2d6a4f;
+	--mint: #52b788;
+	--mint-soft: #d8f3dc;
+	--text: #f4fbf8;
+	--text-muted: rgba(244, 251, 248, 0.74);
+	--border: rgba(216, 243, 220, 0.18);
+	--shadow: 0 28px 80px rgba(3, 20, 14, 0.5);
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	font-family: Inter, "Segoe UI", Arial, sans-serif;
+	background:
+		radial-gradient(circle at top, rgba(82, 183, 136, 0.16), transparent 32%),
+		linear-gradient(180deg, var(--bg-mid), var(--bg-deep));
+	color: var(--text);
+	overflow: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+}
+
+.appShell {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background: linear-gradient(180deg, var(--bg-mid), var(--bg-deep));
+}
+
+.appShell::before,
+.appShell::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.appShell::before {
+	background:
+		radial-gradient(circle at 20% 20%, rgba(82, 183, 136, 0.18), transparent 24%),
+		radial-gradient(circle at 80% 80%, rgba(216, 243, 220, 0.1), transparent 28%);
+	opacity: 0.9;
+}
+
+.appShell::after {
+	background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+	background-size: 100% 4px;
+	opacity: 0.15;
+}
+
+.reviewScreen,
+.welcomeScreen {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+}
+
+.reviewScreen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.9s ease, transform 0.9s ease;
+	opacity: 1;
+	transform: scale(1);
+}
+
+.reviewScreen.is-exiting {
+	opacity: 0;
+	transform: scale(1.03);
+	pointer-events: none;
+}
+
+.reviewBackground {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	filter: blur(2px) brightness(0.7) saturate(0.86);
+	transform: scale(1.03);
+}
+
+.reviewContent {
+	position: relative;
+	z-index: 1;
+	width: min(88vw, 880px);
+	padding: 32px 24px 92px;
+	text-align: center;
+}
+
+.logoWrap {
+	display: grid;
+	justify-items: center;
+	gap: 16px;
+	opacity: 0;
+	transform: translateY(12px);
+	transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.logoWrap.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.eyebrow {
+	font-size: 0.75rem;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: rgba(216, 243, 220, 0.82);
+}
+
+.eyebrowLight {
+	color: rgba(216, 243, 220, 0.72);
+}
+
+.ensitLogo {
+	width: min(52vw, 300px);
+	height: auto;
+	opacity: 0;
+	clip-path: inset(0 100% 0 0);
+	filter: blur(2px) brightness(0.86) contrast(1.05);
+	transform: scale(0.92);
+	transition: transform 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
+	will-change: clip-path, opacity, filter, transform;
+}
+
+.ensitLogo.is-drawing {
+	animation: logoDraw 1.55s steps(18, end) forwards;
+}
+
+.ensitLogo.is-built {
+	opacity: 1;
+	clip-path: inset(0 0 0 0);
+	transform: scale(1);
+	filter: blur(0) brightness(1) contrast(1.05) drop-shadow(0 0 18px rgba(82, 183, 136, 0.28));
+}
+
+.headline {
+	font-size: clamp(1.75rem, 4vw, 3rem);
+	line-height: 1.05;
+	font-weight: 800;
+	letter-spacing: -0.04em;
+	text-wrap: balance;
+}
+
+.subheadline {
+	max-width: 42rem;
+	color: var(--text-muted);
+	font-size: clamp(0.96rem, 1.8vw, 1.08rem);
+	line-height: 1.65;
+}
+
+.launchButton {
+	position: absolute;
+	left: 50%;
+	bottom: 28px;
+	z-index: 2;
+	transform: translateX(-50%);
+	border: 1px solid rgba(216, 243, 220, 0.26);
+	border-radius: 999px;
+	background: linear-gradient(135deg, rgba(27, 67, 50, 0.94), rgba(82, 183, 136, 0.88));
+	color: var(--text);
+	padding: 12px 26px;
+	font-size: 0.86rem;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	cursor: pointer;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset, var(--shadow);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+	animation: floatButton 2.5s ease-in-out infinite;
+}
+
+.launchButton:hover {
+	transform: translateX(-50%) translateY(-2px) scale(1.02);
+	border-color: rgba(216, 243, 220, 0.45);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 16px 40px rgba(2, 16, 11, 0.6);
+}
+
+.launchButton:focus-visible,
+.skipButton:focus-visible {
+	outline: 3px solid rgba(216, 243, 220, 0.75);
+	outline-offset: 3px;
+}
+
+.welcomeScreen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transform: scale(1.02);
+	pointer-events: none;
+	transition: opacity 0.8s ease, transform 0.8s ease;
+	background: #000;
+}
+
+.welcomeScreen.is-active {
+	opacity: 1;
+	transform: scale(1);
+	pointer-events: auto;
+}
+
+.welcomeBackdrop,
+.welcomeOverlay {
+	position: absolute;
+	inset: 0;
+}
+
+.welcomeBackdrop {
+	background: radial-gradient(circle at center, rgba(82, 183, 136, 0.12), transparent 46%);
+	z-index: 0;
+}
+
+.welcomeVideo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	z-index: 1;
+}
+
+.welcomeOverlay {
+	z-index: 2;
+	background:
+		linear-gradient(180deg, rgba(6, 18, 13, 0.18), rgba(6, 18, 13, 0.64)),
+		radial-gradient(circle at 50% 42%, rgba(82, 183, 136, 0.12), transparent 32%);
+	pointer-events: none;
+}
+
+.welcomeCopy {
+	position: absolute;
+	z-index: 3;
+	top: clamp(24px, 4vw, 48px);
+	left: clamp(20px, 4vw, 56px);
+	max-width: min(90vw, 520px);
+	display: grid;
+	gap: 12px;
+}
+
+.welcomeTitle {
+	font-size: clamp(1.85rem, 4vw, 3.4rem);
+	line-height: 0.98;
+	font-weight: 800;
+	letter-spacing: -0.05em;
+	text-wrap: balance;
+}
+
+.welcomeText {
+	max-width: 34rem;
+	color: rgba(244, 251, 248, 0.78);
+	font-size: clamp(0.96rem, 1.6vw, 1.06rem);
+	line-height: 1.6;
+}
+
+.skipButton {
+	position: absolute;
+	right: clamp(20px, 4vw, 48px);
+	bottom: clamp(20px, 4vw, 38px);
+	z-index: 3;
+	border: 1px solid rgba(216, 243, 220, 0.26);
+	border-radius: 999px;
+	background: rgba(8, 20, 15, 0.52);
+	color: var(--text);
+	padding: 12px 22px;
+	font-size: 0.92rem;
+	font-weight: 700;
+	backdrop-filter: blur(12px);
+	cursor: pointer;
+	box-shadow: 0 18px 40px rgba(2, 14, 10, 0.34);
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.skipButton.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.skipButton:hover {
+	background: rgba(27, 67, 50, 0.7);
+}
+
+@keyframes logoDraw {
+	0% {
+		opacity: 0.08;
+		clip-path: inset(0 100% 0 0);
+		transform: scale(0.92);
+		filter: blur(2.2px) brightness(0.78) contrast(1.03);
+	}
+	35% {
+		opacity: 0.42;
+		clip-path: inset(0 70% 0 0);
+		transform: scale(0.95);
+		filter: blur(1.4px) brightness(0.86) contrast(1.07);
+	}
+	70% {
+		opacity: 0.8;
+		clip-path: inset(0 28% 0 0);
+		transform: scale(0.985);
+		filter: blur(0.8px) brightness(0.94) contrast(1.08);
+	}
+	100% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+		transform: scale(1);
+		filter: blur(0.12px) brightness(0.98) contrast(1.05);
+	}
+}
+
+@keyframes floatButton {
+	0%,
+	100% {
+		transform: translateX(-50%) translateY(0);
+	}
+	50% {
+		transform: translateX(-50%) translateY(-2px);
+	}
+}
+
+@media (max-width: 768px) {
+	.reviewContent {
+		width: min(92vw, 640px);
+		padding-bottom: 104px;
+	}
+
+	.ensitLogo {
+		width: min(64vw, 260px);
+	}
+
+	.headline {
+		font-size: clamp(1.5rem, 8vw, 2.4rem);
+	}
+
+	.launchButton {
+		bottom: 20px;
+		padding-inline: 22px;
+	}
+
+	.welcomeCopy {
+		left: 20px;
+		right: 20px;
+		top: 22px;
+	}
+
+	.welcomeTitle {
+		font-size: clamp(1.5rem, 8vw, 2.6rem);
+	}
+
+	.skipButton {
+		right: 20px;
+		bottom: 20px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

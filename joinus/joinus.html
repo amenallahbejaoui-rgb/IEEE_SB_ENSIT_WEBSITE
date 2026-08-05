@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Join Us — IEEE ENSIT Student Branch</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="joinus.css" />
+</head>
+<body>
+
+<main class="joinus">
+
+  <!-- ───────── Hero ───────── -->
+  <section class="joinusHero">
+    <div class="joinusHeroGlow" aria-hidden="true"></div>
+    <span class="joinusEyebrow">IEEE ENSIT Student Branch</span>
+    <h1 class="joinusHeroTitle">Join the Family</h1>
+    <p class="joinusHeroSubtitle">
+      Recruitment 2026 — become part of a community that builds, learns, and grows together.
+    </p>
+  </section>
+
+  <!-- ───────── Overview ───────── -->
+  <section class="joinusOverview">
+    <h2 class="joinusOverviewTitle">Recruitment Form</h2>
+    <p class="joinusOverviewText">
+      Are you interested in technology, innovation, and networking with like-minded
+      individuals? If so, we invite you to become part of our vibrant and dynamic
+      community at the IEEE ENSIT Student Branch.
+      <br /><br />
+      The IEEE (Institute of Electrical and Electronics Engineers) is a global
+      organization dedicated to advancing technology for the benefit of humanity.
+      The ENSIT Student Branch is an extension of this organization, catering to
+      students at the Higher National School of Engineers of Tunis.
+      <br /><br />
+      The student branch aims to provide its members with opportunities for
+      professional and personal development, networking, and collaboration.
+    </p>
+  </section>
+
+  <!-- ───────── Form ───────── -->
+  <section class="joinusFormSection" id="joinForm">
+    <div class="joinusFormGrid">
+
+      <div class="joinusFormIntro">
+        <h2 class="joinusFormBigTitle">Recruitment<br />Form</h2>
+        <p class="joinusFormLead">Tell us about you — we'll get back to you.</p>
+
+        <div class="joinusMeta">
+          <span class="joinusMetaTitle">Contact</span>
+          <span class="joinusMetaItem">05 Ave Taha Hussein, Tunis 1008 (ENSIT)</span>
+          <span class="joinusMetaItem">+216 58 187 043</span>
+          <a class="joinusMetaItem" href="mailto:ieee.ensit.student.branch@gmail.com">
+            ieee.ensit.student.branch@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <form class="joinusForm" id="joinusForm" novalidate>
+
+        <div class="joinusRow">
+          <div class="joinusField">
+            <label for="fullName" class="joinusLabel">Full name</label>
+            <input type="text" id="fullName" name="fullName" class="joinusInput" placeholder="Full name" required />
+            <span class="joinusError" data-error-for="fullName"></span>
+          </div>
+
+          <div class="joinusField">
+            <label for="email" class="joinusLabel">Email</label>
+            <input type="email" id="email" name="email" class="joinusInput" placeholder="Email" required />
+            <span class="joinusError" data-error-for="email"></span>
+          </div>
+        </div>
+
+        <div class="joinusRow">
+          <div class="joinusField">
+            <label for="dob" class="joinusLabel">Date of birth</label>
+            <input type="date" id="dob" name="dob" class="joinusInput" required />
+            <span class="joinusError" data-error-for="dob"></span>
+          </div>
+
+          <div class="joinusField">
+            <label for="phone" class="joinusLabel">Phone</label>
+            <input type="text" id="phone" name="phone" class="joinusInput" placeholder="Phone number" required />
+            <span class="joinusError" data-error-for="phone"></span>
+          </div>
+        </div>
+
+        <div class="joinusRow">
+          <div class="joinusField">
+            <label for="className" class="joinusLabel">Class</label>
+            <select id="className" name="className" class="joinusInput joinusSelect" required>
+              <option value="">Select class</option>
+              <option value="1st year">1st year</option>
+              <option value="2nd year">2nd year</option>
+              <option value="3rd year">3rd year</option>
+            </select>
+          </div>
+
+          <div class="joinusField">
+            <label for="field" class="joinusLabel">Field of study</label>
+            <select id="field" name="field" class="joinusInput joinusSelect" required>
+              <option value="">Select field of study</option>
+              <option value="Computer Engineering">Computer Engineering</option>
+              <option value="Industrial Engineering">Industrial Engineering</option>
+              <option value="Mathematics and Modeling">Mathematics and Modeling</option>
+              <option value="Electrical Engineering">Electrical Engineering</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="joinusField joinusFieldFull">
+          <label for="skills" class="joinusLabel">Skills</label>
+          <textarea id="skills" name="skills" class="joinusInput joinusTextarea" rows="3" placeholder="Your skills"></textarea>
+        </div>
+
+        <div class="joinusField joinusFieldFull">
+          <label for="hobbies" class="joinusLabel">Hobbies</label>
+          <textarea id="hobbies" name="hobbies" class="joinusInput joinusTextarea" rows="3" placeholder="Your hobbies"></textarea>
+        </div>
+
+        <div class="joinusField joinusFieldFull">
+          <label for="other" class="joinusLabel">Anything to add?</label>
+          <textarea id="other" name="other" class="joinusInput joinusTextarea" rows="3" placeholder="Anything to add or suggest"></textarea>
+        </div>
+
+        <div class="joinusFieldFull joinusSubmitRow">
+          <button type="submit" class="joinusSubmit">
+            <span>Send form</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="joinusSubmitIcon">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+          <span class="joinusSubmitNote">
+            Submitting saves your response locally and downloads an updated CSV file of all responses on this device.
+          </span>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ───────── Success toast ───────── -->
+  <div class="joinusToast" id="joinusToast" role="status" aria-live="polite">
+    <span class="joinusToastTitle">You're in! 🎉</span>
+    <span class="joinusToastText">Thanks for applying — your response was saved and a CSV was downloaded.</span>
+  </div>
+
+</main>
+
+<script>
+  (function () {
+    const STORAGE_KEY = "ieee_ensit_joinus_responses";
+    const form = document.getElementById("joinusForm");
+    const toast = document.getElementById("joinusToast");
+
+    function loadResponses() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveResponses(responses) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(responses));
+    }
+
+    function csvEscape(value) {
+      const str = String(value ?? "");
+      if (/[",\n]/.test(str)) {
+        return '"' + str.replace(/"/g, '""') + '"';
+      }
+      return str;
+    }
+
+    function toCSV(responses) {
+      const headers = [
+        "Full Name", "Email", "Date of Birth", "Phone",
+        "Class", "Field of Study", "Skills", "Hobbies", "Other", "Submitted At",
+      ];
+      const rows = responses.map((r) =>
+        [
+          r.fullName, r.email, r.dob, r.phone,
+          r.className, r.field, r.skills, r.hobbies, r.other, r.submittedAt,
+        ]
+          .map(csvEscape)
+          .join(",")
+      );
+      return [headers.join(","), ...rows].join("\n");
+    }
+
+    function downloadCSV(csvContent, filename) {
+      const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
+    function clearErrors() {
+      form.querySelectorAll(".joinusError").forEach((el) => (el.textContent = ""));
+      form.querySelectorAll(".joinusInput").forEach((el) => el.classList.remove("joinusInputInvalid"));
+    }
+
+    function setError(fieldName, message) {
+      const errorEl = form.querySelector(`[data-error-for="${fieldName}"]`);
+      const inputEl = form.querySelector(`[name="${fieldName}"]`);
+      if (errorEl) errorEl.textContent = message;
+      if (inputEl) inputEl.classList.add("joinusInputInvalid");
+    }
+
+    function validate(data) {
+      let isValid = true;
+
+      if (!data.fullName.trim()) {
+        setError("fullName", "Please enter your full name.");
+        isValid = false;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(data.email)) {
+        setError("email", "Please enter a valid email address.");
+        isValid = false;
+      }
+
+      if (!data.dob) {
+        setError("dob", "Please select your date of birth.");
+        isValid = false;
+      }
+
+      if (!data.phone.trim()) {
+        setError("phone", "Please enter your phone number.");
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function showToast() {
+      toast.classList.add("isVisible");
+      setTimeout(() => toast.classList.remove("isVisible"), 4500);
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      if (!validate(data)) return;
+
+      data.submittedAt = new Date().toISOString();
+
+      const responses = loadResponses();
+      responses.push(data);
+      saveResponses(responses);
+
+      downloadCSV(toCSV(responses), "ieee_ensit_joinus_responses.csv");
+
+      form.reset();
+      showToast();
+    });
+  })();
+</script>
+
+</body>
+</html>

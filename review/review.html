@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SB ENSIT</title>
+  <link rel="stylesheet" href="review.css" />
+</head>
+<body>
+  <div id="scene" class="scene">
+    <div id="vantaBg" class="vantaBg"></div>
+
+    <div class="content">
+      <div id="logoWrap" class="logoWrap">
+        <img
+          id="ensitLogo"
+          src="/logo_ensit/logo normal sb.png"
+          alt="ENSIT Logo"
+          class="ensitLogo"
+        />
+      </div>
+    </div>
+
+    <button
+      id="launchButton"
+      type="button"
+      class="launchButton"
+    >
+      Enter Website
+    </button>
+
+    <div
+      id="welcomeOverlay"
+      class="welcomeOverlay"
+      role="dialog"
+      aria-modal="true"
+      style="display: none;"
+    >
+      <div class="welcomePanel">
+        <p class="welcomeText">Welcome to official website of SB ENSIT</p>
+      </div>
+      <button
+        id="closeOverlay"
+        type="button"
+        class="closeOverlay"
+        aria-label="Close welcome screen"
+      >
+        x
+      </button>
+    </div>
+  </div>
+
+  <!-- Three.js + Vanta.js NET effect (required for the animated background) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+
+  <script>
+    const scene = document.getElementById("scene");
+    const vantaBgEl = document.getElementById("vantaBg");
+    const logoWrap = document.getElementById("logoWrap");
+    const ensitLogo = document.getElementById("ensitLogo");
+    const launchButton = document.getElementById("launchButton");
+    const welcomeOverlay = document.getElementById("welcomeOverlay");
+    const closeOverlay = document.getElementById("closeOverlay");
+
+    // Change this to wherever "Enter Website" should ultimately lead
+    function navigateToWelcome() {
+      window.location.href = "/welcome";
+    }
+
+    let phase = 0;
+    let showWelcome = false;
+    let isLocked = false;
+    let vantaEffect = null;
+
+    let mouseTarget = { x: -500, y: -500 };
+    let mouseCurrent = { x: -500, y: -500 };
+    let rafId = null;
+    let navigationTimeout = null;
+    let fadeTimeout = null;
+
+    // ─── Logo intro phases ───
+    setTimeout(() => {
+      phase = 1;
+      logoWrap.classList.add("logoVisible");
+      ensitLogo.classList.add("logoDraft");
+    }, 350);
+
+    setTimeout(() => {
+      phase = 2;
+      ensitLogo.classList.add("logoBuilt");
+    }, 2100);
+
+    // ─── Vanta.js background ───
+    window.addEventListener("load", () => {
+      if (window.VANTA && window.VANTA.NET) {
+        vantaEffect = window.VANTA.NET({
+          el: vantaBgEl,
+          THREE: window.THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: 0xb84f92,
+          backgroundColor: 0x1b1036,
+          points: 9,
+          maxDistance: 18,
+        });
+      }
+    });
+
+    // ─── Spotlight animation loop for the welcome overlay ───
+    function animateSpotlight() {
+      mouseCurrent.x += (mouseTarget.x - mouseCurrent.x) * 0.16;
+      mouseCurrent.y += (mouseTarget.y - mouseCurrent.y) * 0.16;
+
+      welcomeOverlay.style.setProperty("--mx", `${mouseCurrent.x.toFixed(2)}px`);
+      welcomeOverlay.style.setProperty("--my", `${mouseCurrent.y.toFixed(2)}px`);
+
+      rafId = requestAnimationFrame(animateSpotlight);
+    }
+
+    function startSpotlight() {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(animateSpotlight);
+    }
+
+    function stopSpotlight() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    welcomeOverlay.addEventListener("mousemove", (event) => {
+      const rect = welcomeOverlay.getBoundingClientRect();
+      mouseTarget = {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+    });
+
+    welcomeOverlay.addEventListener("mouseleave", () => {
+      mouseTarget = { x: -500, y: -500 };
+    });
+
+    // ─── Enter Website button ───
+    launchButton.addEventListener("click", () => {
+      showWelcome = true;
+      isLocked = true;
+
+      welcomeOverlay.style.display = "flex";
+      launchButton.style.display = "none";
+      closeOverlay.style.display = "none"; // locked: no manual close
+      startSpotlight();
+
+      // After 10 seconds, start fade transition and navigate
+      navigationTimeout = setTimeout(() => {
+        scene.classList.add("sceneExit");
+        fadeTimeout = setTimeout(() => {
+          navigateToWelcome();
+        }, 800);
+      }, 10000);
+    });
+
+    // ─── Close overlay button (only relevant before lock) ───
+    closeOverlay.addEventListener("click", () => {
+      if (!isLocked) {
+        showWelcome = false;
+        welcomeOverlay.style.display = "none";
+        launchButton.style.display = "block";
+        stopSpotlight();
+      }
+    });
+
+    // ─── Cleanup ───
+    window.addEventListener("beforeunload", () => {
+      if (navigationTimeout) clearTimeout(navigationTimeout);
+      if (fadeTimeout) clearTimeout(fadeTimeout);
+      if (vantaEffect) vantaEffect.destroy();
+      stopSpotlight();
+    });
+  </script>
+</body>
+</html>

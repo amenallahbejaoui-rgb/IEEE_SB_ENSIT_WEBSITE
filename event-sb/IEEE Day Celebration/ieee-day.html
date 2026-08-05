@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>IEEE ENSIT SB</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link href="../../img/logos/ieee%20(3)%20-%20Copy.png" rel="icon">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../shared/event-pages.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="event-card">
+            <div class="event-content">
+                <div>
+                    <img src="i1.jpg" alt="Event Image" class="event-image" id="mainEventImage" style="min-width: 500px; max-height: 280px;">
+                    <div class="thumbnail-container2">
+                        <img src="i1.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage('i1.jpg')" style="min-width: 50px; max-height: 80px;">
+                        <img src="i2.jpg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('i2.jpg')" style="min-width: 50px; max-height: 80px;">
+                    </div>
+                 </div>
+                <div class="event-text">
+                    <h1>IEEE Day Celebration 2024</h1>
+                    <p class="text-primary">Date: 05/10/2024</p>
+                    <div class="event-info">
+                        <div class="event-description text-justify">
+                            <p>
+                                On October 5th, 2024, the IEEE ENSIT Student Branch hosted a spectacular celebration to mark the 15th celebration of IEEE Day at the scenic 'Layeli El Ons.' This special event brought together IEEE members, students, and technology enthusiasts to commemorate the spirit of innovation and collaboration that IEEE embodies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function changeImage(imageName) {
+                document.getElementById("mainEventImage").src = imageName;
+            }
+        </script>
+    </body>
+</html>

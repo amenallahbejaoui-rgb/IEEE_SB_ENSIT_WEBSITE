@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — IEEE ENSIT Student Branch</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="gallery.css" />
+</head>
+<body>
+
+<main class="gallery">
+
+  <!-- ───────── Header ───────── -->
+  <header class="galleryHeader">
+    <span class="galleryEyebrow">IEEE ENSIT Student Branch</span>
+    <h1 class="galleryTitle">Gallery</h1>
+  </header>
+
+  <!-- ───────── Category filters ───────── -->
+  <nav class="galleryFilters" id="galleryFilters" aria-label="Filter gallery by chapter">
+    <button class="galleryFilterBtn isActive" data-filter="all">All</button>
+    <button class="galleryFilterBtn" data-filter="SB">SB</button>
+    <button class="galleryFilterBtn" data-filter="CS">CS</button>
+    <button class="galleryFilterBtn" data-filter="RAS">RAS</button>
+    <button class="galleryFilterBtn" data-filter="AESS">AESS</button>
+    <button class="galleryFilterBtn" data-filter="WIE">WIE</button>
+    <button class="galleryFilterBtn" data-filter="SIGHT">SIGHT</button>
+    <button class="galleryFilterBtn" data-filter="IASxPES">IAS x PES</button>
+    <button class="galleryFilterBtn" data-filter="VTS">VTS</button>
+  </nav>
+
+  <!-- ───────── Grid ───────── -->
+  <section class="galleryGrid" id="galleryGrid" aria-label="Photo gallery"></section>
+
+  <!-- empty state -->
+  <p class="galleryEmpty" id="galleryEmpty" hidden>No photos in this category yet.</p>
+
+  <!-- ───────── Lightbox ───────── -->
+  <div class="lightbox" id="galleryLightbox">
+    <button class="lightboxClose" id="galleryLightboxClose" aria-label="Close">&times;</button>
+    <button class="lightboxNav lightboxPrev" id="galleryLightboxPrev" aria-label="Previous photo">&#8249;</button>
+    <img src="" alt="" class="lightboxImg" id="galleryLightboxImg" />
+    <button class="lightboxNav lightboxNext" id="galleryLightboxNext" aria-label="Next photo">&#8250;</button>
+  </div>
+
+</main>
+
+<script>
+  (function () {
+    /* ─────────────────────────────────────────────────────────
+       Edit this list to match the actual files in your /Gallery
+       folder. "category" must match one of the filter buttons
+       above: SB, CS, RAS, AESS, WIE, SIGHT, IASxPES, VTS.
+    ───────────────────────────────────────────────────────── */
+    const galleryImages = [
+      // ───── SB ─────
+      { src: "../Gallery/SB/GeneralAssembly2021/img/IMG_4108-1024x683.jpg", category: "SB", alt: "General Assembly 2021" },
+      { src: "../Gallery/SB/GeneralAssembly2021/img/IMG_4118-1024x683.jpg", category: "SB", alt: "General Assembly attendees" },
+      { src: "../Gallery/SB/GeneralAssembly2021/img/IMG_4169-1-1024x683.jpg", category: "SB", alt: "General Assembly session" },
+      { src: "../Gallery/SB/GeneralAssembly2021/img/IMG_4293-1024x683.jpg", category: "SB", alt: "SB members at assembly" },
+      { src: "../Gallery/SB/GeneralAssembly2021/couverture.png", category: "SB", alt: "General Assembly 2021 cover" },
+      { src: "../Gallery/SB/Tsyp8/img/DSC_0921a (Large).png", category: "SB", alt: "TSYP 8 delegation" },
+      { src: "../Gallery/SB/Tsyp8/img/DSC_0922a (Large).png", category: "SB", alt: "TSYP 8 group photo" },
+      { src: "../Gallery/SB/Tsyp8/img/DSC_0924a (Large).png", category: "SB", alt: "TSYP 8 team" },
+      { src: "../Gallery/SB/Tsyp8/img/DSC_0121a (Large).png", category: "SB", alt: "TSYP 8 conference" },
+      { src: "../Gallery/SB/Tsyp8/img/DSC_0123a (Large).png", category: "SB", alt: "TSYP 8 session" },
+      { src: "../Gallery/SB/Tsyp8/img/DSC_0128a (Large).png", category: "SB", alt: "TSYP 8 participants" },
+      { src: "../Gallery/SB/Tsyp8/img/DSC_0220a (Large).png", category: "SB", alt: "TSYP 8 workshop" },
+      { src: "../Gallery/SB/Tsyp8/img/photo-bureau-1024x576.jpg", category: "SB", alt: "TSYP 8 bureau" },
+      { src: "../Gallery/SB/Tsyp8/img/i8-1024x576.jpg", category: "SB", alt: "TSYP 8 event" },
+      { src: "../Gallery/SB/Tsyp8/couverture.png", category: "SB", alt: "TSYP 8 cover" },
+      { src: "../Gallery/SB/IEEEDay2020/img/IMG-20201206-WA0064.jpg", category: "SB", alt: "IEEE Day 2020 group" },
+      { src: "../Gallery/SB/IEEEDay2020/img/IMG-20201206-WA0065.jpg", category: "SB", alt: "IEEE Day 2020 celebration" },
+      { src: "../Gallery/SB/IEEEDay2020/img/IMG-20201206-WA0091.jpg", category: "SB", alt: "IEEE Day 2020 attendees" },
+      { src: "../Gallery/SB/IEEEDay2020/img/IMG-20201206-WA0177.jpg", category: "SB", alt: "IEEE Day 2020 activities" },
+      { src: "../Gallery/SB/IEEEDay2020/couverture.png", category: "SB", alt: "IEEE Day 2020 cover" },
+      { src: "../Gallery/SB/InfoSession2021/img/i1-1024x791.jpg", category: "SB", alt: "Info Session 2021" },
+      { src: "../Gallery/SB/InfoSession2021/img/i4-1024x768.jpg", category: "SB", alt: "Info Session presentation" },
+      { src: "../Gallery/SB/InfoSession2021/img/i22-1024x632.jpg", category: "SB", alt: "Info Session attendees" },
+      { src: "../Gallery/SB/InfoSession2021/img/IEE-1024x791.jpg", category: "SB", alt: "IEEE info session stand" },
+      { src: "../Gallery/SB/InfoSession2021/img/integ.jpg", category: "SB", alt: "New members integration" },
+      { src: "../Gallery/SB/InfoSession2021/img/ss.jpg", category: "SB", alt: "Info Session slideshow" },
+      { src: "../Gallery/SB/InfoSession2021/couverture.png", category: "SB", alt: "Info Session 2021 cover" },
+      { src: "../Gallery/SB/IEEEDay/couverture.png", category: "SB", alt: "IEEE Day cover" },
+      { src: "../Gallery/SB/IEEEDay2018/couverture.png", category: "SB", alt: "IEEE Day 2018 cover" },
+      { src: "../Gallery/SB/IEEEDay2017/couverture.png", category: "SB", alt: "IEEE Day 2017 cover" },
+
+      // ───── CS ─────
+      { src: "../Gallery/CS/IEEEXtreme16.0/img/IMG_1163.jpeg", category: "CS", alt: "IEEEXtreme 16.0 participants" },
+      { src: "../Gallery/CS/IEEEXtreme16.0/img/IMG_1986.jpeg", category: "CS", alt: "IEEEXtreme coding challenge" },
+      { src: "../Gallery/CS/IEEEXtreme16.0/img/IMG_1989.jpeg", category: "CS", alt: "IEEEXtreme team working" },
+      { src: "../Gallery/CS/IEEEXtreme16.0/img/IMG_2114.jpeg", category: "CS", alt: "IEEEXtreme competition" },
+      { src: "../Gallery/CS/IEEEXtreme16.0/img/IMG_2128.jpeg", category: "CS", alt: "IEEEXtreme coders" },
+      { src: "../Gallery/CS/IEEEXtreme16.0/img/IMG_2212.jpg", category: "CS", alt: "IEEEXtreme group photo" },
+      { src: "../Gallery/CS/IEEEXtreme16.0/couverture.png", category: "CS", alt: "IEEEXtreme 16.0 cover" },
+      { src: "../Gallery/CS/IEEEXtreme13.0/img/unnamed.jpg", category: "CS", alt: "IEEEXtreme 13.0 team" },
+      { src: "../Gallery/CS/IEEEXtreme13.0/img/unnamed (1).jpg", category: "CS", alt: "IEEEXtreme 13.0 coding" },
+      { src: "../Gallery/CS/IEEEXtreme13.0/img/unnamed (2).jpg", category: "CS", alt: "IEEEXtreme 13.0 participants" },
+      { src: "../Gallery/CS/IEEEXtreme13.0/img/unnamed (3).jpg", category: "CS", alt: "IEEEXtreme 13.0 session" },
+      { src: "../Gallery/CS/IEEEXtreme13.0/img/unnamed (4).jpg", category: "CS", alt: "IEEEXtreme 13.0 group" },
+      { src: "../Gallery/CS/IEEEXtreme13.0/couverture.png", category: "CS", alt: "IEEEXtreme 13.0 cover" },
+
+      // ───── RAS ─────
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0000.jpg", category: "RAS", alt: "SolidWorks 2023 workshop" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0001.jpg", category: "RAS", alt: "SolidWorks CAD training" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0002.jpg", category: "RAS", alt: "RAS design session" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0005.jpg", category: "RAS", alt: "Robotics CAD workshop" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0009.jpg", category: "RAS", alt: "RAS SolidWorks session" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0011.jpg", category: "RAS", alt: "RAS participants" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0013.jpg", category: "RAS", alt: "SolidWorks design" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0014.jpg", category: "RAS", alt: "RAS workshop attendees" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0019.jpg", category: "RAS", alt: "RAS hands-on training" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0020.jpg", category: "RAS", alt: "RAS SolidWorks training" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0022.jpg", category: "RAS", alt: "RAS design workshop" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0030.jpg", category: "RAS", alt: "Robotics design session" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0035.jpg", category: "RAS", alt: "RAS training session" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0025.jpg", category: "RAS", alt: "RAS SolidWorks 2023 group" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0058.jpg", category: "RAS", alt: "RAS workshop group photo" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0087.jpg", category: "RAS", alt: "RAS SolidWorks participants" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0097.jpg", category: "RAS", alt: "RAS workshop activities" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0103.jpg", category: "RAS", alt: "RAS CAD session" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0108.jpg", category: "RAS", alt: "RAS robotics design" },
+      { src: "../Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0123.jpg", category: "RAS", alt: "RAS SolidWorks team" },
+      { src: "../Gallery/RAS/SolidWorks2023/couverture.png", category: "RAS", alt: "SolidWorks 2023 cover" },
+
+      // ───── AESS ─────
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1328.JPG", category: "AESS", alt: "Astronomica 1.0 stargazing" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1329.JPG", category: "AESS", alt: "Astronomica telescope session" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1330.JPG", category: "AESS", alt: "AESS astronomy night" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1331.JPG", category: "AESS", alt: "Astronomica observation" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1332.JPG", category: "AESS", alt: "AESS stargazing event" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1333.JPG", category: "AESS", alt: "Astronomica attendees" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1334.JPG", category: "AESS", alt: "Astronomica 1.0 group" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1340.JPG", category: "AESS", alt: "AESS astronomy activity" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1341.JPG", category: "AESS", alt: "Astronomica participants" },
+      { src: "../Gallery/AESS/Astronomica1.0/img/IMG_1342.JPG", category: "AESS", alt: "AESS telescope workshop" },
+      { src: "../Gallery/AESS/Astronomica1.0/couverture.png", category: "AESS", alt: "Astronomica 1.0 cover" },
+      { src: "../Gallery/AESS/Astronomica2.0/img/IMG_3915.JPG", category: "AESS", alt: "Astronomica 2.0 night sky" },
+      { src: "../Gallery/AESS/Astronomica2.0/img/IMG_3930.JPG", category: "AESS", alt: "Astronomica 2.0 telescope" },
+      { src: "../Gallery/AESS/Astronomica2.0/img/IMG_3971.JPG", category: "AESS", alt: "AESS astronomica event" },
+      { src: "../Gallery/AESS/Astronomica2.0/img/IMG_4018.JPG", category: "AESS", alt: "Astronomica 2.0 observation" },
+      { src: "../Gallery/AESS/Astronomica2.0/img/IMG_4021.JPG", category: "AESS", alt: "Astronomica 2.0 group" },
+      { src: "../Gallery/AESS/Astronomica2.0/img/IMG_4116.JPG", category: "AESS", alt: "Astronomica 2.0 attendees" },
+      { src: "../Gallery/AESS/Astronomica2.0/img/IMG_4126.JPG", category: "AESS", alt: "AESS astronomica workshop" },
+      { src: "../Gallery/AESS/Astronomica2.0/couverture.png", category: "AESS", alt: "Astronomica 2.0 cover" },
+      { src: "../Gallery/AESS/SoiréeAstronomique/img/IMG_5956.jpg", category: "AESS", alt: "Astronomy evening AESS" },
+      { src: "../Gallery/AESS/SoiréeAstronomique/img/IMG_5961.jpg", category: "AESS", alt: "AESS soirée astronomique" },
+      { src: "../Gallery/AESS/SoiréeAstronomique/img/IMG_5962.jpg", category: "AESS", alt: "Astronomy night observation" },
+      { src: "../Gallery/AESS/SoiréeAstronomique/img/IMG_5965.jpg", category: "AESS", alt: "AESS astronomy soirée" },
+      { src: "../Gallery/AESS/SoiréeAstronomique/img/IMG_5970.jpg", category: "AESS", alt: "Astronomical observation AESS" },
+      { src: "../Gallery/AESS/SoiréeAstronomique/couverture.png", category: "AESS", alt: "Soirée Astronomique cover" },
+      { src: "../Gallery/AESS/aerodynamic/img/IMG_1218.JPG", category: "AESS", alt: "Aerodynamic workshop AESS" },
+      { src: "../Gallery/AESS/aerodynamic/img/IMG_1222.JPG", category: "AESS", alt: "AESS aerodynamics session" },
+      { src: "../Gallery/AESS/aerodynamic/img/IMG_1223.JPG", category: "AESS", alt: "Aerodynamic design AESS" },
+      { src: "../Gallery/AESS/aerodynamic/img/IMG_1224.JPG", category: "AESS", alt: "AESS aerodynamic experiment" },
+      { src: "../Gallery/AESS/aerodynamic/img/IMG_1225.JPG", category: "AESS", alt: "AESS aerodynamic project" },
+      { src: "../Gallery/AESS/aerodynamic/img/IMG_1230.JPG", category: "AESS", alt: "Aerodynamic team AESS" },
+      { src: "../Gallery/AESS/aerodynamic/img/IMG_1231.JPG", category: "AESS", alt: "AESS aerodynamic activity" },
+      { src: "../Gallery/AESS/aerodynamic/couverture.png", category: "AESS", alt: "Aerodynamic workshop cover" },
+
+      // ───── WIE ─────
+      { src: "../Gallery/WIE/OctobreRose2022/img/312122684_456859599883066_8089948236770204277_n.jpg", category: "WIE", alt: "Octobre Rose 2022 booth" },
+      { src: "../Gallery/WIE/OctobreRose2022/img/312413038_456860253216334_4350237277080881662_n.jpg", category: "WIE", alt: "Pinktober promotional stand" },
+      { src: "../Gallery/WIE/OctobreRose2022/img/312509821_456859846549708_7526794877458435828_n.jpg", category: "WIE", alt: "Octobre Rose team" },
+      { src: "../Gallery/WIE/OctobreRose2022/img/312714424_456859679883058_5851278725586809853_n.jpg", category: "WIE", alt: "Pinktober marathon info" },
+      { src: "../Gallery/WIE/OctobreRose2022/img/312907847_456860046549688_7886011561021727090_n.jpg", category: "WIE", alt: "Octobre Rose 2022 members" },
+      { src: "../Gallery/WIE/OctobreRose2022/img/received_676825030369727.jpeg", category: "WIE", alt: "Breast cancer awareness booth" },
+      { src: "../Gallery/WIE/OctobreRose2022/couverture.png", category: "WIE", alt: "Octobre Rose 2022 cover" },
+    ];
+
+    const grid = document.getElementById("galleryGrid");
+    const emptyState = document.getElementById("galleryEmpty");
+    const filterBtns = document.querySelectorAll(".galleryFilterBtn");
+
+    let currentFilter = "all";
+    let currentIndex = 0;
+    let visibleImages = galleryImages;
+
+    function renderGrid() {
+      visibleImages =
+        currentFilter === "all"
+          ? galleryImages
+          : galleryImages.filter((img) => img.category === currentFilter);
+
+      grid.innerHTML = "";
+
+      if (visibleImages.length === 0) {
+        emptyState.hidden = false;
+        return;
+      }
+      emptyState.hidden = true;
+
+      visibleImages.forEach((img, index) => {
+        const item = document.createElement("div");
+        item.className = "galleryItem";
+        item.innerHTML = `
+          <img src="${img.src}" alt="${img.alt}" class="galleryImage" loading="lazy" />
+          <div class="galleryOverlay">
+            <span class="galleryTag">${img.category}</span>
+          </div>
+        `;
+        item.addEventListener("click", () => openLightbox(index));
+        grid.appendChild(item);
+      });
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => b.classList.remove("isActive"));
+        btn.classList.add("isActive");
+        currentFilter = btn.dataset.filter;
+        renderGrid();
+      });
+    });
+
+    /* ── lightbox ── */
+    const lightbox = document.getElementById("galleryLightbox");
+    const lightboxImg = document.getElementById("galleryLightboxImg");
+    const closeBtn = document.getElementById("galleryLightboxClose");
+    const prevBtn = document.getElementById("galleryLightboxPrev");
+    const nextBtn = document.getElementById("galleryLightboxNext");
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightboxImage();
+      lightbox.classList.add("isOpen");
+    }
+
+    function updateLightboxImage() {
+      const img = visibleImages[currentIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("isOpen");
+      lightboxImg.src = "";
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + visibleImages.length) % visibleImages.length;
+      updateLightboxImage();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % visibleImages.length;
+      updateLightboxImage();
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+    prevBtn.addEventListener("click", showPrev);
+    nextBtn.addEventListener("click", showNext);
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("isOpen")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    });
+
+    renderGrid();
+  })();
+</script>
+
+</body>
+</html>

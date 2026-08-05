@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <link rel="stylesheet" href="welcome.css" />
+</head>
+<body>
+  <div id="welcomeContainer" class="welcomeContainer">
+    <video id="video" class="video" autoplay>
+      <source src="./public/welcome.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <button
+      id="skipButton"
+      class="skipButton"
+      aria-label="Skip welcome video"
+      style="display: none;"
+    >
+      Skip
+    </button>
+  </div>
+
+  <script>
+    const welcomeContainer = document.getElementById("welcomeContainer");
+    const video = document.getElementById("video");
+    const skipButton = document.getElementById("skipButton");
+
+    let canSkip = false;
+
+    // Change this to wherever you want the video to lead once it's done
+    function navigateToHome() {
+      window.location.href = "../home/home.html";
+    }
+
+    // Fade in the welcome page on load
+    window.addEventListener("DOMContentLoaded", () => {
+      requestAnimationFrame(() => {
+        welcomeContainer.classList.add("fadeIn");
+      });
+    });
+
+    // Allow skipping after 5 seconds of video playing
+    setTimeout(() => {
+      canSkip = true;
+      skipButton.style.display = "block";
+    }, 5000);
+
+    skipButton.addEventListener("click", () => {
+      if (canSkip) {
+        navigateToHome();
+      }
+    });
+
+    video.addEventListener("ended", () => {
+      navigateToHome();
+    });
+  </script>
+</body>
+</html>

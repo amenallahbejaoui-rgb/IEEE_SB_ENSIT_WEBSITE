@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>IEEE SB ENSIT</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<main class="appShell" id="appShell">
+		<section class="reviewScreen" id="reviewScreen" aria-label="Review intro screen">
+			<div id="vantaBg" class="reviewBackground" aria-hidden="true"></div>
+
+			<div class="reviewContent">
+				<div id="logoWrap" class="logoWrap">
+					<p class="eyebrow">IEEE Student Branch</p>
+					<img
+						id="ensitLogo"
+						src="public/logo%20normal%20sb.png"
+						alt="IEEE SB ENSIT logo"
+						class="ensitLogo"
+					/>
+					<h1 class="headline">Review first, then welcome.</h1>
+					<p class="subheadline">A short branded intro that leads into the welcome video.</p>
+				</div>
+			</div>
+
+			<button id="launchButton" type="button" class="launchButton">
+				Enter Website
+			</button>
+		</section>
+
+		<section
+			id="welcomeScreen"
+			class="welcomeScreen"
+			aria-label="Welcome video screen"
+			aria-hidden="true"
+		>
+			<div class="welcomeBackdrop" aria-hidden="true"></div>
+			<video id="video" class="welcomeVideo" autoplay muted playsinline preload="auto">
+				<source src="public/welcome.mp4" type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
+
+			<div class="welcomeOverlay" aria-hidden="true"></div>
+
+			<div class="welcomeCopy">
+				<p class="eyebrow eyebrowLight">Welcome phase</p>
+				<h2 class="welcomeTitle">Official website of SB ENSIT</h2>
+				<p class="welcomeText">The intro video takes over after the review screen finishes.</p>
+			</div>
+
+			<button id="skipButton" class="skipButton" type="button" aria-label="Skip welcome video" hidden>
+				Skip
+			</button>
+		</section>
+	</main>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+	<script>
+		const reviewScreen = document.getElementById("reviewScreen");
+		const welcomeScreen = document.getElementById("welcomeScreen");
+		const launchButton = document.getElementById("launchButton");
+		const skipButton = document.getElementById("skipButton");
+		const video = document.getElementById("video");
+		const logoWrap = document.getElementById("logoWrap");
+		const ensitLogo = document.getElementById("ensitLogo");
+		const vantaBgEl = document.getElementById("vantaBg");
+
+		let vantaEffect = null;
+		let reviewTimer = null;
+		let revealSkipTimer = null;
+		let transitionLocked = false;
+
+		function navigateToHome() {
+			window.location.href = "home/home.html";
+		}
+
+		function enterWelcomePhase() {
+			if (transitionLocked) {
+				return;
+			}
+
+			transitionLocked = true;
+			clearTimeout(reviewTimer);
+			clearTimeout(revealSkipTimer);
+
+			reviewScreen.classList.add("is-exiting");
+			welcomeScreen.classList.add("is-active");
+			welcomeScreen.setAttribute("aria-hidden", "false");
+
+			requestAnimationFrame(() => {
+				video.play().catch(() => {});
+			});
+
+			revealSkipTimer = setTimeout(() => {
+				skipButton.hidden = false;
+				skipButton.classList.add("is-visible");
+			}, 5000);
+		}
+
+		logoWrap.classList.add("is-visible");
+
+		setTimeout(() => {
+			ensitLogo.classList.add("is-drawing");
+		}, 350);
+
+		setTimeout(() => {
+			ensitLogo.classList.add("is-built");
+		}, 2100);
+
+		window.addEventListener("load", () => {
+			if (window.VANTA && window.VANTA.NET) {
+				vantaEffect = window.VANTA.NET({
+					el: vantaBgEl,
+					THREE: window.THREE,
+					mouseControls: true,
+					touchControls: true,
+					gyroControls: false,
+					minHeight: 200.0,
+					minWidth: 200.0,
+					scale: 1.0,
+					scaleMobile: 1.0,
+					color: 0x74d69d,
+					backgroundColor: 0x1b4332,
+					points: 10,
+					maxDistance: 18,
+					spacing: 16,
+				});
+			}
+		});
+
+		launchButton.addEventListener("click", enterWelcomePhase);
+
+		reviewTimer = setTimeout(enterWelcomePhase, 10000);
+
+		skipButton.addEventListener("click", navigateToHome);
+
+		video.addEventListener("ended", navigateToHome);
+
+		window.addEventListener("beforeunload", () => {
+			clearTimeout(reviewTimer);
+			clearTimeout(revealSkipTimer);
+
+			if (vantaEffect) {
+				vantaEffect.destroy();
+			}
+		});
+	</script>
+</body>
+</html>
