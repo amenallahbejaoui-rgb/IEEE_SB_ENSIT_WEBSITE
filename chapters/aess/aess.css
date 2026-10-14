@@ -64,6 +64,18 @@ body {
 	text-transform: uppercase;
 }
 
+.aessBrand {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.aessBrandLogo {
+	display: block;
+	width: clamp(120px, 11vw, 170px);
+	height: auto;
+}
+
 .backLink {
 	color: var(--ink);
 	font-weight: 700;
@@ -834,6 +846,14 @@ h1 {
 		gap: 14px 20px;
 		padding: 20px 18px;
 		font-size: 0.6rem;
+	}
+
+	.aessBrand {
+		gap: 12px;
+	}
+
+	.aessBrandLogo {
+		width: 112px;
 	}
 
 	.navLabel {
