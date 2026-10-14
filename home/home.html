@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
@@ -48,7 +48,21 @@
 					</div>
 					<nav class="nav-links">
 						<a href="#about">About</a>
-						<a href="#chapters">Chapters</a>
+						<div class="nav-dropdown">
+							<a href="#units" class="nav-dropdownTrigger" aria-haspopup="true">
+								Chapters
+								<span class="nav-chevron" aria-hidden="true">âŒ„</span>
+							</a>
+							<div class="nav-dropdownMenu" role="menu">
+								<a href="../chapters/aess/aess.html" class="chapterMenuItem" role="menuitem">
+									<img src="../chapters/aess/images/logo.png" alt="" />
+									<span>
+										<strong>AESS</strong>
+										<small>Aerospace &amp; Electronic Systems</small>
+									</span>
+								</a>
+							</div>
+						</div>
             <a href="../gallerie/gallery.html">Gallery</a>
 						<a href="#events">Events</a>
 						<a href="../joinus/joinus.html" class="nav-cta">Join</a>
@@ -58,7 +72,7 @@
 				<div class="content">
 					<div class="badge">
 						<span class="badge-dot"></span>
-						IEEE STUDENT BRANCH — ENSIT
+						IEEE STUDENT BRANCH â€” ENSIT
 					</div>
 
 					<h1 class="headline">
@@ -95,9 +109,9 @@
 					</p>
 					<div class="stats">
 						<span><strong>6</strong> Chapters</span>
-						<span class="stat-sep">·</span>
+						<span class="stat-sep">Â·</span>
 						<span><strong>500+</strong> Members</span>
-						<span class="stat-sep">·</span>
+						<span class="stat-sep">Â·</span>
 						<span><strong>IEEE</strong> Est. 1963</span>
 					</div>
 				</footer>
@@ -669,7 +683,7 @@
     const grid = document.getElementById("galleryGrid");
     const items = () => Array.from(grid.querySelectorAll(".galleryItem"));
 
-    // ── lightbox ──
+    // â”€â”€ lightbox â”€â”€
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImg = document.getElementById("galleryLightboxImg");
     const lightboxClose = document.getElementById("galleryLightboxClose");
@@ -696,7 +710,7 @@
       if (e.key === "Escape") closeLightbox();
     });
 
-    // ── shuffle ──
+    // â”€â”€ shuffle â”€â”€
     document.getElementById("galleryShuffleBtn").addEventListener("click", () => {
       const list = items();
       for (let i = list.length - 1; i > 0; i--) {
@@ -706,7 +720,7 @@
       list.forEach((el) => grid.appendChild(el));
     });
 
-    // ── fullscreen ──
+    // â”€â”€ fullscreen â”€â”€
     document.getElementById("galleryExpandBtn").addEventListener("click", () => {
       const section = document.getElementById("gallery");
       if (!document.fullscreenElement) {
@@ -728,7 +742,7 @@
       </h1>
       <p class="contactPlaceholder">
         Have a question about IEEE SB ENSIT, want to join a chapter, or looking
-        to partner with us? Reach out — we'd love to hear from you.
+        to partner with us? Reach out â€” we'd love to hear from you.
       </p>
     </div>
 
@@ -831,26 +845,26 @@
       <h3 class="footerColTitle">Contact</h3>
 
       <div class="footerContactItem">
-        📍 05 Ave Taha Hussein, Tunis 1008 – ENSIT
+        ðŸ“ 05 Ave Taha Hussein, Tunis 1008 â€“ ENSIT
       </div>
 
       <div class="footerContactItem">
-        📞 +216 58 187 043
+        ðŸ“ž +216 58 187 043
       </div>
 
       <div class="footerContactItem">
-        ✉️ ieee.ensit.student.branch@gmail.com
+        âœ‰ï¸ ieee.ensit.student.branch@gmail.com
       </div>
 
       <div class="footerContactItem">
-        📌 Localisation
+        ðŸ“Œ Localisation
       </div>
     </div>
 
   </div>
 
   <div class="footerBottom">
-    © <span id="footerYear"></span> IEEE ENSIT Student Branch. All rights reserved.
+    Â© <span id="footerYear"></span> IEEE ENSIT Student Branch. All rights reserved.
   </div>
 </footer>
 
