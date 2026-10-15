@@ -50,11 +50,17 @@
 					<nav class="nav-links" aria-label="Primary navigation">
 						<a href="#about">About</a>
 						<div class="nav-dropdown">
-							<a href="#units" class="nav-dropdownTrigger" aria-haspopup="true">
+							<button
+								type="button"
+								class="nav-dropdownTrigger"
+								aria-haspopup="true"
+								aria-expanded="false"
+								aria-controls="chapterMenu"
+							>
 								Chapters
 								<span class="nav-chevron" aria-hidden="true">⌄</span>
-							</a>
-							<div class="nav-dropdownMenu" role="menu">
+							</button>
+							<div class="nav-dropdownMenu" id="chapterMenu" role="menu">
 								<a href="../chapters/aess/aess.html" class="chapterMenuItem" role="menuitem">
 									<img src="../chapters/aess/images/logo.png" alt="" />
 									<span>
@@ -868,6 +874,33 @@
     Â© <span id="footerYear"></span> IEEE ENSIT Student Branch. All rights reserved.
   </div>
 </footer>
+
+<script>
+  (function () {
+    const dropdown = document.querySelector(".nav-dropdown");
+    const trigger = dropdown.querySelector(".nav-dropdownTrigger");
+
+    trigger.addEventListener("click", () => {
+      const isOpen = dropdown.classList.toggle("is-open");
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        dropdown.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.focus();
+      }
+    });
+  })();
+</script>
 
 <script>
   document.getElementById("footerYear").textContent = new Date().getFullYear();
