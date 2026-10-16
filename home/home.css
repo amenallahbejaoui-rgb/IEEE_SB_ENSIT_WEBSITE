@@ -1264,33 +1264,6 @@ a {
   z-index: 5;
 }
 
-.teamInfo {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  background: #ffffff;
-  color: #0a1220;
-  border: 1px solid rgba(0, 85, 212, 0.15);
-  border-radius: 14px;
-  padding: 14px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 85, 212, 0.18);
-}
-
-.teamInfo h3 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0055d4;
-}
-
-.teamInfo span {
-  font-size: 0.85rem;
-  color: #6b7a90;
-}
-
 /* ── responsive ── */
 @media (max-width: 900px) {
   .team {
