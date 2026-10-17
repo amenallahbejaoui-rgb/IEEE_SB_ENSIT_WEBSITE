@@ -88,9 +88,22 @@ h2 { font-size: clamp(2.1rem, 4vw, 4.2rem); line-height: .98; letter-spacing: -.
 .teamCardInfo { padding: 16px 15px 18px; }
 .teamCardInfo span { color: var(--cyan); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .teamCardInfo h3 { margin-top: 7px; color: var(--white); font-size: .95rem; font-weight: 600; }
-.event { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7vw; }
-.event > img { width: 100%; aspect-ratio: 1.25; object-fit: cover; border-radius: 18px; transform: rotate(-2deg); }
-.event .copy { margin: 25px 0 31px; }
+.eventsSection { position: relative; z-index: 1; padding: 110px clamp(24px, 5vw, 60px) 130px; background: rgba(4, 14, 47, .25); border-top: 1px solid var(--line); }
+.eventsHeading { max-width: 1120px; margin: 0 auto 46px; }
+.eventsHeading h2 { margin-top: 18px; }
+.eventsHeading > p:last-child { max-width: 540px; margin-top: 16px; color: var(--muted); line-height: 1.7; }
+.eventsGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; max-width: 1120px; margin: 0 auto; }
+.eventCard { display: flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(180, 215, 255, .24); border-radius: 18px; background: rgba(255, 255, 255, .08); color: var(--white); box-shadow: 0 16px 38px rgba(2, 12, 42, .2); text-decoration: none; transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.eventCard:hover, .eventCard:focus-visible { border-color: var(--cyan); box-shadow: 0 22px 46px rgba(2, 12, 42, .34); transform: translateY(-8px); }
+.eventCard img { display: block; width: 100%; height: 205px; object-fit: cover; transition: transform .45s ease; }
+.eventCard:hover img, .eventCard:focus-visible img { transform: scale(1.04); }
+.eventCardBody { display: flex; flex: 1; flex-direction: column; padding: 20px 20px 22px; }
+.eventCardBody span { color: var(--cyan); font-size: .64rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.eventCardBody h3 { margin-top: 10px; font-size: 1.15rem; line-height: 1.2; }
+.eventCardBody p { margin-top: 10px; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.eventCardBody strong { margin-top: auto; padding-top: 18px; color: var(--cyan); font-size: .75rem; letter-spacing: .04em; }
+.eventCardBody b { display: inline-block; margin-left: 4px; transition: transform .2s ease; }
+.eventCard:hover .eventCardBody b, .eventCard:focus-visible .eventCardBody b { transform: translateX(4px); }
 footer { display: flex; align-items: end; justify-content: space-between; padding-bottom: 70px; }
 @media (max-width: 850px) {
 	.vtsNav { flex-wrap: wrap; justify-content: center; gap: 18px; }
@@ -98,7 +111,8 @@ footer { display: flex; align-items: end; justify-content: space-between; paddin
 	.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 75px; }
 	.about { grid-template-columns: 1fr; gap: 32px; }
 	.cards { grid-template-columns: repeat(2, 1fr); } .team { grid-template-columns: repeat(3, 1fr); } .teamCard, .teamCard:nth-child(4), .teamCard:nth-child(5) { grid-column: auto; }
-	.event { grid-template-columns: 1fr; }
+	.eventsGrid { grid-template-columns: 1fr; gap: 18px; }
+	.eventCard img { height: 220px; }
 }
 @media (max-width: 520px) {
 	.brand span { display: none; } .hero { padding-inline: 20px; } .titleRow { gap: 15px; } .titleRow img { width: 72px; height: 72px; padding: 8px; }
