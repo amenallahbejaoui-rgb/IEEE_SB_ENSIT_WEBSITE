@@ -50,11 +50,21 @@ h2 { font-size: clamp(2.1rem, 4vw, 4.2rem); line-height: .98; letter-spacing: -.
 .teamCard:hover { border-color: var(--green); box-shadow: 0 22px 46px rgba(0, 10, 7, .34); transform: translateY(-10px) scale(1.02); }
 .teamCard img { display: block; width: 100%; aspect-ratio: .88; object-fit: cover; object-position: top; background: rgba(83, 242, 187, .12); }
 .teamCard > div { padding: 16px 15px 18px; } .teamCard span, .eventCard span { color: var(--green); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; } .teamCard h3 { margin-top: 7px; font-size: .95rem; }
-.eventsSection { background: rgba(0, 12, 8, .16); } .sectionIntro { max-width: 540px; margin-top: 16px; color: var(--muted); line-height: 1.7; }
-.eventsGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.eventsSection { position: relative; z-index: 1; padding: 110px clamp(24px, 5vw, 60px) 130px; background: rgba(0, 12, 8, .16); border-top: 1px solid var(--line); }
+.eventsHeading { max-width: 1120px; margin: 0 auto 46px; }
+.eventsHeading h2 { margin-top: 18px; }
+.eventsHeading > p:last-child { max-width: 540px; margin-top: 16px; color: var(--muted); line-height: 1.7; }
+.eventsGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; max-width: 1120px; margin: 0 auto; }
 .eventCard { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); color: var(--ink); text-decoration: none; box-shadow: 0 16px 38px rgba(0, 10, 7, .2); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
 .eventCard:hover, .eventCard:focus-visible { border-color: var(--green); box-shadow: 0 22px 46px rgba(0, 10, 7, .34); transform: translateY(-8px); }
-.eventCard img { display: block; width: 100%; height: 170px; object-fit: cover; } .eventCard > div { display: flex; flex: 1; flex-direction: column; padding: 18px; } .eventCard h3 { margin-top: 10px; font-size: 1.05rem; } .eventCard p { margin-top: 9px; color: var(--muted); font-size: .83rem; line-height: 1.6; } .eventCard strong { margin-top: auto; padding-top: 18px; color: var(--green); font-size: .7rem; letter-spacing: .04em; } .eventCard b { display: inline-block; margin-left: 4px; transition: transform .2s ease; } .eventCard:hover b { transform: translateX(4px); }
+.eventCard img { display: block; width: 100%; height: 205px; object-fit: cover; transition: transform .45s ease; }
+.eventCard:hover img, .eventCard:focus-visible img { transform: scale(1.04); }
+.eventCardBody { display: flex; flex: 1; flex-direction: column; padding: 20px 20px 22px; }
+.eventCard h3 { margin-top: 10px; font-size: 1.15rem; line-height: 1.2; }
+.eventCard p { margin-top: 10px; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+.eventCard strong { margin-top: auto; padding-top: 18px; color: var(--green); font-size: .75rem; letter-spacing: .04em; }
+.eventCard b { display: inline-block; margin-left: 4px; transition: transform .2s ease; }
+.eventCard:hover .eventCardBody b, .eventCard:focus-visible .eventCardBody b { transform: translateX(4px); }
 .awardsSection { position: relative; z-index: 1; max-width: 1120px; margin: auto; padding: 110px clamp(24px, 5vw, 60px) 130px; border-top: 1px solid var(--line); background: rgba(0, 12, 8, .16); }
 .awardsGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
 .awardCard { overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); box-shadow: 0 16px 38px rgba(0, 10, 7, .2); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
@@ -65,5 +75,5 @@ h2 { font-size: clamp(2.1rem, 4vw, 4.2rem); line-height: .98; letter-spacing: -.
 .awardBody h3 { margin-top: 10px; font-size: 1.1rem; line-height: 1.25; }
 .awardBody p { margin-top: 10px; color: var(--muted); font-size: .86rem; line-height: 1.6; }
 footer { display: flex; align-items: end; justify-content: space-between; padding-bottom: 70px; }
-@media (max-width: 900px) { .iasNav { flex-wrap: wrap; justify-content: center; gap: 18px; } .iasNav nav { flex-wrap: wrap; justify-content: center; gap: 15px; } .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 75px; } .heroCopy { text-align: center; } .chapterLogo { margin-inline: auto; } .intro { margin-inline: auto; } .gridVisual { min-height: 410px; } .about { grid-template-columns: 1fr; gap: 32px; } .pillarGrid { grid-template-columns: 1fr; } .eventsGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .iasNav { flex-wrap: wrap; justify-content: center; gap: 18px; } .iasNav nav { flex-wrap: wrap; justify-content: center; gap: 15px; } .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 75px; } .heroCopy { text-align: center; } .chapterLogo { margin-inline: auto; } .intro { margin-inline: auto; } .gridVisual { min-height: 410px; } .about { grid-template-columns: 1fr; gap: 32px; } .pillarGrid { grid-template-columns: 1fr; } .eventsGrid { grid-template-columns: 1fr; gap: 18px; } .eventCard img { height: 220px; } }
 @media (max-width: 560px) { .brand span { display: none; } .hero { padding-inline: 20px; } h1 { font-size: clamp(3.2rem, 17vw, 5rem); } .gridVisual { min-height: 340px; } .visualLabel { right: 8%; bottom: 12px; } .team { grid-template-columns: repeat(2, 1fr); } .teamCard, .teamCard:nth-child(4), .teamCard:nth-child(5) { grid-column: auto; } .eventsGrid, .awardsGrid { grid-template-columns: 1fr; } footer { align-items: flex-start; flex-direction: column; gap: 30px; } }
