@@ -72,17 +72,22 @@ h2 { font-size: clamp(2.1rem, 4vw, 4.2rem); line-height: .98; letter-spacing: -.
 .copy { color: var(--muted); font-size: 1.05rem; line-height: 1.85; }
 .copy p + p { margin-top: 22px; }
 .heading { margin-bottom: 48px; } .heading .eyebrow { margin-bottom: 18px; }
-.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.cards article { min-height: 270px; padding: 25px 22px; border: 1px solid var(--line); border-radius: 14px; background: rgba(54, 125, 232, .17); transition: border-color .25s ease, transform .25s ease, background .25s ease; }
-.cards article:hover { border-color: var(--cyan); background: rgba(54, 125, 232, .3); transform: translateY(-7px); }
-.icon { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 42px; border-radius: 14px; background: rgba(114, 221, 255, .12); color: var(--cyan); }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.focusCard { min-height: 286px; padding: 25px 22px; border: 1px solid rgba(180, 215, 255, .24); border-radius: 18px; background: rgba(255, 255, 255, .08); box-shadow: 0 16px 38px rgba(2, 12, 42, .2); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.focusCard:hover, .focusCard:focus-within { border-color: var(--cyan); background: rgba(54, 125, 232, .28); box-shadow: 0 22px 46px rgba(2, 12, 42, .34); transform: translateY(-8px); }
+.icon { display: grid; place-items: center; width: 58px; height: 58px; margin-bottom: 46px; border: 1px solid rgba(114, 221, 255, .25); border-radius: 16px; background: rgba(114, 221, 255, .12); color: var(--cyan); }
 .icon svg { width: 32px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
 .cards small { color: var(--cyan); font-weight: 700; letter-spacing: .15em; }
 .cards h3 { margin: 12px 0 10px; font-size: 1.15rem; } .cards p { color: var(--muted); font-size: .86rem; line-height: 1.6; }
-.team { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-.team article { overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: rgba(9, 28, 83, .63); }
-.team img { display: block; width: 100%; aspect-ratio: .85; object-fit: cover; object-position: top; }
-.team b { display: block; padding: 15px; font-size: .9rem; }
+.team { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
+.teamCard { grid-column: span 2; overflow: hidden; border: 1px solid rgba(180, 215, 255, .24); border-radius: 18px; background: rgba(255, 255, 255, .08); box-shadow: 0 16px 38px rgba(2, 12, 42, .2); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.teamCard:nth-child(4) { grid-column: 2 / span 2; }
+.teamCard:nth-child(5) { grid-column: 4 / span 2; }
+.teamCard:hover { border-color: var(--cyan); box-shadow: 0 22px 46px rgba(2, 12, 42, .34); transform: translateY(-10px) scale(1.02); }
+.teamCard img { display: block; width: 100%; aspect-ratio: .88; object-fit: cover; object-position: center top; background: rgba(220, 236, 255, .2); }
+.teamCardInfo { padding: 16px 15px 18px; }
+.teamCardInfo span { color: var(--cyan); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.teamCardInfo h3 { margin-top: 7px; color: var(--white); font-size: .95rem; font-weight: 600; }
 .event { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7vw; }
 .event > img { width: 100%; aspect-ratio: 1.25; object-fit: cover; border-radius: 18px; transform: rotate(-2deg); }
 .event .copy { margin: 25px 0 31px; }
@@ -92,12 +97,12 @@ footer { display: flex; align-items: end; justify-content: space-between; paddin
 	.vtsNav nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
 	.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 75px; }
 	.about { grid-template-columns: 1fr; gap: 32px; }
-	.cards { grid-template-columns: repeat(2, 1fr); } .team { grid-template-columns: repeat(3, 1fr); }
+	.cards { grid-template-columns: repeat(2, 1fr); } .team { grid-template-columns: repeat(3, 1fr); } .teamCard, .teamCard:nth-child(4), .teamCard:nth-child(5) { grid-column: auto; }
 	.event { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
 	.brand span { display: none; } .hero { padding-inline: 20px; } .titleRow { gap: 15px; } .titleRow img { width: 72px; height: 72px; padding: 8px; }
 	.heroCopy { text-align: center; } .titleRow { justify-content: center; text-align: left; } .intro { margin-inline: auto; }
 	.heroCopy .button { margin-inline: auto; } .mobilityVisual { min-height: 350px; } .orbitOne { width: 290px; } .orbitTwo { width: 210px; height: 310px; } .orbitThree { width: 340px; }
-	.cards, .team { grid-template-columns: 1fr 1fr; } footer { align-items: flex-start; flex-direction: column; gap: 30px; }
+	.cards, .team { grid-template-columns: 1fr 1fr; } .teamCard, .teamCard:nth-child(4), .teamCard:nth-child(5) { grid-column: auto; } footer { align-items: flex-start; flex-direction: column; gap: 30px; }
 }
