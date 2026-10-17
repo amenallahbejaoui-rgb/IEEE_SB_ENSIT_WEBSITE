@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerNex</title>
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="image/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('image/sponsorbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 0;
+      margin: 0;
+     
+    }
+    .navbar {
+    background-color: #313131;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 2;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+    .navbar .logo {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.logo img{
+    height: 150px;
+    width: 170px;
+    padding-top: 10px;
+}
+#ieee{
+            padding: 0;
+            height: 90px;
+            width: 170px;
+            position: absolute;
+            top: 0;
+            padding-left: 40px;
+        }
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right:30px ;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #0bef6e;
+}
+
+.swiper {
+      width: 700px;
+      height: 550px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      
+    }
+
+
+.part{
+    height: 700px;
+    width: 100%;
+    margin-bottom:200px ;
+    display: block;
+    margin-top: 200px;
+}
+.part1{
+    height: 700px;
+    width: 100%;
+    margin-top: 200px;
+    margin-bottom:200px ;
+    display: block;
+   
+}
+
+.title-container {
+    text-align: center;
+    position: relative;
+  }
+  .title-container h3 {
+  color: #000000;
+  font-size: 4.5em;
+  font-weight: bold;
+  }
+  .title-container p{
+    color: #272727;
+    font-size: 2em;
+    padding: 30px;
+  }
+  .all {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  .sp img{
+    height:150px ;
+    width: 220px;
+  }
+  .footer {
+    background-color: #1b1b1b; 
+    color: #039d17;
+    padding: 30px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color:  #039d17;
+}
+
+.contact-info a {
+    color:  #039d17;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #f5261f;
+}
+
+/* Social Links */
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    text-decoration: none;
+    color:  #039d17;
+    font-size: 1.5em; 
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #f5261f; 
+}
+
+    
+</style>
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="logo"><img src="image/ias pes logo.png"><img id="ieee" src="image/ieee.png" alt="logo"></div>
+      <ul class="nav-links">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="sponso.html">Sponsors</a></li>
+      <li><a href="tech1.html">Technical challenge</a></li>
+      <li><a href="tech2.html">Contest</a></li>
+    </ul>
+</nav>
+
+<!-- Swiper -->
+ <div class="part">
+<div class="title-container"><h3>Meet Our Partners</h3><p>This congress would not have been possible without the invaluable contributions of our dedicated partners.</p></div>
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="image/section.png" />
+    </div>
+  <div class="swiper-slide">
+    <img src="image/pes.png" />
+  </div>
+  <div class="swiper-slide">
+    <img src="image/smart-cities.png" />
+  </div>
+  <div class="swiper-slide">
+    <img src="image/ias.png" />
+  </div>
+  <div class="swiper-slide">
+    <img src="image/4C.png" />
+  </div>
+    <div class="swiper-slide">
+      <img src="image/ensit.png" />
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="part2">
+  <div class="title-container"><h3>Meet Our Sponsors</h3><p>thank you for supporting our congress</p></div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="image/odc.png" />
+    </div>
+    <div class="swiper-slide">
+      <img src="image/comsoc.png" />
+    </div>
+      <div class="swiper-slide">
+        <img src="image/itss.png" />
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="title-container"><h3>Grateful acknowledgment</h3><p>Together, we made it happen—thank you to our partners for powering this congress with purpose and passion.</p></div>
+  <div class="all">
+    <div class="sp">
+      <img src="image/IEEE TUNISIA SECTION.png" />
+    </div>
+    <div class="sp">
+      <img src="image/iasnbg.png" />
+    </div>
+    <div class="sp">
+      <img src="image/pesnbg.png" />
+    </div>
+    <div class="sp">
+      <img src="image/smart-cities.png" />
+    </div>
+    <div class="sp">
+      <img src="image/comsocnbg.png" />
+    </div>
+  </div>
+
+  <div class="all">
+    <div class="sp">
+      <img src="image/logo_orangedigitalcenter.png" />
+    </div>
+    <div class="sp">
+      <img src="image/logo-ecole-1170x284.png" />
+    </div>
+    <div class="sp">
+      <img src="image/4Cnbg.png" />
+    </div>
+    <div class="sp">
+      <img src="image/ieee-itss-25th_anniversary-logo-x2.png" />
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="footer-content">
+        <h3>Contact</h3>
+        <div class="contact-info">
+            <p><i class="fa fa-map-marker"></i> 05 Ave Taha Hussein, Tunis 1008, à l'ENSIT</p>
+            <p><i class="fa fa-phone"></i> +216 51 907 825</p>
+            <p><i class="fa fa-envelope"></i> <a href="mailto:ayoub_madyouni@ieee.org">ayoub_madyouni@ieee.org</a></p>
+        </div>
+        <ul class="social-links">
+            <li>
+                <a href="https://www.instagram.com/ieee.ensit.cs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" aria-label="Instagram">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/profile.php?id=100081856069185" target="_blank" aria-label="Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </li>
+        </ul>
+        <p>© 2025, All Rights Reserved
+
+            Powered By IEEE IAS/PES ENSIT SBC
+            
+            </p>
+    </div>
+</footer>  
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+      autoplay:{
+        delay: 2000,
+        disableOnInteraction:false,
+    }
+    });
+</script><script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
+</body>
+</html>
+
+

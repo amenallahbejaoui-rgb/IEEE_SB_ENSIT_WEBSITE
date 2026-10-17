@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>IEEE ENSIT IASxPES</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="iasxpes.css" />
+</head>
+<body>
+	<main class="iasPage">
+		<div class="energyField" aria-hidden="true">
+			<span class="energyDot energyDotOne"></span><span class="energyDot energyDotTwo"></span>
+			<span class="energyDot energyDotThree"></span><span class="energyDot energyDotFour"></span>
+		</div>
+
+		<header class="iasNav">
+			<a href="../../home/home.html" class="brand">
+				<img src="../../public/logo white sb.png" alt="IEEE ENSIT Student Branch" />
+				<span>IEEE ENSIT</span>
+			</a>
+			<nav aria-label="IASxPES navigation">
+				<a href="#about">About</a>
+				<a href="#pillars">Pillars</a>
+				<a href="#team">Team</a>
+				<a href="#events">Events</a>
+				<a class="navButton" href="../../joinus/joinus.html">Join IASxPES <span aria-hidden="true">↗</span></a>
+			</nav>
+		</header>
+
+		<section class="hero" aria-labelledby="title">
+			<div class="heroCopy">
+				<p class="eyebrow">IEEE ENSIT / Joint Chapter</p>
+				<img class="chapterLogo" src="logo_IAS_PES_IES_white.png" alt="IEEE IAS, IES and PES joint chapter logo" />
+				<p class="kicker">Industry · Electronics · Power &amp; Energy</p>
+				<h1 id="title">Powering<br /><em>what's next.</em></h1>
+				<p class="intro">Un chapitre étudiant conjoint qui relie l'industrie, l'électronique et l'énergie pour transformer les idées en solutions utiles, intelligentes et durables.</p>
+				<a class="button" href="#about">Discover the chapter <span aria-hidden="true">↓</span></a>
+			</div>
+
+			<div class="gridVisual" aria-label="Electric energy grid illustration">
+				<svg viewBox="0 0 520 500" aria-hidden="true">
+					<defs>
+						<linearGradient id="gridLine" x1="0" x2="1">
+							<stop offset="0" stop-color="#53f2bb" stop-opacity=".15" />
+							<stop offset=".5" stop-color="#f5cf65" />
+							<stop offset="1" stop-color="#53f2bb" stop-opacity=".15" />
+						</linearGradient>
+						<filter id="glow"><feGaussianBlur stdDeviation="5" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+					</defs>
+					<g class="gridRing"><ellipse cx="260" cy="250" rx="190" ry="80" /><ellipse cx="260" cy="250" rx="135" ry="190" /><ellipse cx="260" cy="250" rx="220" ry="220" /></g>
+					<path class="circuit circuitA" d="M30 130h100l34 34h75l45-45h90l38 38h78" />
+					<path class="circuit circuitB" d="M35 365h90l35-35h84l43 43h93l36-36h70" />
+					<path class="circuit circuitC" d="M260 40v90l-35 35v170l35 35v90" />
+					<g class="gridNode" filter="url(#glow)"><circle cx="164" cy="164" r="7" /><circle cx="374" cy="157" r="7" /><circle cx="164" cy="330" r="7" /><circle cx="355" cy="373" r="7" /><circle cx="260" cy="250" r="11" /></g>
+					<path class="bolt" d="M275 190 232 260h34l-20 70 55-87h-36l25-53Z" />
+				</svg>
+				<div class="visualLabel">ENERGY<br /><b>IN MOTION</b></div>
+			</div>
+		</section>
+
+		<section class="about" id="about">
+			<div><p class="eyebrow">Un réseau, trois expertises</p><h2>Construire<br />l'énergie de demain.</h2></div>
+			<div class="copy">
+				<p>Le chapitre IEEE IASxPES ENSIT Student Branch Joint Chapter rassemble les étudiants qui souhaitent comprendre et façonner les technologies industrielles, électroniques et énergétiques.</p>
+				<p>À travers des ateliers, des conférences et des projets, nous créons un espace où l'automatisation, la robotique, l'intelligence artificielle et les réseaux intelligents se rencontrent.</p>
+			</div>
+		</section>
+
+		<section class="section" id="pillars">
+			<div class="heading"><p class="eyebrow">Nos domaines d'action</p><h2>Three forces.<br />One direction.</h2></div>
+			<div class="pillarGrid">
+				<article class="pillarCard pillarIas">
+					<span class="pillarNumber">01</span><span class="pillarIcon" aria-hidden="true">⌁</span>
+					<h3>IAS</h3><h4>Industry Applications Society</h4>
+					<p>Application de l'ingénierie dans l'industrie, l'automatisation, la fabrication et les systèmes électriques commerciaux.</p>
+				</article>
+				<article class="pillarCard pillarIes">
+					<span class="pillarNumber">02</span><span class="pillarIcon" aria-hidden="true">✦</span>
+					<h3>IES</h3><h4>Industrial Electronics Society</h4>
+					<p>Robotique, contrôles intelligents, électronique de puissance et technologies qui rendent les processus industriels plus autonomes.</p>
+				</article>
+				<article class="pillarCard pillarPes">
+					<span class="pillarNumber">03</span><span class="pillarIcon" aria-hidden="true">⚡</span>
+					<h3>PES</h3><h4>Power &amp; Energy Society</h4>
+					<p>Production, transport, distribution de l'électricité et réseaux intelligents pour une énergie plus fiable et durable.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="section" id="team">
+			<div class="heading"><p class="eyebrow">The people behind the current</p><h2>Meet the IASxPES team.</h2></div>
+			<div class="team">
+				<article class="teamCard"><img src="iasxpes/chair.png" alt="IASxPES Chair" /><div><span>Leadership</span><h3>Chair</h3></div></article>
+				<article class="teamCard"><img src="iasxpes/VP.png" alt="IASxPES Vice President" /><div><span>Leadership</span><h3>Vice President</h3></div></article>
+				<article class="teamCard"><img src="iasxpes/sg.png" alt="IASxPES Secretary General" /><div><span>Coordination</span><h3>Secretary General</h3></div></article>
+				<article class="teamCard"><img src="iasxpes/treso.png" alt="IASxPES Treasurer" /><div><span>Operations</span><h3>Treasurer</h3></div></article>
+				<article class="teamCard"><img src="iasxpes/webmaster.png" alt="IASxPES Webmaster" /><div><span>Digital</span><h3>Webmaster</h3></div></article>
+			</div>
+		</section>
+
+		<section class="eventsSection" id="events">
+			<div class="heading"><p class="eyebrow">Knowledge in action</p><h2>Our events</h2><p class="sectionIntro">Des expériences pour passer de la curiosité à la pratique.</p></div>
+			<div class="eventsGrid">
+				<a class="eventCard" href="event_iasxpes/Arduino/arduino.html"><img src="event_iasxpes/Arduino/667946130_122183015258736346_3620667040461081997_n.jpg" alt="Arduino and robotics workshop" /><div><span>IASxPES event</span><h3>Arduino &amp; Robotics</h3><p>Découvrir les systèmes embarqués et construire des solutions intelligentes.</p><strong>Read more <b aria-hidden="true">→</b></strong></div></a>
+				<a class="eventCard" href="event_iasxpes/AI_and_Ml_in_energy/AI_and_Ml_in_energy.html"><img src="event_iasxpes/AI_and_Ml_in_energy/1.jpg" alt="AI and machine learning in energy event" /><div><span>IASxPES event</span><h3>AI in Energy</h3><p>Explorer le rôle de l'intelligence artificielle dans les systèmes énergétiques.</p><strong>Read more <b aria-hidden="true">→</b></strong></div></a>
+				<a class="eventCard" href="event_iasxpes/pes day/pesday.html"><img src="event_iasxpes/pes day/1.jpg" alt="PES Day event" /><div><span>IASxPES event</span><h3>PES Day</h3><p>Échanger autour de l'avenir de l'énergie électrique et des smart grids.</p><strong>Read more <b aria-hidden="true">→</b></strong></div></a>
+				<a class="eventCard" href="event_iasxpes/Green_Sustainable/Green Sustainabl.html"><img src="event_iasxpes/Green_Sustainable/img/.gitkeep" alt="" hidden /><div class="eventFallback"><span>IASxPES event</span><h3>Green &amp; Sustainable</h3><p>Imaginer une industrie plus responsable et des technologies plus durables.</p><strong>Explore event <b aria-hidden="true">→</b></strong></div></a>
+			</div>
+		</section>
+
+		<footer><div><p class="eyebrow">Ready to energize ideas?</p><h2>Connect to the current.</h2></div><a class="button" href="../../joinus/joinus.html">Join IEEE ENSIT <span aria-hidden="true">↗</span></a></footer>
+	</main>
+</body>
+</html>

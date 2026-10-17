@@ -1,0 +1,255 @@
+body, html {
+    background-image: url('image/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #996F00;
+}
+
+
+.header { 
+    background-image: url('image/bg\ gif.gif'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 60vh; 
+    color: #ccc;
+    position: relative;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+}
+
+.navbar {
+    background-color: #2a2a2a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position:fixed;
+    z-index: 4;
+    height: 60px;
+    width: 100%;
+}
+
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right:30px ;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #0bef6e;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.hero-text h1 {
+    font-size: 4.8em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #ececec;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+.logo img{
+    height: 150px;
+    width: 170px;
+    padding-top: 10px;
+    
+}
+
+
+
+
+.descs {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+    padding: 50px 20px;
+    
+}
+.descs img {
+    width: 100%;
+    height: 100%;
+}
+
+.desc {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+    
+}
+
+.desc h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.desc p {
+    font-size: 1.8em;
+    color: #d6d6d6;
+    padding-bottom: 50px;
+}
+.btn{
+    color: #000;
+    background: linear-gradient(to right, #007030,#1ee92f, #7bfec7);
+    
+    font-size: larger;
+    border-radius: 50rem !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.descriptions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.description {
+    
+    padding: 20px;
+    text-align: left;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #149d22;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    width: 200px;
+}
+
+.description img{
+    height: 200px;
+    width: 100%;
+}
+
+.description h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.description p {
+    font-size: 1em;
+    color: #333;
+}
+
+.footer {
+    background-color: #1b1b1b; 
+    color: #039d17;
+    padding: 30px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color:  #039d17;
+}
+
+.contact-info a {
+    color:  #039d17;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #f5261f;
+}
+
+/* Social Links */
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    text-decoration: none;
+    color:  #039d17;
+    font-size: 1.5em; 
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #f5261f; 
+}
+
+.title-container {
+    background: #d2d1d1;
+    padding-top: 0;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    text-align: center;
+    position: relative;
+  }
+  .title-container h3 {
+  color: #149d22;
+  }
+
+
+
+
