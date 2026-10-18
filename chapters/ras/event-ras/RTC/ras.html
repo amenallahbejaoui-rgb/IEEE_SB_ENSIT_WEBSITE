@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>IEEE ENSIT RAS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="../../img/logos/ras1.png" rel="icon">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@500;700&display=swap"
+            rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --ras: #700b77;
+        }
+
+        .text-ras {
+            color: var(--ras) !important;
+        }
+
+        .btn-ras {
+            background-color: var(--ras);
+            border-color: var(--ras);
+            color: #ffffff;
+        }
+
+        .btn-ras:hover {
+            background-color: var(--ras);
+            border-color: var(--ras);
+            color: #ffffff;
+        }
+
+        .btn-outline-ras {
+            color: var(--ras);
+            border-color: var(--ras);
+        }
+
+        .btn-outline-ras:hover {
+            background-color: var(--ras);
+            border-color: var(--ras);
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 19px;
+            left: 0;
+            background-color: #ffffff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link:focus::after {
+            width: 100%;
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 12px;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        body.light-mode .container-fluid.sticky-top {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .navbar-nav .nav-link {
+            color: #1a1a1a !important;
+        }
+
+        body.light-mode .navbar-nav .nav-link::after {
+            background-color: var(--ras);
+        }
+
+        body.light-mode .theme-toggle {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* RAS Team section color overrides (avoid default blue accents) */
+        #teamindex {
+            --primary: var(--ras);
+        }
+
+        #teamindex .team-heading p {
+            color: var(--ras) !important;
+        }
+
+        #teamindex .team-social .btn.btn-square {
+            background-color: var(--ras);
+            border-color: var(--ras);
+            color: #ffffff;
+        }
+
+        #teamindex .team-social .btn.btn-square:hover {
+            background-color: var(--ras);
+            border-color: var(--ras);
+            color: #ffffff;
+        }
+
+        /* RAS Events */
+        #eventsRAS {
+            --bs-primary: var(--ras);
+            --bs-primary-rgb: 112, 11, 119;
+        }
+
+        #eventsRAS .ev-date {
+            margin-top: 0 !important;
+        }
+
+    </style>
+</head>
+
+<body>
+<!-- Spinner Start -->
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border" role="status" style="width: 3rem; height: 3rem; color:#700b77;"></div>
+</div>
+<!-- Spinner End -->
+
+
+<!-- Navbar Start -->
+<div class="container-fluid sticky-top" style="background-color:#700b77; font-family: 'Inter', sans-serif;">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark p-lg-0">
+
+            <a href="../../index.html" class="navbar-brand" data-aos="fade-right">
+                <img src="../../img/logos/logo.png" width="190">
+            </a>
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+
+                <div class="navbar-nav align-items-lg-center fw-semibold" style="font-family: 'Poppins', sans-serif; font-size: 17px;">
+
+                    <a href="../../index.html" class="nav-item nav-link text-light px-3" data-aos="fade-down" data-aos-delay="100">Home</a>
+
+                    <div class="nav-item dropdown" data-aos="fade-down" data-aos-delay="200">
+                        <a href="#" class="nav-link dropdown-toggle text-light px-3" data-bs-toggle="dropdown">Alumni</a>
+                        <div class="dropdown-menu">
+                            <a href="../../alumni/alumni4.html" class="dropdown-item">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">Alumni 2024</div>
+                                    <div class="dropdown-desc">Discover 2024 alumni and their contributions</div>
+                                </div>
+                            </a>
+                            <a href="../../alumni/alumni3.html" class="dropdown-item">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">Alumni 2023</div>
+                                    <div class="dropdown-desc">Explore 2023 graduates and their journey</div>
+                                </div>
+                            </a>
+                            <a href="../../alumni/alumni2.html" class="dropdown-item">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">Alumni 2022</div>
+                                    <div class="dropdown-desc">Meet 2022 alumni and their success stories</div>
+                                </div>
+                            </a>
+                            <a href="../../alumni/alumni1.html" class="dropdown-item">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">Alumni 2021</div>
+                                    <div class="dropdown-desc">Connect with 2021 alumni community</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="../../gallery.php" class="nav-item nav-link text-light px-3" data-aos="fade-down" data-aos-delay="300">Gallery</a>
+
+                    <div class="nav-item dropdown" data-aos="fade-down" data-aos-delay="400">
+                        <a href="#" class="nav-link dropdown-toggle text-light px-3" data-bs-toggle="dropdown">Unit</a>
+                        <div class="dropdown-menu">
+                            <a href="../cs/cs.html" class="dropdown-item">
+                                <div class="dropdown-icon"><img src="../../img/cs/logo_global orange cs.png" alt="CS"></div>
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">Computer Society</div>
+                                    <div class="dropdown-desc">Advancing technology for the benefit of humanity</div>
+                                </div>
+                            </a>
+                            <a href="../ras/ras.html" class="dropdown-item">
+                                <div class="dropdown-icon"><img src="../../unit/ras/IMG_3431.PNG" alt="RAS"></div>
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">Robotics & Automation</div>
+                                    <div class="dropdown-desc">Robotics innovation and intelligent systems</div>
+                                </div>
+                            </a>
+                            <a href="../IASxPES/iasxpes.html" class="dropdown-item">
+                                <div class="dropdown-icon"><img src="../../../../logo_IAS_PES_IES.png" alt="IAS"></div>
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">IAS x PES</div>
+                                    <div class="dropdown-desc">Industry applications and power & energy systems</div>
+                                </div>
+                            </a>
+                            <a href="../aess/aess.html" class="dropdown-item">
+                                <div class="dropdown-icon"><img src="../../../../logo_AESS.png" alt="AESS"></div>
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">AESS</div>
+                                    <div class="dropdown-desc">Aerospace and electronic systems engineering</div>
+                                </div>
+                            </a>
+                            <a href="../wie/wie.php" class="dropdown-item">
+                                <div class="dropdown-icon"><img src="../../../../img/logos/newwie.png" alt="WIE"></div>
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">Women In Engineering</div>
+                                    <div class="dropdown-desc">Empowering women in technology and engineering</div>
+                                </div>
+                            </a>
+                            <a href="../sight/sight.html" class="dropdown-item">
+                                <div class="dropdown-icon"><img src="../sight/logo_sight.png" alt="SIGHT"></div>
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">SIGHT</div>
+                                    <div class="dropdown-desc">Special Interest Group on Humanitarian Technology</div>
+                                </div>
+                            </a>
+                            <a href="../vts/vts.html" class="dropdown-item">
+                                <div class="dropdown-icon"><img src="../../img/logos/VTS.png" alt="VTS"></div>
+                                <div class="dropdown-content">
+                                    <div class="dropdown-title">VTS</div>
+                                    <div class="dropdown-desc">Vehicular technology and intelligent transportation</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="../../contact.html" class="nav-item nav-link text-light px-3" data-aos="fade-down" data-aos-delay="500">Contact</a>
+
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode" data-aos="fade-down" data-aos-delay="600">
+                        <i class="bi bi-moon-stars" id="theme-icon"></i>
+                    </button>
+
+                    <a href="../../joinus.html"
+                       class="btn ms-lg-4 fw-bold"
+                       style="background-color:#ffffff; color:#4a5568; border: 2px solid #e2e8f0; border-radius:50px; padding:6px 20px; transition: all 0.3s ease;"
+                       onmouseover="this.style.backgroundColor='#f7fafc'; this.style.borderColor='#cbd5e0'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'"
+                       onmouseout="this.style.backgroundColor='#ffffff'; this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+                       data-aos="fade-left">
+                        Join Us
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+<!-- Carousel Start -->
+<div class="container-fluid px-0 mb-5">
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img
+                        src="../../img/28.jpg"
+                        alt="Image"
+    style="max-width: 1350px; height: 770px; display: block; margin: 0 auto;"
+
+                />
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row justify-content-end">
+    <div class="col-lg-8 offset-lg-2 text-end pe-5 me-5 mt-5 mb-5">
+      <p class="fs-6 text-white animated slideInRight">
+                                    IEEE Robotics and Automation Society <strong>ENSIT</strong> Student Branch
+                                </p>
+                                <img class="img-fluid mb-5 animated slideInLeft" src="../../img/logos/raswhite.png" alt="IEEE RAS ENSIT" style="max-width: 160px; height: auto;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation buttons removed -->
+    </div>
+</div>
+<!-- Carousel End -->
+
+<!-- overview Start -->
+<div class="container-xxl py-5 home-section-spacious">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" data-aos="fade-up" data-aos-duration="800">
+            <h1 class="display-6 mb-5 text-ras">Chapter Overview</h1>
+            <p class="fs-5 fw-medium">The IEEE Robotics and Automation Society's objectives are scientific, literary and educational in character. The Society strives for the advancement of the theory and practice of robotics and automation engineering and science and of the allied arts and sciences, and for the maintenance of high professional standards among its members, all in consonance with the Constitution and Bylaws of the IEEE and with special attention to such aims within the Field of Interest of the Society.
+
+                Our Mission is to foster the development and facilitate the exchange of scientific and technological knowledge in Robotics and Automation that benefits members, the profession and humanity.
+
+                Our Vision is to be the most recognized and respected global organization in Robotics and Automation.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- overview End -->
+
+
+<!-- About Start -->
+<div id="aboutUSRAS" class="container-xxl about my-5 home-about home-section-spacious">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center text-lg-start">
+                <h1 class="display-1 fw-bold text-uppercase" style="font-family: 'Arial Black', sans-serif; letter-spacing: -2px; color: #700b77;">ABOUT US.</h1>
+            </div>
+        </div>
+
+        <div class="row g-5 align-items-start">
+            <div class="col-lg-3" data-aos="fade-right">
+                <div class="about-nav-links" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; line-height: 2;">
+                    <a href="#aboutUSRAS" class="d-block text-decoration-none fw-bold" style="color: #333;">About us.</a>
+                    <a href="#teamindex" class="d-block text-decoration-none" style="color: #4f4e4e;">Our team.</a>
+                    <a href="#eventsRAS" class="d-block text-decoration-none" style="color: #424141;">Events.</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9" data-aos="fade-left">
+                <div class="about-text-content" style="color: #700b77; font-size: 1.15rem; line-height: 1.7; max-width: 800px;">
+                    <p class="mb-4">
+                        IEEE RAS ENSIT student branch chapter, where we dare to dream and where innovation has no bonds. Our family is driven by endless passion for robotics and automation and seeking to shape a better future.
+                    </p>
+                    <p class="mb-4">
+                        Our journey began 7th March 2021, and each year we grow stronger thanks to our dear members who continue to share our dreams and help us build a better IEEE community.
+                    </p>
+                    <a class="btn btn-ras rounded-pill py-3 px-5" href="https://site.ieee.org/tunisia-ras/">Explore More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12" data-aos="zoom-in" data-aos-delay="200">
+                <img src="event-ras/RTC/2.jpg" alt="IEEE RAS ENSIT" class="img-fluid w-100 rounded" style="max-height: 500px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Centered Team Start -->
+<div id="teamindex" class="container-xxl py-5 d-flex justify-content-center home-section-spacious">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp team-heading" data-wow-delay="0.1s" data-aos="fade-up" data-aos-duration="800" style="max-width: 500px;">
+            <p class="fs-12 fw-medium">Our Team</p>
+            <h1 class="display-5 mb-5">2026 Mandate</h1>
+        </div>
+        <div class="row g-5 justify-content-center cards-grid-spacious">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-aos="fade-up" data-aos-duration="800">
+                <div class="team-item team-card-v2">
+                    <div class="team-media">
+                        <img class="img-fluid" src="../../img/ras/chair.png" alt="">
+                    </div>
+                    <div class="team-body">
+                        <h5 class="team-name">Yassin Khedher</h5>
+                        <ul class="team-social">
+                            <li><a class="btn btn-square" href="https://www.facebook.com/search/top?q=yassin%20khedher"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a class="btn btn-square" href="https://www.instagram.com/yassin_khedher/"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" data-aos="fade-up" data-aos-duration="800">
+                <div class="team-item team-card-v2">
+                    <div class="team-media">
+                        <img class="img-fluid" src="../../img/ras/vp.png" alt="">
+                    </div>
+                    <div class="team-body">
+                        <h5 class="team-name">Fares Sansa</h5>
+                        <ul class="team-social">
+                            <li><a class="btn btn-square" href="https://www.facebook.com/fares.sansa"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a class="btn btn-square" href="https://www.instagram.com/fares.lasfer/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a class="btn btn-square" href="https://www.linkedin.com/in/sansa-fares-b9950a390/"><i class="fab fa-linkedin-in"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s" data-aos="fade-up" data-aos-duration="800">
+                <div class="team-item team-card-v2">
+                    <div class="team-media">
+                        <img class="img-fluid" src="../../img/ras/sg.png" alt="">
+                    </div>
+                    <div class="team-body">
+                        <h5 class="team-name">Mohamed Amin Sassi</h5>
+                        <ul class="team-social">
+                        <li><a class="btn btn-square" href="https://www.instagram.com/__med_amin_sassi__/"><i class="fab fa-instagram"></i></a></li>
+
+                               </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" data-aos="fade-up" data-aos-duration="800">
+                <div class="team-item team-card-v2">
+                    <div class="team-media">
+                        <img class="img-fluid" src="../../img/ras/treso.png" alt="">
+                    </div>
+                    <div class="team-body">
+                        <h5 class="team-name">Youssef Bouakazi</h5>
+                        <ul class="team-social">
+                            <li><a class="btn btn-square" href="https://www.instagram.com/its.yousseeff/"><i class="fab fa-instagram"></i></a></li>
+
+                              </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-aos="fade-up" data-aos-duration="800">
+                <div class="team-item team-card-v2">
+                    <div class="team-media">
+                        <img class="img-fluid" src="../../img/ras/webmaster.png" alt="">
+                    </div>
+                    <div class="team-body">
+                        <h5 class="team-name">Mohamed Amin Fennani</h5>
+                        <ul class="team-social">
+                            <li><a class="btn btn-square" href="https://www.facebook.com/aya.yousfi.355#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a class="btn btn-square" href="https://www.instagram.com/med_habib_fennani/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a class="btn btn-square" href="https://www.linkedin.com/in/mohamed-habib-fennani-a77577377/"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+    <!-- event Start -->
+    <div id="eventsRAS" class="container-xxl py-5 home-section-spacious">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" data-aos="fade-up" data-aos-duration="800">
+                <h4 class="display-6 mb-3">Our Main Events</h4>
+                <div class="events-pinboard">
+                    <h3 class="ev-date text-ras">Events: 2024 - 2025</h3>
+                    <section class="mt-4">
+                        <div class="scroller event" data-direction="left" data-speed="slow">
+                            <div class="scroller__inner">
+                                <div class="card-ev">
+                                    <img src="event-ras/NextGen-expo-2024/1.jpg" alt="NextGen" />
+                                    <h6>NextGen Expo</h6>
+                                    <p style="margin: -1px !important;">25/07/2024</p>
+                                    <br>
+                                    <button class="btn btn-ras" style="font-weight: bold; text-transform: capitalize ; font-size: 12px">
+                                        <a href="event-ras/NextGen-expo-2024/NextGen.html">Show More</a>
+                                    </button>
+                                </div>
+                                <div class="card-ev">
+                                    <img src="event-ras/robocup-7.0/1.jpg" alt="robocup" />
+                                    <h6>Robocup 7.0</h6>
+                                    <p style="margin: -1px !important;">13/10/2024</p>
+                                    <br>
+                                    <button class="btn btn-ras" style="font-weight: bold; text-transform: capitalize ; font-size: 12px">
+                                        <a href="event-ras/robocup-7.0/robocup-7.0.html">Show More</a>
+                                    </button>
+                                </div>
+                                <div class="card-ev">
+                                    <img src="event-ras/robotics-initiation/1.jpg" alt="Robotics Initiation" />
+                                    <h6>Robotics Initiation</h6>
+                                    <p style="margin: -1px !important;">&nbsp;</p>
+                                    <br>
+                                    <button class="btn btn-ras" style="font-weight: bold; text-transform: capitalize ; font-size: 12px">
+                                        <a href="event-ras/robotics-initiation/robotics-initiation.html">Show More</a>
+                                    </button>
+                                </div>
+                                <div class="card-ev">
+                                    <img src="event-ras/robotics-training-jci/j1.jpg" alt="robocup" />
+                                    <h6>Robotics Training Collaboration<br> with JCI</h6>
+                                    <p style="margin: -1px !important;">&nbsp;</p>
+                                    <br>
+                                    <button class="btn btn-ras" style="font-weight: bold; text-transform: capitalize ; font-size: 12px">
+                                        <a href="event-ras/robotics-training-jci/robotics-training-jci.html">Show More</a>
+                                    </button>
+                                </div>
+                                <div class="card-ev">
+                                    <img src="event-ras/RTC/1.jpg" alt="NextGen" />
+                                    <h6>RAS Tunisia Conference (RTC)</h6>
+                                    <p style="margin: -1px !important;">10/11/2024</p>
+                                    <br>
+                                    <button class="btn btn-ras" style="font-weight: bold; text-transform: capitalize ; font-size: 12px">
+                                        <a href="event-ras/RTC/rtc.html">Show More</a>
+                                    </button>
+                                </div>
+                                <div class="card-ev">
+                                    <img src="event-ras/solidworks-training/SW2.jpg" alt="NextGen" />
+                                    <h6>Solid works training sessions</h6>
+                                    <p style="margin: -1px !important;">March</p>
+                                    <br>
+                                    <button class="btn btn-ras" style="font-weight: bold; text-transform: capitalize ; font-size: 12px">
+                                        <a href="event-ras/solidworks-training/solidworks-training.html">Show More</a>
+                                    </button>
+                                </div>
+                                <div class="card-ev">
+                                    <img src="event-ras/workshop-arduino/1.jpg" alt="NextGen" />
+                                    <h6>Arduino Workshop</h6>
+                                    <p style="margin: -1px !important;">&nbsp;</p>
+                                    <br>
+                                    <button class="btn btn-ras" style="font-weight: bold; text-transform: capitalize ; font-size: 12px">
+                                        <a href="event-ras/workshop-arduino/workshop-arduino.html">Show More</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <br>
+                    <a class="btn btn-outline-ras rounded-pill py-3 px-5" href="event-ras/ras-event.html">Show More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- event End -->
+    <!-- gallery Start -->
+    <div id="galleryindex" class="container-fluid px-0 py-4 home-section-spacious">
+        <div class="container-fluid px-0">
+            <div class="hanging-gallery wow fadeInUp" data-wow-delay="0.1s" data-aos="fade-up" data-aos-duration="800">
+                <div class="gallery-rope" aria-hidden="true"></div>
+
+                <section class="gallery-hang-wrap">
+                    <div class="scroller gallery-scroller" data-direction="left" data-speed="slow">
+                        <div class="scroller__inner">
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0000.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0005.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210529-WA0015.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210602-WA0003.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210602-WA0015.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0000.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0014.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210605-WA0034.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210606-WA0000.jpg" alt="RAS gallery photo" /></div></div>
+                            <div class="hang-card"><span class="hang-clip" aria-hidden="true"></span><div class="hang-frame"><img src="../../img/Gallery/RAS/SolidWorks2023/img/IMG-20210606-WA0006.jpg" alt="RAS gallery photo" /></div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="gallery-top">
+                    <a class="btn btn-ras rounded-pill px-4 py-2" href="../../gallery.php">Check Our Gallery</a>
+                </div>
+
+                <script>
+                    const scrollers = document.querySelectorAll("#galleryindex .gallery-scroller");
+                    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                        addAnimation();
+                    }
+
+                    function addAnimation() {
+                        scrollers.forEach((scroller) => {
+                            scroller.setAttribute("data-animated", true);
+
+                            const scrollerInner = scroller.querySelector(".scroller__inner");
+                            const scrollerContent = Array.from(scrollerInner.children);
+
+                            scrollerContent.forEach((item) => {
+                                const duplicatedItem = item.cloneNode(true);
+                                duplicatedItem.setAttribute("aria-hidden", true);
+                                scrollerInner.appendChild(duplicatedItem);
+                            });
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <!-- gallery End -->
+
+        <!-- Join IEEE RAS ENSIT -->
+        <div class="container-xxl py-5 home-section-spacious">
+            <div class="container">
+                <div class="row align-items-center g-5 join-minimal">
+                    <div class="col-md-4 wow fadeInLeft mt-md-5" data-wow-delay="0.2s" data-aos="fade-right" data-aos-duration="800">
+                        <img src="../../img/joinUsRas.gif" alt="Animated Picture" class="img-fluid">
+                    </div>
+                    <div class="col-md-8 text-center text-md-start pb-3 pb-md-0 wow fadeInRight" data-wow-delay="0.1s" data-aos="fade-left" data-aos-duration="800" style="max-width: 900px;">
+                        <p class="fs-5 fw-medium text-ras">Join Us</p>
+                        <h3 class="display-6 mb-1" style="font-size: 30px;">Become a Part of IEEE RAS Student Chapter</h3>
+                        <p class="text-justify">Welcome to the RAS IEEE Student Chapter! If you're fascinated by Robotics and Automation technology, join our vibrant community for learning, networking, and skill development. Whether you're experienced or just starting, there's a place for you at RAS. Engage in technical sessions, workshops, and research activities, and together, let's shape the future of Robotics and Automation technology.</p>
+                        <a class="btn btn-lg btn-ras mt-1" href="../../joinus.html">Join Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--<div class="container-xxl pt-3 home-section-spacious">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 text-center text-md-start pb-5 pb-md-0 wow fadeInLeft" data-wow-delay="0.1s" data-aos="fade-right" data-aos-duration="800" style="max-width: 900px;">
+                        <p class="fs-5 fw-medium text-ras">Team Dev</p>
+                        <h1 class="display-6 mb-2">Big Thanks</h1>
+                        <p class="text-justify" >
+                            I am incredibly grateful and proud to lead such an exceptional group of individuals. <strong><em>Cherni Rihab</em></strong>,
+                            <strong><em>Hadj Sassi Mahdi</em></strong>,
+                            <strong><em>Fedi Bahloul</em></strong>,
+                            <strong><em>Molka Elloumi</em></strong>,
+                            <strong><em>Ahmed Sidi Mohamed</em></strong>, and
+                            <strong><em>Moussi Wiem</em></strong>, your dedication and hard work have been instrumental in the success of our projects. Each one of you brings unique talents and perspectives to the table, and together, we form a powerhouse of creativity and innovation. Your unwavering support, technical expertise, and collaborative spirit have been the driving force behind our achievements. Thank you for your commitment and passion, and I look forward to accomplishing even greater heights as a team.
+                            <br><br>
+                        </p>
+                    </div>
+                    <div class="col-md-4 wow fadeInRight mt-5" data-wow-delay="0.2s" data-aos="fade-left" data-aos-duration="800">
+                        <img src="../../img/thanks.gif" alt="Animated Picture" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!-- Footer Start -->
+        <div class="container-fluid footer mt-1 py-5 wow fadeIn" data-wow-delay="0.1s" style="background-color:#700b77;">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <img src="../../img/logos/raswhite.png" width="200" alt="logo sb ieee" class="mb-3"/>
+                        <p>
+                            Join IEEE RAS Ensit Student Branch Chapter - Empowering Tech Enthusiasts Since 2017. Boost Your Career & Skills Now!
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Contact</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>05 Ave Taha Hussein, Tunis 1008 Ã  l'ENSIT</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+216 53 154 099</p>
+                        <a href="mailto:ensit.ras.sbc@gmail.com" class="mb-2 text-white"><i class="fa fa-envelope me-3"></i>ensit.ras.sbc@gmail.com
+
+                        </a>
+                        <div class="d-flex pt-3">
+                            <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.instagram.com/ieee.ensit.ras/" aria-label="Twitter">
+                                <i class="fab fa-instagram icon-color"></i>
+                            </a>
+                            <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100081856069185" aria-label="facebook">
+                                <i class="fab fa-facebook-f icon-color"></i>
+                            </a>
+                            <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.youtube.com/@ieeeensit2837" aria-label="youtube">
+                                <i class="fab fa-youtube icon-color"></i>
+                            </a>
+                            <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.linkedin.com/in/ieee-ras-chapter-ensit-student-branch-18360822b" aria-label="linkedin">
+                                <i class="fab fa-linkedin-in icon-color"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="row">
+                            <h4 class="text-white mb-4">Quick Links</h4>
+                            <div class="col-6">
+                                <a class="btn btn-link" href="../../index.html#aboutUSindex">About Us</a>
+                                <a class="btn btn-link" href="../../contact.html">Contact Us</a>
+                                <a class="btn btn-link" href="../../gallery.php">Gallery</a>
+                                <a class="btn btn-link" href="../../index.html#teamindex">Team</a>
+                                <a class="btn btn-link" href="../../index.html#unitIndex">Unit</a>
+                            </div>
+                            <div class="col-6">
+                                <a class="btn btn-link" href="../../index.html#">SB</a>
+                                <a class="btn btn-link" href="../cs/cs.html">CS</a>
+                                <a class="btn btn-link" href="../ras/ras.html">RAS</a>
+                                <a class="btn btn-link" href="../aess/aess.html">AESS</a>
+                                <a class="btn btn-link" href="../IASxPES/iasxpes.html">IASxPES</a>
+                                <a class="btn btn-link" href="../wie/wie.php">WIE</a>
+                                <a class="btn btn-link" href="../sight/sight.html">SIGHT</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Localisation</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d629.4879921325812!2d10.179256687986872!3d36.784739211827876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd340576fc1a05%3A0x25fc1aa869f8cfb6!2s%C3%89cole%20nationale%20sup%C3%A9rieure%20d%27ing%C3%A9nieurs%20de%20Tunis%20(ENSIT)!5e0!3m2!1sen!2stn!4v1690723522488!5m2!1sen!2stn" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-ras btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../lib/wow/wow.min.js"></script>
+        <script src="../../lib/easing/easing.min.js"></script>
+        <script src="../../lib/waypoints/waypoints.min.js"></script>
+        <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="../../lib/lightbox/js/lightbox.min.js"></script>
+        <!-- Template Javascript -->
+        <script src="../../js/main.js"></script>
+
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        </script>
+
+        <script>
+            // Dark/Light Mode Toggle
+            function toggleTheme() {
+                const body = document.body;
+                const themeIcon = document.getElementById('theme-icon');
+
+                body.classList.toggle('light-mode');
+
+                if (body.classList.contains('light-mode')) {
+                    themeIcon.classList.remove('bi-moon-stars');
+                    themeIcon.classList.add('bi-sun-fill');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    themeIcon.classList.remove('bi-sun-fill');
+                    themeIcon.classList.add('bi-moon-stars');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+
+            // Load saved theme on page load
+            window.addEventListener('DOMContentLoaded', () => {
+                const savedTheme = localStorage.getItem('theme');
+                const themeIcon = document.getElementById('theme-icon');
+
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-mode');
+                    themeIcon.classList.remove('bi-moon-stars');
+                    themeIcon.classList.add('bi-sun-fill');
+                }
+            });
+        </script>
+    </body>
+</html>
+
+
+
