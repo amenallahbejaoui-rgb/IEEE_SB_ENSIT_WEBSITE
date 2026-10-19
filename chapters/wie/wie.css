@@ -62,16 +62,15 @@ h2 { font-size: clamp(2.5rem, 5vw, 5rem); line-height: .9; letter-spacing: -.08e
 .cards h3 { margin-bottom: 12px; font-size: 1.2rem; }
 .cards p { color: var(--muted); font-size: .86rem; line-height: 1.65; }
 .focusCard:hover p { color: var(--lavender); }
-.team { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
-.teamCard { overflow: hidden; border: 1px solid rgba(112, 37, 142, .2); border-radius: 18px; background: var(--paper-dark); box-shadow: 0 16px 35px rgba(71, 20, 95, .1); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
-.teamCard:nth-child(even) { transform: translateY(28px); }
-.teamCard:hover { border-color: var(--purple); box-shadow: 0 22px 42px rgba(71, 20, 95, .18); transform: translateY(-8px); }
-.teamCard:nth-child(even):hover { transform: translateY(20px); }
-.teamCard img { display: block; width: 100%; aspect-ratio: .78; object-fit: cover; object-position: center top; filter: grayscale(100%); mix-blend-mode: multiply; transition: filter .25s ease; }
-.teamCard:hover img { filter: grayscale(0); }
-.teamCard > div { padding: 15px 14px 18px; }
-.teamCard span, .eventCard span { color: var(--purple); font-size: .62rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
-.teamCard h3 { margin-top: 8px; font-size: .95rem; }
+.team { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
+.teamCard { grid-column: span 2; overflow: hidden; border: 1px solid rgba(112, 37, 142, .2); border-radius: 18px; background: var(--paper-dark); box-shadow: 0 16px 35px rgba(71, 20, 95, .1); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+.teamCard:nth-child(4) { grid-column: 2 / span 2; }
+.teamCard:nth-child(5) { grid-column: 4 / span 2; }
+.teamCard:hover { border-color: var(--purple); box-shadow: 0 22px 46px rgba(71, 20, 95, .22); transform: translateY(-10px) scale(1.02); }
+.teamCard img { display: block; width: 100%; aspect-ratio: .88; object-fit: cover; object-position: top; background: rgba(217, 185, 226, .25); }
+.teamCard > div { padding: 16px 15px 18px; }
+.teamCard span, .eventCard span { color: var(--purple); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.teamCard h3 { margin-top: 7px; font-size: .95rem; }
 .eventsSection { max-width: none; padding: 115px clamp(24px, 6vw, 86px) 145px; background: var(--purple-dark); color: var(--paper); }
 .eventsHeading, .eventsGrid { max-width: 1180px; margin-left: auto; margin-right: auto; }
 .eventsHeading { display: flex; justify-content: space-between; gap: 50px; margin-bottom: 55px; }.eventsHeading .eyebrow { color: var(--orange); }.eventsHeading h2 { margin-top: 18px; }.eventsHeading > p:last-child { max-width: 410px; align-self: end; color: var(--lavender); line-height: 1.7; }
@@ -81,5 +80,5 @@ h2 { font-size: clamp(2.5rem, 5vw, 5rem); line-height: .9; letter-spacing: -.08e
 .eventCard img { width: 100%; height: 225px; object-fit: cover; filter: saturate(.8); }
 .eventCard > div { display: flex; flex: 1; flex-direction: column; padding: 22px; }.eventCard h3 { margin: 10px 0; font-size: 1.2rem; }.eventCard p { color: var(--muted); font-size: .86rem; line-height: 1.65; }.eventCard strong { display: flex; justify-content: space-between; margin-top: auto; padding-top: 28px; color: var(--purple); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }.eventCard strong b { font-size: 1.2rem; }
 footer { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding-bottom: 90px; }footer h2 { margin-top: 18px; }
-@media (max-width: 900px) { .aurora { width: 55vw; height: 480px; }.wieNav nav a:not(.navButton) { display: none; }.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }.heroVisual { min-height: 390px; }.about { grid-template-columns: 1fr; gap: 35px; }.cards { grid-template-columns: repeat(2, 1fr); }.team { grid-template-columns: repeat(3, 1fr); }.teamCard:nth-child(even) { transform: none; }.eventsGrid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .wieNav { padding: 18px 20px; }.brand img { width: 110px; }.brand span { display: none; }.aurora { width: 85vw; height: 340px; opacity: .9; }.hero { padding: 55px 22px 90px; }.chapterLogo { width: 100%; }.heroVisual { min-height: 330px; transform: scale(.78); margin: -35px -45px; }.orbitCore { width: 210px; height: 210px; }.about, .section { padding-top: 82px; padding-bottom: 82px; }.heading, .eventsHeading { display: block; }.heading h2 { margin-top: 25px; }.cards, .eventsGrid { grid-template-columns: 1fr; }.team { grid-template-columns: repeat(2, 1fr); }.teamCard:nth-child(even) { transform: translateY(18px); }.eventsSection { padding-top: 82px; padding-bottom: 100px; }.eventsHeading > p:last-child { margin-top: 22px; }.eventsGrid { gap: 18px; }footer { align-items: flex-start; flex-direction: column; padding-top: 82px; padding-bottom: 70px; } }
+@media (max-width: 900px) { .aurora { width: 55vw; height: 480px; }.wieNav nav a:not(.navButton) { display: none; }.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }.heroVisual { min-height: 390px; }.about { grid-template-columns: 1fr; gap: 35px; }.cards { grid-template-columns: repeat(2, 1fr); }.eventsGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .wieNav { padding: 18px 20px; }.brand img { width: 110px; }.brand span { display: none; }.aurora { width: 85vw; height: 340px; opacity: .9; }.hero { padding: 55px 22px 90px; }.chapterLogo { width: 100%; }.heroVisual { min-height: 330px; transform: scale(.78); margin: -35px -45px; }.orbitCore { width: 210px; height: 210px; }.about, .section { padding-top: 82px; padding-bottom: 82px; }.heading, .eventsHeading { display: block; }.heading h2 { margin-top: 25px; }.cards, .eventsGrid { grid-template-columns: 1fr; }.team { grid-template-columns: repeat(2, 1fr); }.teamCard, .teamCard:nth-child(4), .teamCard:nth-child(5) { grid-column: auto; }.eventsSection { padding-top: 82px; padding-bottom: 100px; }.eventsHeading > p:last-child { margin-top: 22px; }.eventsGrid { gap: 18px; }footer { align-items: flex-start; flex-direction: column; padding-top: 82px; padding-bottom: 70px; } }
