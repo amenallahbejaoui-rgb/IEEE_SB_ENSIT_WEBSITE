@@ -1,1 +1,9 @@
 public/welcome.mp4
+node_modules/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+dist/
+build/

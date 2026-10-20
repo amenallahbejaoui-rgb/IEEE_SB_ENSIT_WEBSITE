@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ON-SEAT | IEEE ENSIT SIGHT</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ON-SEAT transforms post-consumer plastic waste into affordable recycled plastic furniture for educational and community institutions.">
+	<link href="../../img/logo.jpg" rel="icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="../../../../lib/animate/animate.min.css" rel="stylesheet">
+	<link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../../../css/style.css" rel="stylesheet">
+	<link href="../../sight.css" rel="stylesheet">
+	<style>
+		:root { --sight: #C2375D; --bs-primary: var(--sight); }
+		.navbar-nav .nav-link { position: relative; }
+		.navbar-nav .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 19px; left: 0; background: #fff; transition: width .3s ease; }
+		.navbar-nav .nav-link:hover::after, .navbar-nav .nav-link:focus::after { width: 100%; }
+		.theme-toggle { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+		.project-image { width: 100%; max-width: 500px; height: auto; object-fit: contain; }
+		.project-description { line-height: 1.7; }
+		@media (max-width: 767px) { .event-content { flex-direction: column; } .project-image { max-width: 100%; } }
+	</style>
+</head>
+<body>
+	<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+		<div class="spinner-border text-warning" role="status" style="width: 3rem; height: 3rem;"></div>
+	</div>
+
+	<div class="container-fluid sticky-top" style="background-color: var(--sight); font-family: 'Inter', sans-serif;">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark p-lg-0">
+				<a href="../../../../index.html" class="navbar-brand"><img src="../../../../black.png" width="190" alt="IEEE ENSIT Student Branch"></a>
+				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+					<div class="navbar-nav align-items-lg-center fw-semibold" style="font-family: 'Poppins', sans-serif; font-size: 17px;">
+						<a href="../../../../index.html" class="nav-item nav-link text-light px-3">Home</a>
+						<a href="../../../../gallery.php" class="nav-item nav-link text-light px-3">Gallery</a>
+						<a href="../../../../unit/sight/sight.html" class="nav-item nav-link text-light px-3">SIGHT</a>
+						<a href="../../../../contact.html" class="nav-item nav-link text-light px-3">Contact</a>
+						<button class="theme-toggle ms-lg-2" onclick="toggleTheme()" title="Toggle dark/light mode" aria-label="Toggle dark/light mode"><i class="bi bi-moon-stars" id="theme-icon"></i></button>
+						<a href="../../../../joinus.html" class="btn ms-lg-4 fw-bold" style="background-color:#fff; color:#4a5568; border-radius:50px; padding:6px 20px;">Join Us</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<main class="event-card">
+		<div class="event-content">
+			<img src="on_seat.png" alt="ON-SEAT recycled plastic chairs project" class="event-image project-image">
+			<div class="event-text">
+				<h1 class="mb-4">ON-SEAT - Recycled Plastic Chairs</h1>
+				<div class="event-info">
+					<div class="event-description project-description">
+						<p class="text-warning">Socio-technical circular economy project</p>
+						<p>ON-SEAT is a socio-technical project aimed at tackling the growing plastic pollution crisis in Tunisia through a community-driven, circular economy approach.</p>
+						<p>The initiative employs drone-based detection, computer vision classification, and a structured four-stage production process: collection, sorting, shredding, and molding. This transforms post-consumer plastic waste into durable, affordable furniture for educational and community institutions.</p>
+						<p>In addition to its environmental benefits, ON-SEAT creates significant socioeconomic impact by generating green employment opportunities in rural areas, fostering gender-inclusive participation, and establishing replicable rural recycling infrastructure.</p>
+						<p>The project aligns with SDGs 6, 8, 11, 12, 13, 15, and 17, making it a scalable model for sustainable development in resource-constrained communities throughout the broader North African region.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="container-fluid footer mt-1 py-5" style="background-color: var(--sight);">
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-lg-3 col-md-6"><img src="../../logo_sight_white.png" width="200" alt="IEEE SIGHT ENSIT" class="mb-3"><p>Join IEEE SIGHT ENSIT and help build technology for the benefit of humanity.</p></div>
+				<div class="col-lg-3 col-md-6"><h4 class="text-white mb-4">Contact</h4><p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>05 Ave Taha Hussein, Tunis 1008, ENSIT</p><p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+216 51 907 825</p></div>
+				<div class="col-lg-3 col-md-6"><h4 class="text-white mb-4">Quick Links</h4><a class="btn btn-link" href="../../../../index.html">Home</a><a class="btn btn-link" href="../../../../gallery.php">Gallery</a><a class="btn btn-link" href="../../../../unit/sight/sight.html">SIGHT</a><a class="btn btn-link" href="../../../../contact.html">Contact Us</a></div>
+				<div class="col-lg-3 col-md-6"><h4 class="text-white mb-4">Localisation</h4><iframe src="https://maps.google.com/maps?q=ENSIT%20Tunis&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="300" height="200" style="border:0; background:#fff;" allowfullscreen="" loading="lazy" title="ENSIT location"></iframe></div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../../js/main.js"></script>
+	<script>
+		function setTheme(theme) { document.body.classList.toggle('light-mode', theme === 'light'); localStorage.setItem('theme', theme); document.getElementById('theme-icon').className = theme === 'light' ? 'bi bi-sun' : 'bi bi-moon-stars'; }
+		function toggleTheme() { setTheme(document.body.classList.contains('light-mode') ? 'dark' : 'light'); }
+		setTheme(localStorage.getItem('theme') || 'dark');
+	</script>
+</body>
+</html>

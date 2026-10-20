@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Humanovators</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Dancing+Script:400,700|Muli:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="icon" type="image/x-icon" href="./images/logo1.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+  <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+
+    <style>
+        :root {
+            --sight: #C2375D;
+            --bs-primary: var(--sight);
+            --bs-primary-rgb: 105, 183, 255;
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 19px;
+            left: 0;
+            background-color: #ffffff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link:focus::after {
+            width: 100%;
+        }
+
+        /* Dropdown Menu Styling (same pattern as CS/RAS) */
+        .dropdown-menu {
+            background-color: #1e1e2e !important;
+            border: 1px solid #2d2d3d !important;
+            border-radius: 16px !important;
+            padding: 16px !important;
+            min-width: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6) !important;
+            margin-top: 12px !important;
+        }
+
+        .dropdown-item {
+            color: #e5e7eb !important;
+            padding: 16px !important;
+            border-radius: 12px !important;
+            transition: all 0.3s ease !important;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 16px !important;
+            margin-bottom: 6px !important;
+            white-space: normal !important;
+        }
+
+        .dropdown-item:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .dropdown-item .dropdown-icon {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            background-color: #2d2d3d;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .dropdown-item .dropdown-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
+        }
+
+        .dropdown-item .dropdown-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .dropdown-item .dropdown-title {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+
+        .dropdown-item .dropdown-desc {
+            color: #9ca3af;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .dropdown-item:hover {
+            background-color: #2a2a3a !important;
+            color: #ffffff !important;
+        }
+
+        .dropdown-item:hover .dropdown-icon {
+            background-color: #3d3d4d;
+        }
+
+        .dropdown-item:active {
+            background-color: #3a3a4a !important;
+        }
+
+        /* Dark Mode Toggle Button (same pattern as CS/RAS) */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 12px;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 0;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        body.light-mode {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        body.light-mode .container-fluid.sticky-top {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .navbar-nav .nav-link {
+            color: #1a1a1a !important;
+        }
+
+        body.light-mode .navbar-nav .nav-link::after {
+            background-color: var(--sight);
+        }
+
+        body.light-mode .theme-toggle {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+                            <!-- Navbar Start -->
+    <div class="container-fluid sticky-top" style="background-color: var(--sight); font-family: 'Inter', sans-serif;">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark p-lg-0">
+
+                <a href="../../../../index.html" class="navbar-brand" data-aos="fade-right">
+                    <img src="../../../../black.png" width="190" alt="IEEE ENSIT SB">
+                </a>
+
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+
+                    <div class="navbar-nav align-items-lg-center fw-semibold" style="font-family: 'Poppins', sans-serif; font-size: 17px;">
+
+                        <a href="../../../../index.html" class="nav-item nav-link text-light px-3" data-aos="fade-down" data-aos-delay="100">Home</a>
+
+                        <div class="nav-item dropdown" data-aos="fade-down" data-aos-delay="200">
+                            <a href="#" class="nav-link dropdown-toggle text-light px-3" data-bs-toggle="dropdown">Alumni</a>
+                            <div class="dropdown-menu">
+                                <a href="../../../../alumni/alumni4.html" class="dropdown-item">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">Alumni 2024</div>
+                                        <div class="dropdown-desc">Discover 2024 alumni and their contributions</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../alumni/alumni3.html" class="dropdown-item">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">Alumni 2023</div>
+                                        <div class="dropdown-desc">Explore 2023 graduates and their journey</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../alumni/alumni2.html" class="dropdown-item">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">Alumni 2022</div>
+                                        <div class="dropdown-desc">Meet 2022 alumni and their success stories</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../alumni/alumni1.html" class="dropdown-item">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">Alumni 2021</div>
+                                        <div class="dropdown-desc">Connect with 2021 alumni community</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <a href="../../../../gallery.php" class="nav-item nav-link text-light px-3" data-aos="fade-down" data-aos-delay="300">Gallery</a>
+
+                        <div class="nav-item dropdown" data-aos="fade-down" data-aos-delay="400">
+                            <a href="#" class="nav-link dropdown-toggle text-light px-3" data-bs-toggle="dropdown">Unit</a>
+                            <div class="dropdown-menu">
+                                <a href="../../../../unit/cs/cs.html" class="dropdown-item">
+                                    <div class="dropdown-icon"><img src="../../../../img/cs/logo_global orange cs.png" alt="CS"></div>
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">Computer Society</div>
+                                        <div class="dropdown-desc">Advancing technology for the benefit of humanity</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../unit/ras/ras.html" class="dropdown-item">
+                                    <div class="dropdown-icon"><img src="../../../../unit/ras/IMG_3431.PNG" alt="RAS"></div>
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">Robotics & Automation</div>
+                                        <div class="dropdown-desc">Robotics innovation and intelligent systems</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../unit/IASxPES/iasxpes.html" class="dropdown-item">
+                                    <div class="dropdown-icon"><img src="../../../../logo_IAS_PES_IES.png" alt="IAS"></div>
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">IAS x PES</div>
+                                        <div class="dropdown-desc">Industry applications and power & energy systems</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../unit/aess/aess.html" class="dropdown-item">
+                                    <div class="dropdown-icon"><img src="../../../../logo_AESS.png" alt="AESS"></div>
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">AESS</div>
+                                        <div class="dropdown-desc">Aerospace and electronic systems engineering</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../unit/wie/wie.php" class="dropdown-item">
+                                    <div class="dropdown-icon"><img src="../../../../img/logos/newwie.png" alt="WIE"></div>
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">Women In Engineering</div>
+                                        <div class="dropdown-desc">Empowering women in technology and engineering</div>
+                                    </div>
+                                </a>
+                                <a href="../../../../unit/sight/sight.html" class="dropdown-item">
+                                    <div class="dropdown-icon"><img src="../../logo_sight.png" alt="SIGHT"></div>
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-title">SIGHT</div>
+                                        <div class="dropdown-desc">Special Interest Group on Humanitarian Technology</div>
+                                    </div>
+                                </a>
+                <a href="../../../../unit/vts/vts.html" class="dropdown-item">
+                    <div class="dropdown-icon"><img src="../../../../img/logos/VTS.png" alt="VTS"></div>
+                    <div class="dropdown-content">
+                        <div class="dropdown-title">VTS</div>
+                        <div class="dropdown-desc">Vehicular technology and intelligent transportation</div>
+                    </div>
+                </a>
+                </div>
+                        </div>
+
+                        <a href="../../../../contact.html" class="nav-item nav-link text-light px-3" data-aos="fade-down" data-aos-delay="500">Contact</a>
+
+                        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode" data-aos="fade-down" data-aos-delay="600">
+                            <i class="bi bi-moon-stars" id="theme-icon"></i>
+                        </button>
+
+                        <a href="../../../../joinus.html"
+                           class="btn ms-lg-4 fw-bold"
+                           style="background-color:#ffffff; color:#4a5568; border: 2px solid #e2e8f0; border-radius:50px; padding:6px 20px; transition: all 0.3s ease;"
+                           onmouseover="this.style.backgroundColor='#f7fafc'; this.style.borderColor='#cbd5e0'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'"
+                           onmouseout="this.style.backgroundColor='#ffffff'; this.style.borderColor='#e2e8f0'; this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+                           data-aos="fade-left">
+                            Join Us
+                        </a>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    
+    <div class="intro-section" style="background-image: url('images/bg.jpg');">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-7 ml-auto text-right" data-aos="fade-up">
+              <h1>HUMANOVATORS</h1>
+              <p>Where Innovation Meets sustainability</p>
+              <div class="event-info mb-4">
+                <div class="d-flex justify-content-end align-items-center" style="color:white;">
+                  <i data-lucide="calendar" class="me-2"></i>
+                  <span style="color:white;">April 5, 2025</span>
+                  <span class="mx-2" style="color:white;">ï¿½</span>
+                  <i data-lucide="map-pin" class="me-2"></i>
+                  <span style="color:white;">ENSIT</span>
+                </div>
+              </div>
+              <p><a href="https://www.facebook.com/profile.php?id=61572889748272" class="btn btn-primary py-3 px-5">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="intro-section" style="background-image: url('images/hero_2.jpg');">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-7 mx-auto text-center" data-aos="fade-up">
+              <h1>Enjoy The Ocean With Your Family</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, in distinctio nostrum laborum sed quisquam voluptate facilis non.</p>
+              <p><a href="#" class="btn btn-primary py-3 px-5">Read More</a></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    <!-- </div> -->
+    <!-- END slider -->
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="images/water.jpg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <span class="text-serif text-primary">About Us</span>
+            <h3 class="heading-92913 text-black">What is Humanovators?</h3>
+           <p> Humanovators is an event dedicated to entrepreneurship for humanity, organized by IEEE ENSIT SIGHT and the IEEE ENSIT Student Branch. </p>
+            <p>This event will focus on water and its challenges, bringing together social startups and innovators to present sustainable solutions to water management issues.</p>
+            <p><a href="https://www.facebook.com/profile.php?id=61572889748272" class="btn btn-primary py-3 px-4">Learn More</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="service-29283">
+              <span class="custom-icon">
+                <i class="fas fa-lightbulb" style="margin-left:80px"></i> <!-- Alternative: <i class="fas fa-rocket"></i> -->
+              </span>
+              <h3>Entrepreneurial Innovation</h3>
+              <p>Turning bold ideas into sustainable startups that drive real-world impact.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="service-29283">
+              <span class="custom-icon">
+                <i class="fas fa-microchip" style="margin-left:80px"> </i> <!-- Alternative: <i class="fas fa-satellite-dish"></i> -->
+              </span>
+              <h3>Transformative Technologies</h3>
+              <p>Harnessing cutting-edge tech to create scalable and innovative solutions.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="service-29283">
+              <span class="custom-icon">
+                <i class="fas fa-hands-helping" style="margin-left:50px"></i> <!-- Alternative: <i class="fas fa-globe-americas"></i> -->
+              </span>
+              <h3>Humanitarian Impact</h3>
+              <p>Empowering communities through technology-driven solutions for a better tomorrow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+      .custom-icon i {
+        font-size: 40px; /* Adjust size if needed */
+        color: #007bff; /* Blue color */
+      }
+    </style>
+    
+    
+
+    <div class="site-section bg-image overlay" style="background-image: url('images/me.jpeg');">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="counter-39392">
+              <h3>Online Bootcamp</h3>
+              <span>March 23-26, 2025
+<br>
+                A preparatory phase equipping participants with
+                entrepreneurial skills and insights into sustainable
+                water technologies.</span>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div class="counter-39392">
+              <h3>Startup Booths</h3>
+              <span>Dedicated area showcasing innovative solutions
+                from startups and small businesses helping local
+                communities.</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="counter-39392">
+              <h3>Expert Talks & Panels</h3>
+              <span>Sessions featuring IEEE HTB, industry experts, and
+                NGO representatives discussing water scarcity
+                challenges and solutions.</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="counter-39392">
+              <h3>Ideathon & Pitching</h3>
+              <span>Develop and pitch practical, technology-driven
+                solutions for water challenges, with mentorship and
+                incubation support for winners.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center">
+            <span class="text-serif text-primary">Speakers</span>
+            <h3 class="heading-92913 text-black text-center">Our Speakers</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/adil.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>ADIL USMAN</h3>
+                <span class="position">R&D Tech Lead, Varroc Engineering Ltd., India</span>
+              <br>  <span class="position">Former Postdoc at NREL, USA and
+                  researcher at UC Santa Cruz</span>
+                  <br><span class="position">PhD in Electrical & Electronics
+                  Engineering from IIT India</span>
+                  <br> <span class="position">Senior IEEE Member, Board Member (IAS),
+                  Chair (HTB Outreach)</span>
+                  <br> <span class="position">Focus on electric drives,e-transport systems and humanitarian tech</span>
+                  <span class="position"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/ibrahim.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>IBRAHIM SARRAY                </h3>
+                <span class="position">Program Officer at INJAZ Tunisia -
+                  Managing youth empowerment and
+                  entrepreneurship programs   </span>
+                  <br><span class="position">Key Responsibilities: Coordinating
+                    activities, supporting participants, and
+                    executing initiatives</span>
+                  <br><span class="position">Focus: Developing leadership, business,
+                    and technical skills in youth</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/medali.jpeg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>MOHAMED EL AYARI</h3>
+                <span class="position">President of the National
+                  Disaster Response Team (NDRT)</span>
+                <BR>    <span class="position">First Aid Trainer</span>
+                  <BR>    <span class="position">Volunteer Engineer in the
+                    integrated IT/Telecom team of
+                    the NDRT</span>
+
+                </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/mootaz.png" style="height: 340px;" alt="Image" class="img-fluid">
+
+              </figure>
+              <div class="person-contents">
+                <h3>HARRAZI MOATAZ</h3>
+                <span class="position">Al & Robotics Researcher at RIFTSI Lab</span>
+                <br><span class="position">Expertise: Artificial Intelligence, Robotic
+                  Systems Engineering</span>
+                <br><span class="position">Background: Mechanical Engineering</span>
+                <br><span class="position">Industry Experience Automotive &
+                  Construction</span>
+                <br><span class="position">Versatile Professional with diverse technical
+                  skills</span>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/oussama.jpeg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>OUSSAMA AMDOUNI</h3>
+                <span class="position">Corporate Communication
+                  Specialist at Kromberg & Schubert</span>
+              <br><span class="position">volunteer CRT</span>
+              <br><span class="position">Passionate about communication
+                and CSR</span>
+              <br><span class="position">Led impactful CSR projects for
+                sustainable development in Tunisia</span>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/rachida.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+
+              </figure>
+              <div class="person-contents">
+                <h3>RACHIDA BEDIRA</h3>
+                <span class="position">Associate Professor, University of Tunis El Manar</span>
+                <br><span class="position">Ph.D. in Physics - University of Tunis El Manar.
+                  2006</span>
+                <br><span class="position">Expertise: Electronics, Antennas, Computational
+                  Electromagnetics</span>
+
+                <br><span class="position">Research: Smart Antennas, SIW Circuits,
+                  Metasurfaces</span>
+                <br><span class="position">IEEE Roles: Chair-elect MTT-S Tunisia (2025-
+                  2026), Event Organizer & Student Branch
+                  Coordinator</span>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/khaled.jpeg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>KHALED KHNISSI</h3>
+                <span class="position">PhD in Robotics & Al - Specializing in
+                  intelligent systems and automation</span>
+                <br><span class="position">Senior Member, IEEE (SMIEEE) - Recognized
+                  for contributions to engineering</span>
+                <br><span class="position">PMPï¿½ Certified Chief Project Engineer -
+                  Expert in managing tech projects</span>
+
+                <br><span class="position">NVIDIA DLI Ambassador - Promoting Al and
+                  deep learning education</span>
+                <br><span class="position">Assistant Professor - Teaching and
+                  research in robotics and Al fields</span>              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/amira.jpeg" style="height: 340px;" alt="Image" class="img-fluid">
+
+              </figure>
+              <div class="person-contents">
+                <h3>AMIRA OVERFELLI</h3>
+                <span class="position">Disaster Management Officer at the
+                  Tunisian Red Crescent (CRT), overseeing
+                  response coordination</span>
+                <br><span class="position">First Aid Trainer, conducting emergency
+                  preparedness sessions</span>
+                <br><span class="position">Operations Lead in the Emergency
+                  Response Department, managing rescue
+                  logistics</span>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/yassine.jpeg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>YASSINE REZGUI</h3>
+                <span class="position">Former printing technician with deep insight into
+                  water waste challenges in the industry.</span>
+                <br><span class="position">Founder of RYBSEN and creator of AquaClean, a
+                  patented system for recycling water in printing
+                  processes.</span>
+                <br><span class="position">Provider of workshops and training to promote
+                  sustainable practices in the printing sector.</span>              </div>
+                  <br><span class="position">Recognized internationally, with RYBSEN
+                    expanding operations to Algeria and Cï¿½te d'Ivoire.</span> 
+                </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center">
+            <span class="text-serif text-primary">Plan</span>
+            <h3 class="heading-92913 text-black text-center">Our Plan</h3>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-container">
+            <div class="timeline-item" >
+              <div class="timeline-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="timeline-content">
+                <h3>Opening Ceremony</h3>
+                <p class="time">9:00 to 9:30</p>
+              </div>
+            </div>
+        
+            <div class="timeline-item" style="margin-left:30px;">
+              <div class="timeline-icon" style="margin-left:40px;">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>SIGHT Benefits</h3>
+                <p class="time">10:00 to 10:15</p>
+              </div>
+            </div>
+        
+            <div class="timeline-item"style="margin-left:30px;">
+              <div class="timeline-icon"style="margin-left:40px;">
+                <i class="fas fa-comments"></i></div>
+              <div class="timeline-content">
+                <h3>Panel Discussion</h3>
+                <p class="time">10:15 to 11:00</p>
+              </div>
+            </div>
+            <div class="timeline-item"style="margin-left:30px; "></div>
+        
+            <div class="timeline-item" style="margin-left:30px;">
+              <div class="timeline-icon" style="margin-left:40px;"><i class="fas fa-users"></i></div>
+              <div class="timeline-content">
+                <h3>Round Table</h3>
+                <p class="time">11:00 to 11:45</p>
+              </div>
+            </div>
+        
+            <div class="timeline-item" style="margin-left:30px;">
+              <div class="timeline-icon" style="margin-left:40px;"><i class="fas fa-network-wired"></i></div>
+              <div class="timeline-content">
+                <h3>Booths and Networking</h3>
+                <p class="time">11:45 to 12:30</p>
+              </div>
+            </div>
+        
+            <div class="timeline-item" style="margin-left:30px;">
+              <div class="timeline-icon" style="margin-left:40px;"><i class="fas fa-utensils"></i></div>
+              <div class="timeline-content">
+                <h3>Lunch Break</h3>
+                <p class="time">12:30 to 13:15</p>
+              </div>
+            </div>
+            <div class="timeline-item"style="margin-left:30px; "></div>
+            <div class="timeline-item" style="margin-left:30px;">
+              <div class="timeline-icon" style="margin-left:40px;"><i class="fas fa-microphone"></i></div>
+              <div class="timeline-content">
+                <h3>Ideathon Pitching & Workshop</h3>
+                <p class="time">13:15 to 16:30</p>
+              </div>
+            </div>
+        
+            <div class="timeline-item" style="margin-left:30px;">
+              <div class="timeline-icon" style="margin-left:40px;"><i class="fas fa-award"></i></div>
+              <div class="timeline-content">
+                <h3>Closing Ceremony & Winners Announcement</h3>
+                <p class="time">17:00 to 17:30</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- FontAwesome Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        
+        <style>
+          .timeline {
+            display: flex;
+            justify-content: center;
+            padding: 50px 0;
+            background: url('./images/mee.avif') no-repeat center center;
+            background-size: cover;
+          }
+        
+          .timeline-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            position: relative;
+          }
+        
+          .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            position: relative;
+          }
+        
+          .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: #0D6EFD;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border-radius: 50%;
+            margin-right: 15px;
+          }
+        
+          .timeline-content {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+          }
+        
+          .timeline-content h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+          }
+        
+          .time {
+            color: #DC3545;
+            font-weight: bold;
+          }
+        
+          /* Line connecting the items */
+          .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background: #0D6EFD;
+            top: 50%;
+            left: -50px;
+          }
+        
+          .timeline-item:first-child::before {
+            display: none;
+          }
+
+
+          /* Sponsors Section Styles */
+    .sponsors-section {
+      padding: 50px 0;
+      background: #f8f9fa; /* Light background to distinguish the section */
+    }
+
+    .sponsor-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .sponsor-item {
+      flex: 1 1 150px; /* Flexible width, minimum 150px */
+      max-width: 200px; /* Maximum width for larger logos */
+      text-align: center;
+    }
+
+    .sponsor-item img {
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .sponsor-item img:hover {
+      transform: scale(1.1); /* Slight zoom effect on hover */
+    }
+        </style>
+        
+
+
+
+
+      </div>
+    </div>
+
+    <!-- <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <p><img src="images/hero_1.jpg" alt="Image" class="img-fluid"></p>
+          </div>
+          <div class="col-md-5">
+            <span class="text-serif text-primary">Book Now</span>
+            <h3 class="heading-92913 text-black">Book A Yacht</h3>
+            <form action="#" class="row">
+              <div class="form-group col-md-6">
+                <label for="input-1">Full Name:</label>
+                <input type="text" class="form-control" id="input-1">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="input-2">Number of People:</label>
+                <input type="text" class="form-control" id="input-2">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="input-3">Date From:</label>
+                <input type="text" class="form-control datepicker" id="input-3">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="input-4">Date To:</label>
+                <input type="text" class="form-control datepicker" id="input-4">
+              </div>
+
+              <div class="form-group col-md-12">
+                <label for="input-5">Yacht You're Interested in:</label>
+                <select name="" id="input-5" class="form-control">
+                  <option value="">Motor Yacht</option>
+                  <option value="">Hi-Speed Yacht</option>
+                  <option value="">Premium Yacht</option>
+                  <option value="">Presidential Yacht</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="input-6">Email Address</label>
+                <input type="text" class="form-control" id="input-6">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="input-7">Phone Number</label>
+                <input type="text" class="form-control" id="input-7">
+              </div>
+
+
+              
+              <div class="form-group col-md-12">
+                <label for="input-8">Notes</label>
+                <textarea name="" id="input-8" cols="30" rows="5" class="form-control"></textarea>
+              </div>
+
+              <div class="form-group col-md-12">
+                <input type="submit" class="btn btn-primary py-3 px-5" value="Book Now">
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center">
+            <span class="text-serif text-primary">Team</span>
+            <h3 class="heading-92913 text-black text-center">Our Team</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/baha.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>Baha Eddine Hammou</h3>
+                <span class="position">Event Chair</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/fatmah.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>Fatma Haouas                </h3>
+                <span class="position">Event Co-Chair   </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/ahlem.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>Ahlem Ben Ali</h3>
+                <span class="position">Media Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/mariam.png" style="height: 340px;" alt="Image" class="img-fluid">
+
+              </figure>
+              <div class="person-contents">
+                <h3>Mariem Ben Yahya ouinich</h3>
+                <span class="position">Media Co-manager</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/aziz.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>Aziz Barhoumi</h3>
+                <span class="position">Sponsoring Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/inoubli.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+
+              </figure>
+              <div class="person-contents">
+                <h3>Mohamed Amine Elyanoubli</h3>
+                <span class="position">Treasury manager</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/khalaf.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>Med Khalaf Nakbi</h3>
+                <span class="position">Event Webmaster</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/fatmahamz.jpeg" style="height: 340px;" alt="Image" class="img-fluid">
+
+              </figure>
+              <div class="person-contents">
+                <h3>Fatma Hamzaoui</h3>
+                <span class="position">Logistics Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/maram1.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>Maram Belgharat</h3>
+                <span class="position">Communication Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/yassmine.jpeg" style="height: 340px;" alt="Image" class="img-fluid">
+
+              </figure>
+              <div class="person-contents">
+                <h3>Yessmine ELhorry</h3>
+                <span class="position">External relations manager</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-lg-0">
+            <div class="person">
+              <figure>
+                <img src="images/hajer.jpg" style="height: 340px;" alt="Image" class="img-fluid">
+              </figure>
+              <div class="person-contents">
+                <h3>Hejer Tellili</h3>
+                <span class="position">Ambassadors coordinator</span>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+
+<!-- Sponsors Section -->
+<div class="sponsors-section" style="background-color: white;">
+  <div class="row justify-content-center mb-5">
+    <div class="col-md-7 text-center">
+      <span class="text-serif text-primary">Sponsors & Partners</span>
+      <h3 class="heading-92913 text-black text-center">Our Sponsors and Partners</h3>
+    </div>
+  </div>
+  <div class="sponsor-logos">
+    <div class="sponsor-item"style="margin-top:30px;">
+      <img src="./images/talys.png" alt="talys">
+    </div>
+    <div class="sponsor-item">
+      <img src="./images/reseau.jpg" alt="reseau">
+    </div>
+    <div class="sponsor-item" style="margin-top:20px;">
+      <img src="./images/aps.png" alt="aps">
+    </div>
+    <div class="sponsor-item" style="margin-top:-10px;">
+      <img src="./images/agence.jpg" alt="Sponsor 4 Logo">
+    </div>
+    <div class="sponsor-item"style="margin-top:20px;">
+      <img src="./images/human.jpeg" alt="Sponsor 4 Logo">
+    </div>
+    <div class="sponsor-item">
+      <img src="./images/ensit-removebg-preview.png" alt="Sponsor 4 Logo">
+    </div>
+    <div class="sponsor-item">
+      <img src="./images/4c-removebg-preview.png" alt="Sponsor 4 Logo">
+    </div>
+    <div class="sponsor-item" style="margin-top:80px;">
+      <img src="./images/odc.png" alt="Sponsor 4 Logo">
+    </div>
+    <div class="sponsor-item" style="margin-top:30px;">
+      <img src="./images/ieee-removebg-preview.png" alt="Sponsor 4 Logo">
+    </div>
+    <div class="sponsor-item">
+      <img src="./images/sighttn.png" alt="Sponsor 4 Logo">
+    </div>
+    <div class="sponsor-item"style="height:150px">
+      <img src="./images/injaz.jpg" alt="Sponsor 4 Logo">
+    </div>
+  </div>
+</div>
+
+
+    <div class="site-section bg-image overlay" style="background-image: url('images/kes.webp');">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7 text-center">
+            <h2 class="text-white">Get In Touch With Us</h2>
+            <p class="mb-0"><a href="https://www.facebook.com/profile.php?id=61572889748272" class="btn btn-warning py-3 px-5 text-white">Contact Us</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- <div class="footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <p class="mb-4"><img src="images/logo1.png" alt="Image" class="img-fluid"></p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>  
+            <p><a href="#">Learn More</a></p>
+          </div>
+          <div class="col-lg-3">
+            <h3 class="footer-heading"><span>Our Company</span></h3>
+            <ul class="list-unstyled">
+                <li><a href="#">About</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Projects</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+              <h3 class="footer-heading"><span>Our Services</span></h3>
+              <ul class="list-unstyled">
+                  <li><a href="#">Industrial</a></li>
+                  <li><a href="#">Construction</a></li>
+                  <li><a href="#">Remodeling</a></li>
+              </ul>
+          </div>
+          <div class="col-lg-3">
+              <h3 class="footer-heading"><span>Contact</span></h3>
+              <ul class="list-unstyled">
+                  <li><a href="#">Help Center</a></li>
+                  <li><a href="#">Support Community</a></li>
+                  <li><a href="#">Press</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Our Partners</a></li>
+              </ul>
+          </div>
+        </div> -->
+<!-- 
+      </div>
+    </div>
+     -->
+
+  <!-- </div> -->
+
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-6 col-lg-3">
+        <a href="index.html">
+          <img src="images/logo1.png" alt="Image" style='width:100px; height:100px;'class="img-fluid">
+          <!-- <strong>Water</strong>Boat -->
+        </a>
+      </div>
+      <div class="col-lg-3 d-none d-lg-block">
+
+        <div class="quick-contact-icons d-flex">
+          <div class="icon align-self-start">
+            <span class="icon-location-arrow text-primary"></span>
+          </div>
+          <div class="text">
+            <span class="h4 d-block">ENSIT</span>
+            <span class="caption-text">Beb Alouia, Mentfleurie</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-3 d-none d-lg-block">
+        <div class="quick-contact-icons d-flex">
+          <div class="icon align-self-start">
+            <span class="icon-phone text-primary"></span>
+          </div>
+          <div class="text">
+            <span class="h4 d-block">00216 54 076 508
+            </span>
+            <span class="caption-text">Phone number</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 d-none d-lg-block">
+        <div class="quick-contact-icons d-flex">
+          <div class="icon align-self-start">
+            <span class="icon-envelope text-primary"></span>
+          </div>
+          <div class="text">
+            <span class="h4 d-block">bahaeddienhammou@ieee.org</span>
+            <span class="caption-text">Email</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 d-block d-lg-none text-right">
+          <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
+            class="icon-menu h3"></span></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- .site-wrap -->
+                            <!-- Footer Start -->
+    <div class="container-fluid footer mt-1 py-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: var(--sight);">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <img src="../../logo_sight_white.png" width="200" alt="logo sb ieee" class="mb-3"/>
+                    <p>
+                        Join IEEE Sight Ensit - Empowering Tech Enthusiasts Since 2021. Boost Your Career & Skills Now!
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>05 Ave Taha Hussein, Tunis 1008 ÃƒÂ  l'ENSIT</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+216 51 907 825</p>
+                    <div class="d-flex pt-3">
+                        <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.instagram.com/ieee.ensit.cs/" aria-label="Twitter">
+                            <i class="fab fa-instagram icon-color"></i>
+                        </a>
+                        <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100081856069185" aria-label="facebook">
+                            <i class="fab fa-facebook-f icon-color"></i>
+                        </a>
+                        <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.youtube.com/@ieeeensit2837" aria-label="youtube">
+                            <i class="fab fa-youtube icon-color"></i>
+                        </a>
+                        <a class="btn btn-square btn-light rounded-circle me-2" href="https://www.linkedin.com/company/ieee-ensit-student-branch/mycompany/" aria-label="linkedin">
+                            <i class="fab fa-linkedin-in icon-color"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="row">
+                        <h4 class="text-white mb-4">Quick Links</h4>
+                        <div class="col-6">
+                            <a class="btn btn-link" href="../../../../index.html#aboutUSindex">About Us</a>
+                            <a class="btn btn-link" href="../../../../contact.html">Contact Us</a>
+                            <a class="btn btn-link" href="../../../../gallery.php">Gallery</a>
+                            <a class="btn btn-link" href="../../../../index.html#teamindex">Team</a>
+                            <a class="btn btn-link" href="../../../../index.html#unitIndex">Unit</a>
+                        </div>
+                        <div class="col-6">
+                            <a class="btn btn-link" href="../../../../index.html#">SB</a>
+                            <a class="btn btn-link" href="../../../../unit/cs/cs.html">CS</a>
+                            <a class="btn btn-link" href="../../../../unit/ras/ras.html">RAS</a>
+                            <a class="btn btn-link" href="../../../../unit/aess/aess.html">AESS</a>
+                            <a class="btn btn-link" href="../../../../unit/IASxPES/iasxpes.html">IASxPES</a>
+                            <a class="btn btn-link" href="../../../../unit/wie/wie.php">WIE</a>
+                            <a class="btn btn-link" href="../../../../unit/sight/sight.html">SIGHT</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Localisation</h4>
+                        <iframe src="https://maps.google.com/maps?q=ENSIT%20Tunis&t=&z=15&ie=UTF8&iwloc=&output=embed" width="300" height="200" style="border:0; background:#fff;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+  <!-- loader -->
+  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/jquery.mb.YTPlayer.min.js"></script>
+
+
+
+
+  <script src="js/main.js"></script>
+
+
+    <script>
+        function setTheme(theme) {
+            if (theme === 'light') {
+                document.body.classList.add('light-mode');
+            } else {
+                document.body.classList.remove('light-mode');
+            }
+            localStorage.setItem('theme', theme);
+            updateThemeIcon(theme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = document.getElementById('theme-icon');
+            if (!icon) return;
+            icon.className = theme === 'light' ? 'bi bi-sun' : 'bi bi-moon-stars';
+        }
+
+        function toggleTheme() {
+            const isLight = document.body.classList.contains('light-mode');
+            setTheme(isLight ? 'dark' : 'light');
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme);
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
