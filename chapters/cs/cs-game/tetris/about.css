@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h2 {
+    color:rgb(134, 184, 244);
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-family:Arial, Helvetica, sans-serif; 
+    font-size:14px;
+    font-weight:bold;
+}
+
+p {
+    text-indent: 50px;
+    margin-bottom: 20px;
+    font-size:23px;
+}
+b{
+    color:rgb(114, 155, 250);
+}
+.about{
+    background-color:white;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    
+    
+    position: relative;
+    align-self: center;
+}
+#myVideo {
+    position: fixed;
+    align-content: center;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+div#vide1 {
+    float: left;
+    width: 20%;}
+
+div#content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: left;
+    padding: 50px;
+    width: 50%;
+    float: left;
+    background-color: rgba(22, 42, 65, 0.7);
+}
+div#vide2 {
+    float: right;
+    width: 20%;}
+    
+

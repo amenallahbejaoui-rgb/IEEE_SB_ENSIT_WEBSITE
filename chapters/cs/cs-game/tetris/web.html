@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TETRIS </title>
+    <link rel="icon" href="tetris-logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body style="text-align: center;">
+    <video autoplay muted loop id="myVideo">
+      <source src="tetris.mp4" type="video/mp4">
+    </video>
+    <img src="tetris-logo.png" width=70% id="tetris-logo" >
+    <div id="center">
+      <div id="tetris">
+        
+      <div id="info">
+        <div id="next_shape"></div>
+        <p id="level">Level: <span></span></p>
+        <p id="lines">Lines: <span></span></p>
+        <p id="score">Score: <span></span></p>
+        <p id="time">Time: <span></span></p>
+        <button id="start">Start</button>
+        <p class="red">Press the Esc button to pause<span></span></p>
+        <img id="leaveGameBtn" src="exit.png" width="40px" height="42px">
+        <img id="stopAudioBtn" src="audio.jpg" width="40px"  height="42px">
+      </div>
+      <div id="canvas"></div>
+      <div id="customAlert" class="hidden">
+        <div class="customAlertContent">
+          <h1>Are you sure !</h1>
+          <p>Do you want to quit the game ?</p>
+          <button id="leave" onclick="confirmQuit()">Yes</button>
+          <button id="leave" onclick="hideCustomAlert()">NO</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </div>
+</body>
+</html>

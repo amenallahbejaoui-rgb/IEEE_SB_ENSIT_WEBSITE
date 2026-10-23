@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+   
+}
+.imag {
+    width: 70px; 
+    height: auto;
+    background-color: #fff;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+.imag:hover {
+    transform: scale(1.1);
+  }
+
+#myVideo {
+    position: fixed;
+    align-content: center;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+div#vide1 {
+    float: left;
+    width: 20%;}
+
+div#content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: left;
+    padding: 50px;
+    width: 50%;
+    float: left;
+    background-color: rgba(22, 42, 65, 0.5);
+}
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+div#vide2 {
+    float: right;
+    width: 20%;}
+    
+

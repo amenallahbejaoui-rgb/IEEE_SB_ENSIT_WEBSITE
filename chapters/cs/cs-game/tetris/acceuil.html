@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style1.css" />
+    <title>Acceuil</title>
+</head>
+<body>
+    <video autoplay muted id="myVideo">
+        <source src="Neon Pixels Opener Preview 81672156_1703509978848.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        document.getElementById('myVideo').addEventListener('ended', function(e) {
+            window.location.href = 'pr.html';  
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaloozaFlip</title>
+    <link href="./assets/main.css" rel="stylesheet">
+</head>
+<body onload="init()">
+<h1 style="font-size: 40px;"> PaloozaFlip</h1>
+<h2 id="level">-SELECT-</h2>
+<div style="display: none;" id="cards">
+</div>
+<div class="menu" style="display: none;justify-content: center;width: 100%; margin-top: 30px;" id="menu">
+    <span id="time">
+        Time:60
+    </span>
+    <span id="score">
+        Score:000000
+    </span>
+   
+</div>
+<div style="display: none;justify-content: center;width: 100%; margin-top: 30px;" class="menu1v1" id="menu1v1">
+    <span class="s1v1"  id="p1">
+        P1:000
+    </span>
+    <span  id="p2">
+        P2:000
+    </span>
+    <span onclick="skip()" style="cursor: pointer;" id="skip">
+        Skip
+    </span>
+</div>
+
+<ul id="submenu">
+    <li onclick="startmodal()"><a class="arrow">Solo</a></li>
+    <li onclick="start1v1()"><a class="arrow">1v1</a></li>
+    <li onclick="stat()"><a class="arrow">Stats</a></li>
+    <li onclick="settings()"><a class="arrow">Settings</a></li>
+    <li onclick="about()"><a class="arrow">About</a></li>
+ 
+  </ul>
+<div class="modal" id="playername">
+    <div class="content">
+        <input type="text" id="name" value="" class="input" placeholder="Enter your name for record"/>
+        <ul>
+            <li onclick="gamestart()"><a class="narrow">Start</a></li>
+            <li  onclick="hidestart()"><a class="narrow">Quite</a></li>
+          </ul>
+    </div>
+</div>
+<div class="modal" id="settings">
+    <div class="content" style="top: 20%;">
+        <span>Time :</span>
+        <select class="input" id="selectime">
+            <option>
+                60
+            </option>
+            <option>
+                90
+            </option>
+            <option>120</option>
+        </select>
+        <span>1v1 number of cards :</span>
+        <select class="input" id="selectcard">
+            <option>
+                18
+            </option>
+            <option>
+                22
+            </option>
+            <option>26</option>
+        </select>
+        <ul>
+            <li onclick="confsettings()"><a class="narrow">Confirm</a></li>
+            <li  onclick="hidesettings()"><a class="narrow">Quite</a></li>
+          </ul>
+    </div>
+</div>
+<div class="modal" id="finscreen">
+    <div class="content" style="top: 20%;">
+        <h1 id="pname"></h1>
+            <h1 id="flevel"></h1>
+
+            <span id="fscore">
+            </span>
+            <span id="hs"></span>
+            <ul>
+                <li onclick="fend()"><a class="narrow">Continue</a></li>
+              </ul>
+        </div>
+</div>
+<div class="modal" id="finscreen1v1">
+    <div class="content" style="top: 20%;">
+        <h1>GG</h1>
+        <span id="result">
+        </span>
+            <span id="winner">
+            </span>
+
+            <span id="commnet"></span>
+            <ul>
+                <li  onclick="hidefin1v1()"><a class="narrow">Continue</a></li>
+              </ul>
+        </div>
+
+</div>
+<div class="modal" id="stats">
+    <div class="content" style="top: 20%;">
+        <h1>Stats</h1>
+            <h1 id="flevel"></h1>
+<table>
+    <th>
+        <td>PLAYER</td>
+        <td>SCORE</td>
+    </th>
+    <tbody id="tstats">
+
+    </tbody>
+</table>
+            <ul>
+                <li  onclick="hidestat()"><a class="narrow">Continue</a></li>
+              </ul>
+        </div>
+
+</div>
+<div class="modal" id="stats">
+    <div class="content" style="top: 20%;">
+        <h1>Stats</h1>
+            <h1 id="flevel"></h1>
+<table>
+    <th>
+        <td>PLAYER</td>
+        <td>SCORE</td>
+    </th>
+    <tbody id="tstats">
+
+    </tbody>
+</table>
+            <ul>
+                <li  onclick="hidestat()"><a class="narrow">Continue</a></li>
+              </ul>
+        </div>
+
+</div>
+<div class="modal" id="about">
+    <div class="content" style="top: 20%;">
+        <h1>About USs</h1>
+        Welcome to PaloozaFlip, where your memory gets tested—and probably fails. Think you’re smart enough to pair up these cards? Let’s see how long that confidence lasts. Flip, match, repeat… until your brain begs for mercy.
+
+        It starts out innocent: a couple of matches, a smile on your face. But soon enough, you’ll be staring into the abyss of mismatched pairs, questioning your life choices, wondering how something so simple could unravel your sanity. You’ll think you’ve seen that card before. But have you? Or is it just your mind playing tricks?
+        
+        Play alone in silence, as the cards taunt you with their perfect flips and your imperfect memory. Challenge a friend, but know this—victory comes at a price. Because in Match-a-Palooza, nobody leaves with their dignity intact.
+<br>
+©1984 tuntoon youssyphus
+                <li  onclick="hideabout()"><a class="narrow">Continue</a></li>
+              </ul>
+        </div>
+
+</div>
+<canvas></canvas>
+
+<script src="./src/script.js" ></script>
+</body>
+</html>

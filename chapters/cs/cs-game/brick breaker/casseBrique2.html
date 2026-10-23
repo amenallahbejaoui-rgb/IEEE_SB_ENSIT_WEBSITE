@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casse Brique Game</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: #222;
+        }
+        #game-ui {
+            text-align: center;
+            margin: 20px;
+        }
+        #lives-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .life {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #f00;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        #score-display {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+            color: #fff;
+        }
+        #bonus-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-align: left;
+            font-size: 14px;
+            background-color: #222;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+        }
+        #bonus-info div {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        #bonus-info span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-ui">
+        <h1>Casse Brique</h1>
+        <p>Player: <input type="text" id="player-name" placeholder="Enter your name" /></p>
+        <button id="start-button">Start Game</button>
+    </div>
+    <div id="lives-container"></div>
+    <div id="score-display">Score: <span id="score">0</span></div>
+    <div id="bonus-info">
+        <h3>BONUS (rectangles)</h3>
+        <div><span style="background-color: red;"></span>vie supplementaire</div>
+        <div><span style="background-color: green;"></span>double largeur de la paddle</div>
+        <div><span style="background-color: purple;"></span>mur dans la terre</div>
+        <div><span style="background-color: grey;"></span>ball de feu</div>
+        <div><span style="background-color: pink;"></span>paddle collante</div>
+        <div><span style="background-color: white;"></span>ball lente</div>
+        <div><span style="background-color: brown;"></span>triple ball</div>
+        <h3>MALUS (cercles)</h3>
+        <div><span style="background-color: red;"></span>diminuer une vie</div>
+        <div><span style="background-color: green;"></span>moitier de largeur de la paddle</div>
+        <div><span style="background-color: blue;"></span>paddle immobile</div>
+        <div><span style="background-color: grey;"></span>brique solide</div>
+        <div><span style="background-color: white;"></span>ball rapide</div>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <script >
+    const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+let paddleWidth = 130;
+const paddleHeight = 15;
+const ballRadius = 10;
+
+let paddleX = (canvas.width - paddleWidth) / 2;
+let balls = [{ x: canvas.width / 2, y: canvas.height / 2, dx: 0, dy: 4 }];
+const baseBallSpeed = 4;
+let ballSpeed = baseBallSpeed;
+
+let rightPressed = false;
+let leftPressed = false;
+
+const bricks = [];
+const brickRowCount = 5;
+const brickColumnCount = 8;
+const brickWidth = 75;
+const brickHeight = 20;
+const brickPadding = 10;
+const brickOffsetTop = 30;
+const brickOffsetLeft = 30;
+
+const bonuses = [];
+let fireBallActive = false;
+let stickyPaddleActive = false;
+let slowBallActive = false;
+let fireBallTimer = null;
+let stickyPaddleTimer = null;
+let slowBallTimer = null;
+
+for (let c = 0; c < brickColumnCount; c++) {
+    bricks[c] = [];
+    for (let r = 0; r < brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0, status: 1 };
+    }
+}
+
+let score = 0;
+let lives = 3;
+let wallActive = false;
+let wallTimer = null;
+let paddleTimer = null;
+
+function drawBall(ball) {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ballRadius, 0, Math.PI * 2);
+    ctx.fillStyle = 'yellow';
+    ctx.fill();
+    ctx.closePath();
+}
+
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = paddleFixed ? 'red' : 'blue'; 
+    ctx.fill();
+    ctx.closePath();
+}
+
+function drawBricks() {
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            const brick = bricks[c][r];
+            if (brick.status === 1) {
+                const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+                const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+                brick.x = brickX;
+                brick.y = brickY;
+
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                ctx.fillStyle = brick.hitCount ? brick.originalColor : 'orange';
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
+
+
+function drawBonuses() {
+    bonuses.forEach((bonus, index) => {
+        if (bonus.active) {
+            ctx.beginPath();
+            if (bonus.isMalus) {
+                ctx.arc(bonus.x + 10, bonus.y + 10, 10, 0, Math.PI * 2);
+            } else {
+                ctx.rect(bonus.x, bonus.y, 20, 20); 
+            }
+            ctx.fillStyle = bonus.color;
+            ctx.fill();
+            ctx.closePath();
+            bonus.y += ballSpeed * 1.5;
+
+            if (bonus.y > canvas.height) {
+                bonuses.splice(index, 1);
+            }
+
+            if (
+                bonus.y + 20 > canvas.height - paddleHeight &&
+                bonus.x > paddleX &&
+                bonus.x < paddleX + paddleWidth
+            ) {
+                bonuses.splice(index, 1);
+                if (bonus.isMalus) {
+                    activateMalus(bonus.type);
+                } else {
+                    activateBonus(bonus.type);
+                }
+            }
+        }
+    });
+}
+
+let paddleFixed = false; 
+
+function activateMalus(type) {
+    if (type === 'speed') {
+        ballSpeed *= 2;
+        setTimeout(() => {
+            ballSpeed = baseBallSpeed;
+        }, 8000);
+    } else if (type === 'life') {
+        lives--;
+        updateLivesDisplay();
+        if (lives <= 0) {
+            alert('Game Over!');
+            document.location.reload();
+        }
+    } else if (type === 'shrink') {
+        paddleWidth /= 2;
+        setTimeout(() => {
+            paddleWidth *= 2;
+        }, 8000);
+    } else if (type === 'tough') {
+        makeRandomBrickTough();
+    } else if (type === 'fixed') {
+        paddleFixed = true;
+        setTimeout(() => {
+            paddleFixed = false;
+        }, 10000); 
+    }
+}
+
+function makeRandomBrickTough() {
+    const availableBricks = [];
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            if (bricks[c][r].status === 1) {
+                availableBricks.push(bricks[c][r]);
+            }
+        }
+    }
+
+    if (availableBricks.length > 0) {
+        const toughBrick = availableBricks[Math.floor(Math.random() * availableBricks.length)];
+        toughBrick.hitCount = 5;
+        toughBrick.originalColor = 'grey'; 
+    }
+}
+
+
+function collisionDetection() {
+    for (let c = 0; c < brickColumnCount; c++) {
+        for (let r = 0; r < brickRowCount; r++) {
+            const brick = bricks[c][r];
+            if (brick.status === 1) {
+                balls.forEach((ball) => {
+                    if (
+                        ball.x + ballRadius > brick.x &&
+                        ball.x - ballRadius < brick.x + brickWidth &&
+                        ball.y + ballRadius > brick.y &&
+                        ball.y - ballRadius < brick.y + brickHeight
+                    ) {
+                        if (!fireBallActive) {
+                            ball.dy = -ball.dy;
+                        }
+
+                        if (brick.hitCount) {
+                            brick.hitCount--;
+                            const intensity = Math.min(255, 50 + (5 - brick.hitCount) * 40); 
+                            brick.originalColor = `rgb(${intensity}, ${intensity}, ${intensity})`;
+
+                            if (brick.hitCount === 0) {
+                                brick.status = 0;
+                                score++;
+                                document.getElementById('score').innerText = score;
+                            }
+                        } else {
+                            brick.status = 0;
+                            score++;
+                            document.getElementById('score').innerText = score;
+                        }
+
+                        if (Math.random() < 0.7) {
+                            if (Math.random() < 0.6) {
+                                spawnBonus(brick.x + brickWidth / 2, brick.y + brickHeight / 2);
+                            } else {
+                                spawnMalus(brick.x + brickWidth / 2, brick.y + brickHeight / 2);
+                            }
+                        }
+
+                        if (score === brickRowCount * brickColumnCount) {
+                            alert('You win!');
+                            document.location.reload();
+                        }
+                    }
+                });
+            }
+        }
+    }
+}
+
+
+function spawnBonus(x, y) {
+    const types = [
+        { color: 'green', type: 'paddle' },
+        { color: 'purple', type: 'wall' },
+        { color: 'red', type: 'life' },
+        { color: 'grey', type: 'fireball' },
+        { color: 'pink', type: 'sticky' },
+        { color: 'white', type: 'slow' },
+        { color: 'brown', type: 'triple' },
+    ];
+    const bonusType = types[Math.floor(Math.random() * types.length)];
+    bonuses.push({ x: x - 10, y: y - 10, color: bonusType.color, type: bonusType.type, active: true });
+}
+
+const malusTypes = [
+    { color: 'white', type: 'speed' },  
+    { color: 'red', type: 'life' },    
+    { color: 'green', type: 'shrink' },
+    { color: 'grey', type: 'tough' },
+    { color: 'blue', type: 'fixed' },   
+];
+
+
+function spawnMalus(x, y) {
+    const malusType = malusTypes[Math.floor(Math.random() * malusTypes.length)];
+    bonuses.push({ 
+        x: x - 10, 
+        y: y - 10, 
+        color: malusType.color, 
+        type: malusType.type, 
+        active: true, 
+        isMalus: true 
+    });
+}
+
+
+
+function activateBonus(type) {
+    if (type === 'paddle') {
+        paddleWidth *= 2;
+        clearTimeout(paddleTimer);
+        paddleTimer = setTimeout(() => {
+            paddleWidth /= 2;
+        }, 8000);
+    } else if (type === 'wall') {
+        wallActive = true;
+        clearTimeout(wallTimer);
+        wallTimer = setTimeout(() => {
+            wallActive = false;
+        }, 8000);
+    } else if (type === 'life') {
+        lives++;
+        updateLivesDisplay();
+    } else if (type === 'fireball') {
+        fireBallActive = true;
+        clearTimeout(fireBallTimer);
+        fireBallTimer = setTimeout(() => {
+            fireBallActive = false;
+        }, 8000);
+    } else if (type === 'sticky') {
+        stickyPaddleActive = true;
+        clearTimeout(stickyPaddleTimer);
+        stickyPaddleTimer = setTimeout(() => {
+            stickyPaddleActive = false;
+        }, 8000);
+    } else if (type === 'slow') {
+        ballSpeed *= 0.75;
+        clearTimeout(slowBallTimer);
+        slowBallTimer = setTimeout(() => {
+            ballSpeed = baseBallSpeed;
+        }, 8000);
+    } else if (type === 'triple') {
+        const newBalls = balls.map((ball) => [
+            { ...ball, dx: ball.dx + 2 },
+            { ...ball, dx: ball.dx - 2 },
+        ]).flat();
+        balls.push(...newBalls);
+    }
+}
+
+function drawWall() {
+    if (wallActive) {
+        ctx.beginPath();
+        ctx.rect(0, canvas.height - 10, canvas.width, 10);
+        ctx.fillStyle = 'purple';
+        ctx.fill();
+        ctx.closePath();
+    }
+}
+
+function updateLivesDisplay() {
+    const livesContainer = document.getElementById('lives-container');
+    livesContainer.innerHTML = '';
+    for (let i = 0; i < lives; i++) {
+        const life = document.createElement('div');
+        life.classList.add('life');
+        livesContainer.appendChild(life);
+    }
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    balls.forEach(drawBall);
+    drawPaddle();
+    drawBonuses();
+    drawWall();
+    collisionDetection();
+
+    balls.forEach((ball, index) => {
+        if (ball.x + ball.dx > canvas.width - ballRadius || ball.x + ball.dx < ballRadius) {
+            ball.dx = -ball.dx;
+        }
+        if (ball.y + ball.dy < ballRadius) {
+            ball.dy = -ball.dy;
+        } else if (ball.y + ball.dy > canvas.height - ballRadius) {
+            if (wallActive || (ball.x > paddleX && ball.x < paddleX + paddleWidth)) {
+                ball.dy = -Math.abs(ball.dy);
+
+                if (stickyPaddleActive) {
+                    ball.dx = 0;
+                    ball.dy = 0;
+                    setTimeout(() => {
+                        ball.dy = ballSpeed;
+                    }, 500);
+                }
+
+                if (!wallActive) {
+                    const hitPoint = (ball.x - (paddleX + paddleWidth / 2)) / (paddleWidth / 2);
+                    ball.dx = hitPoint * ballSpeed;
+                }
+            } else {
+                balls.splice(index, 1);
+                if (balls.length === 0) {
+                    lives--;
+                    updateLivesDisplay();
+                    if (!lives) {
+                        alert('Game Over!');
+                        document.location.reload();
+                    } else {
+                        balls.push({ x: canvas.width / 2, y: canvas.height / 2, dx: 0, dy: ballSpeed });
+                    }
+                }
+            }
+        }
+
+        ball.x += ball.dx;
+        ball.y += ball.dy;
+    });
+    if (!paddleFixed) {
+    if (rightPressed && paddleX < canvas.width - paddleWidth) {
+        paddleX += 7;
+    } else if (leftPressed && paddleX > 0) {
+        paddleX -= 7;
+    }}
+
+    requestAnimationFrame(draw);
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Right' || e.key === 'ArrowRight') {
+        rightPressed = true;
+    } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+        leftPressed = true;
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.key === 'Right' || e.key === 'ArrowRight') {
+        rightPressed = false;
+    } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+        leftPressed = false;
+    }
+});
+
+document.getElementById('start-button').addEventListener('click', () => {
+    const playerName = document.getElementById('player-name').value;
+    if (playerName.trim() === '') {
+        alert('Please enter your name.');
+    } else {
+        document.getElementById('game-ui').style.display = 'none';
+        updateLivesDisplay();
+        draw();
+    }
+});
+
+    </script>
+</body>
+</html>

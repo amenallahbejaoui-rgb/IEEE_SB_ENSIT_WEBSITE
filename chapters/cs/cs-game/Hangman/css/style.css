@@ -1,0 +1,219 @@
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/background/2.png');
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    flex-direction: column;
+}
+.game-container h1 {
+    font-family: paint !important;
+    color: var(--main-color);
+    font-size: 50px;
+    text-shadow:
+    0 0 4px var(--texte-color),
+    0 0 11px var(--texte-color),
+    0 0 19px var(--texte-color),
+    0 0 40px var(--main-color),
+    0 0 80px var(--main-color),
+    0 0 90px var(--main-color),
+    0 0 100px var(--main-color),
+    0 0 150px var(--main-color); 
+}
+
+.container.game {
+    text-align: center;
+    width: 100%;
+}
+
+.hangman-keyboard {
+    display: grid;
+    grid-template-columns: 60% 18%;
+    gap: 5%;
+    justify-content: center;
+    align-content: center;
+}
+.game-container .logo{
+    display: flex;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+}
+
+.game-container .logo img{
+    width: 100px !important;
+    height: 70px;
+}
+
+#game {
+    margin-top: 10px;
+}
+
+#score, #level {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+#wordDisplay {
+    font-size: 3em;
+    margin: 20px 0;
+    letter-spacing: 10px;
+    font-family: paint !important;
+    color: var(--main-color);
+    text-shadow:
+    0 0 4px var(--texte-color),
+    0 0 11px var(--texte-color),
+    0 0 19px var(--texte-color),
+    0 0 40px var(--main-color),
+    0 0 80px var(--main-color),
+    0 0 90px var(--main-color),
+    0 0 100px var(--main-color),
+    0 0 150px var(--main-color); 
+}
+#hangman {
+    position: relative;
+    margin: -150px 0 0 0;
+    font-size: 54px; 
+    background-color: rgb(167, 167, 167);
+    border: 5px solid rgba(152, 152, 152, 0.724);
+    font-weight: bold;
+    font-family: paint !important; 
+    white-space: pre; 
+    text-align: center;
+    color: var(--close-btn-color);
+    min-width: 280px;
+    min-height: 280px;
+}
+
+#hangman::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, transparent 20px, rgba(145, 145, 145, 0.243) 21px, rgba(142, 142, 142, 0.694) 25px);
+    background-size: 35px 100%;
+    pointer-events: none; 
+    z-index: 2; 
+}
+
+#keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ffffff26;
+    border-radius: 20px;
+}
+
+.key {
+    border: 1px solid rgba(199, 199, 199, 0.8);
+    flex: 0 0 calc(12% - 40px);
+    width: 50px;
+    padding: 5px;
+    background-color: var(--window-color);
+    color: var(--close-btn-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4em;
+    cursor: pointer;
+    font-family: blood !important;
+    margin: 7px;
+}
+
+.key.disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: #666;
+}
+
+.key.correct {
+    background-color: #009322;
+}
+
+.key.incorrect {
+    background-color: #ff0019;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: red;
+}
+.button-game{
+    display: flex;
+    justify-content: space-around;
+    width: 25%;
+    align-items: center;
+    margin: 0 auto;
+}
+#restartButton, #bombButton, #hintButton, #closeGame{
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    font-size: 2em;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer; 
+    margin: 0 10px ;
+}
+#hintButton img{
+    width: 40px !important;
+}
+#restartButton:hover , #hintButton:hover, #closeGame:hover {
+    background-color: var(--hover-color);
+}
+.variable {
+    display: flex;
+    align-items: center;
+    color: var(--texte-color);
+    justify-content: space-around;
+    width: 40%;
+    margin: 0 auto;
+    font-family:Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+  }
+.variable_text {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+.difficulty, .level-value, .score {
+    background-color: var(--hover-color);
+    box-shadow: var(--texte-color) 5px 8px 5px;
+    margin: 9px;
+    height: 90px;
+    width: 200px;
+    padding:12px 22px;
+    border-radius: 25%;
+    font-size: 1rem;
+}
+
+/* Add this CSS to style the bomb count */
+.bomb-button, .hint-button, .close-game {
+    position: relative;
+    padding: 10px;
+}
+
+.bomb-count, .hint-count{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--texte-color);
+    color: var(--main-color);
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
