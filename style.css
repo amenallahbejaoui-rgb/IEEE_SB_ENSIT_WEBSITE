@@ -6,15 +6,15 @@
 
 :root {
 	color-scheme: dark;
-	--bg-deep: #0f241d;
-	--bg-mid: #1b4332;
-	--bg-soft: #2d6a4f;
-	--mint: #52b788;
-	--mint-soft: #d8f3dc;
-	--text: #f4fbf8;
-	--text-muted: rgba(244, 251, 248, 0.74);
-	--border: rgba(216, 243, 220, 0.18);
-	--shadow: 0 28px 80px rgba(3, 20, 14, 0.5);
+	--bg-deep: #082638;
+	--bg-mid: #145a78;
+	--bg-soft: #2d829f;
+	--mint: #72c6d8;
+	--mint-soft: #d9f3f7;
+	--text: #f5fcff;
+	--text-muted: rgba(245, 252, 255, 0.74);
+	--border: rgba(217, 243, 247, 0.18);
+	--shadow: 0 28px 80px rgba(3, 24, 36, 0.5);
 }
 
 html,
@@ -26,7 +26,7 @@ body {
 body {
 	font-family: Inter, "Segoe UI", Arial, sans-serif;
 	background:
-		radial-gradient(circle at top, rgba(82, 183, 136, 0.16), transparent 32%),
+		radial-gradient(circle at top, rgba(114, 198, 216, 0.16), transparent 32%),
 		linear-gradient(180deg, var(--bg-mid), var(--bg-deep));
 	color: var(--text);
 	overflow: hidden;
@@ -57,8 +57,8 @@ select {
 
 .appShell::before {
 	background:
-		radial-gradient(circle at 20% 20%, rgba(82, 183, 136, 0.18), transparent 24%),
-		radial-gradient(circle at 80% 80%, rgba(216, 243, 220, 0.1), transparent 28%);
+		radial-gradient(circle at 20% 20%, rgba(114, 198, 216, 0.18), transparent 24%),
+		radial-gradient(circle at 80% 80%, rgba(217, 243, 247, 0.1), transparent 28%);
 	opacity: 0.9;
 }
 
@@ -125,11 +125,11 @@ select {
 	letter-spacing: 0.22em;
 	text-transform: uppercase;
 	font-weight: 700;
-	color: rgba(216, 243, 220, 0.82);
+	color: rgba(217, 243, 247, 0.82);
 }
 
 .eyebrowLight {
-	color: rgba(216, 243, 220, 0.72);
+	color: rgba(217, 243, 247, 0.72);
 }
 
 .ensitLogo {
@@ -151,7 +151,7 @@ select {
 	opacity: 1;
 	clip-path: inset(0 0 0 0);
 	transform: scale(1);
-	filter: blur(0) brightness(1) contrast(1.05) drop-shadow(0 0 18px rgba(82, 183, 136, 0.28));
+	filter: blur(0) brightness(1) contrast(1.05) drop-shadow(0 0 18px rgba(114, 198, 216, 0.28));
 }
 
 .headline {
@@ -175,9 +175,9 @@ select {
 	bottom: 28px;
 	z-index: 2;
 	transform: translateX(-50%);
-	border: 1px solid rgba(216, 243, 220, 0.26);
+	border: 1px solid rgba(217, 243, 247, 0.26);
 	border-radius: 999px;
-	background: linear-gradient(135deg, rgba(27, 67, 50, 0.94), rgba(82, 183, 136, 0.88));
+	background: linear-gradient(135deg, rgba(20, 90, 120, 0.94), rgba(114, 198, 216, 0.88));
 	color: var(--text);
 	padding: 12px 26px;
 	font-size: 0.86rem;
@@ -192,13 +192,13 @@ select {
 
 .launchButton:hover {
 	transform: translateX(-50%) translateY(-2px) scale(1.02);
-	border-color: rgba(216, 243, 220, 0.45);
-	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 16px 40px rgba(2, 16, 11, 0.6);
+	border-color: rgba(217, 243, 247, 0.45);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 16px 40px rgba(2, 20, 32, 0.6);
 }
 
 .launchButton:focus-visible,
 .skipButton:focus-visible {
-	outline: 3px solid rgba(216, 243, 220, 0.75);
+	outline: 3px solid rgba(217, 243, 247, 0.75);
 	outline-offset: 3px;
 }
 
@@ -226,7 +226,7 @@ select {
 }
 
 .welcomeBackdrop {
-	background: radial-gradient(circle at center, rgba(82, 183, 136, 0.12), transparent 46%);
+	background: radial-gradient(circle at center, rgba(114, 198, 216, 0.12), transparent 46%);
 	z-index: 0;
 }
 
@@ -241,8 +241,8 @@ select {
 .welcomeOverlay {
 	z-index: 2;
 	background:
-		linear-gradient(180deg, rgba(6, 18, 13, 0.18), rgba(6, 18, 13, 0.64)),
-		radial-gradient(circle at 50% 42%, rgba(82, 183, 136, 0.12), transparent 32%);
+		linear-gradient(180deg, rgba(6, 22, 32, 0.18), rgba(6, 22, 32, 0.64)),
+		radial-gradient(circle at 50% 42%, rgba(114, 198, 216, 0.12), transparent 32%);
 	pointer-events: none;
 }
 
@@ -266,7 +266,7 @@ select {
 
 .welcomeText {
 	max-width: 34rem;
-	color: rgba(244, 251, 248, 0.78);
+	color: rgba(245, 252, 255, 0.78);
 	font-size: clamp(0.96rem, 1.6vw, 1.06rem);
 	line-height: 1.6;
 }
@@ -276,16 +276,16 @@ select {
 	right: clamp(20px, 4vw, 48px);
 	bottom: clamp(20px, 4vw, 38px);
 	z-index: 3;
-	border: 1px solid rgba(216, 243, 220, 0.26);
+	border: 1px solid rgba(217, 243, 247, 0.26);
 	border-radius: 999px;
-	background: rgba(8, 20, 15, 0.52);
+	background: rgba(8, 30, 42, 0.52);
 	color: var(--text);
 	padding: 12px 22px;
 	font-size: 0.92rem;
 	font-weight: 700;
 	backdrop-filter: blur(12px);
 	cursor: pointer;
-	box-shadow: 0 18px 40px rgba(2, 14, 10, 0.34);
+	box-shadow: 0 18px 40px rgba(2, 18, 28, 0.34);
 	opacity: 0;
 	transform: translateY(10px);
 	transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
@@ -297,7 +297,7 @@ select {
 }
 
 .skipButton:hover {
-	background: rgba(27, 67, 50, 0.7);
+	background: rgba(20, 90, 120, 0.7);
 }
 
 @keyframes logoDraw {
