@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --ink: #f5f1e8; --forest: #102b25; --forest-light: #1d493d; --clay: #d96543; --gold: #e9b45b; --mint: #bad8bc; --dark: #0a1c18; --muted: #a9b8ad; --line: rgba(245, 241, 232, .18); }
+:root { --ink: #fff7f2; --forest: #741d2b; --forest-light: #9e3040; --clay: #e66f4d; --gold: #f0c16a; --mint: #f2c0b4; --dark: #4a101b; --muted: #e0b8b2; --line: rgba(255, 247, 242, .2); }
 html { scroll-behavior: smooth; }
 body { background: var(--forest); color: var(--ink); font-family: "DM Sans", sans-serif; overflow-x: hidden; }
 .sightPage { position: relative; min-height: 100vh; overflow: hidden; background: var(--forest); }
