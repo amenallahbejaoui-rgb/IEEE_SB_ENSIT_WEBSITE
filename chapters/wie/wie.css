@@ -13,8 +13,8 @@
 	--muted: #766d78;
 }
 html { scroll-behavior: smooth; }
-body { background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; }
-.wiePage { position: relative; min-height: 100vh; overflow: hidden; background: var(--paper); }
+body { background: var(--lavender); color: var(--ink); font-family: "DM Sans", sans-serif; }
+.wiePage { position: relative; min-height: 100vh; overflow: hidden; background: var(--lavender); }
 .wiePage::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .45; background-image: radial-gradient(#70258e 0.7px, transparent 0.7px); background-size: 17px 17px; mask-image: linear-gradient(90deg, rgba(0,0,0,.55), transparent 55%); }
 .aurora { position: absolute; top: 0; right: 0; width: 42vw; height: 680px; background: var(--purple); clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 75%); opacity: .96; pointer-events: none; }
 .wieNav, .hero, .about, .section, footer, .eventsSection { position: relative; z-index: 1; }

@@ -194,6 +194,11 @@ a.joinusMetaItem:hover {
   color: var(--slate-400);
 }
 
+.joinusLabel::after {
+  content: " *";
+  color: var(--blue-400);
+}
+
 .joinusInput {
   background: var(--navy-800);
   border: 1px solid rgba(245, 242, 236, 0.14);

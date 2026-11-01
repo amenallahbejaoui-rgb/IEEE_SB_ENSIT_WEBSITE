@@ -66,13 +66,13 @@
         <div class="joinusRow">
           <div class="joinusField">
             <label for="fullName" class="joinusLabel">Full name</label>
-            <input type="text" id="fullName" name="fullName" class="joinusInput" placeholder="Full name" required />
+            <input type="text" id="fullName" name="fullName" class="joinusInput" placeholder="Full name" required aria-required="true" />
             <span class="joinusError" data-error-for="fullName"></span>
           </div>
 
           <div class="joinusField">
             <label for="email" class="joinusLabel">Email</label>
-            <input type="email" id="email" name="email" class="joinusInput" placeholder="Email" required />
+            <input type="email" id="email" name="email" class="joinusInput" placeholder="Email" required aria-required="true" />
             <span class="joinusError" data-error-for="email"></span>
           </div>
         </div>
@@ -80,13 +80,13 @@
         <div class="joinusRow">
           <div class="joinusField">
             <label for="dob" class="joinusLabel">Date of birth</label>
-            <input type="date" id="dob" name="dob" class="joinusInput" required />
+            <input type="date" id="dob" name="dob" class="joinusInput" required aria-required="true" />
             <span class="joinusError" data-error-for="dob"></span>
           </div>
 
           <div class="joinusField">
             <label for="phone" class="joinusLabel">Phone</label>
-            <input type="text" id="phone" name="phone" class="joinusInput" placeholder="Phone number" required />
+            <input type="tel" id="phone" name="phone" class="joinusInput" placeholder="Phone number" required aria-required="true" />
             <span class="joinusError" data-error-for="phone"></span>
           </div>
         </div>
@@ -94,17 +94,18 @@
         <div class="joinusRow">
           <div class="joinusField">
             <label for="className" class="joinusLabel">Class</label>
-            <select id="className" name="className" class="joinusInput joinusSelect" required>
+            <select id="className" name="className" class="joinusInput joinusSelect" required aria-required="true">
               <option value="">Select class</option>
               <option value="1st year">1st year</option>
               <option value="2nd year">2nd year</option>
               <option value="3rd year">3rd year</option>
             </select>
+            <span class="joinusError" data-error-for="className"></span>
           </div>
 
           <div class="joinusField">
             <label for="field" class="joinusLabel">Field of study</label>
-            <select id="field" name="field" class="joinusInput joinusSelect" required>
+            <select id="field" name="field" class="joinusInput joinusSelect" required aria-required="true">
               <option value="">Select field of study</option>
               <option value="Computer Engineering">Computer Engineering</option>
               <option value="Industrial Engineering">Industrial Engineering</option>
@@ -113,22 +114,26 @@
               <option value="Mechanical Engineering">Mechanical Engineering</option>
               <option value="Civil Engineering">Civil Engineering</option>
             </select>
+            <span class="joinusError" data-error-for="field"></span>
           </div>
         </div>
 
         <div class="joinusField joinusFieldFull">
           <label for="skills" class="joinusLabel">Skills</label>
-          <textarea id="skills" name="skills" class="joinusInput joinusTextarea" rows="3" placeholder="Your skills"></textarea>
+          <textarea id="skills" name="skills" class="joinusInput joinusTextarea" rows="3" placeholder="Your skills" required aria-required="true"></textarea>
+          <span class="joinusError" data-error-for="skills"></span>
         </div>
 
         <div class="joinusField joinusFieldFull">
           <label for="hobbies" class="joinusLabel">Hobbies</label>
-          <textarea id="hobbies" name="hobbies" class="joinusInput joinusTextarea" rows="3" placeholder="Your hobbies"></textarea>
+          <textarea id="hobbies" name="hobbies" class="joinusInput joinusTextarea" rows="3" placeholder="Your hobbies" required aria-required="true"></textarea>
+          <span class="joinusError" data-error-for="hobbies"></span>
         </div>
 
         <div class="joinusField joinusFieldFull">
           <label for="other" class="joinusLabel">Anything to add?</label>
-          <textarea id="other" name="other" class="joinusInput joinusTextarea" rows="3" placeholder="Anything to add or suggest"></textarea>
+          <textarea id="other" name="other" class="joinusInput joinusTextarea" rows="3" placeholder="Anything to add or suggest" required aria-required="true"></textarea>
+          <span class="joinusError" data-error-for="other"></span>
         </div>
 
         <div class="joinusFieldFull joinusSubmitRow">
@@ -212,14 +217,20 @@
 
     function clearErrors() {
       form.querySelectorAll(".joinusError").forEach((el) => (el.textContent = ""));
-      form.querySelectorAll(".joinusInput").forEach((el) => el.classList.remove("joinusInputInvalid"));
+      form.querySelectorAll(".joinusInput").forEach((el) => {
+        el.classList.remove("joinusInputInvalid");
+        el.removeAttribute("aria-invalid");
+      });
     }
 
     function setError(fieldName, message) {
       const errorEl = form.querySelector(`[data-error-for="${fieldName}"]`);
       const inputEl = form.querySelector(`[name="${fieldName}"]`);
       if (errorEl) errorEl.textContent = message;
-      if (inputEl) inputEl.classList.add("joinusInputInvalid");
+      if (inputEl) {
+        inputEl.classList.add("joinusInputInvalid");
+        inputEl.setAttribute("aria-invalid", "true");
+      }
     }
 
     function validate(data) {
@@ -245,6 +256,27 @@
         setError("phone", "Please enter your phone number.");
         isValid = false;
       }
+
+      if (!data.className) {
+        setError("className", "Please select your class.");
+        isValid = false;
+      }
+
+      if (!data.field) {
+        setError("field", "Please select your field of study.");
+        isValid = false;
+      }
+
+      [
+        ["skills", "Please tell us about your skills."],
+        ["hobbies", "Please tell us about your hobbies."],
+        ["other", "Please add a message before submitting."],
+      ].forEach(([fieldName, message]) => {
+        if (!data[fieldName].trim()) {
+          setError(fieldName, message);
+          isValid = false;
+        }
+      });
 
       return isValid;
     }
