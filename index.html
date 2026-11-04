@@ -37,9 +37,9 @@
 			aria-hidden="true"
 		>
 			<div class="welcomeBackdrop" aria-hidden="true"></div>
-			<video id="video" class="welcomeVideo" autoplay muted playsinline preload="auto">
+			<video id="video" class="welcomeVideo" autoplay playsinline preload="auto">
 				<source
-					src="Gallery/WIE/TSYPStarProgram2022/vid/320111670_6099202593443804_1281137751333591118_n.mp4"
+					src="Gallery/WIE/Women_s day/vid/357912097_6205240729587049_8524797353621603140_n.mp4"
 					type="video/mp4"
 				/>
 				Your browser does not support the video tag.
@@ -80,7 +80,7 @@
 			window.location.href = "home/home.html";
 		}
 
-		function enterWelcomePhase() {
+		function enterWelcomePhase(withSound = false) {
 			if (transitionLocked) {
 				return;
 			}
@@ -92,9 +92,16 @@
 			reviewScreen.classList.add("is-exiting");
 			welcomeScreen.classList.add("is-active");
 			welcomeScreen.setAttribute("aria-hidden", "false");
+			video.muted = !withSound;
 
-			requestAnimationFrame(() => {
-				video.play().catch(() => {});
+			video.play().catch(() => {
+				if (withSound) {
+					video.controls = true;
+					return;
+				}
+
+				video.muted = true;
+				video.play().catch(() => navigateToHome());
 			});
 
 			revealSkipTimer = setTimeout(() => {
@@ -134,7 +141,7 @@
 			}
 		});
 
-		launchButton.addEventListener("click", enterWelcomePhase);
+		launchButton.addEventListener("click", () => enterWelcomePhase(true));
 
 		reviewTimer = setTimeout(enterWelcomePhase, 10000);
 
