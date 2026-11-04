@@ -38,7 +38,10 @@
 		>
 			<div class="welcomeBackdrop" aria-hidden="true"></div>
 			<video id="video" class="welcomeVideo" autoplay muted playsinline preload="auto">
-				<source src="public/welcome.mp4" type="video/mp4" />
+				<source
+					src="Gallery/WIE/TSYPStarProgram2022/vid/320111670_6099202593443804_1281137751333591118_n.mp4"
+					type="video/mp4"
+				/>
 				Your browser does not support the video tag.
 			</video>
 
@@ -138,6 +141,7 @@
 		skipButton.addEventListener("click", navigateToHome);
 
 		video.addEventListener("ended", navigateToHome);
+		video.addEventListener("error", navigateToHome);
 
 		window.addEventListener("beforeunload", () => {
 			clearTimeout(reviewTimer);
