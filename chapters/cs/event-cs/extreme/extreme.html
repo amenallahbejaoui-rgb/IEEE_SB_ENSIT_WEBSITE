@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IEEEXtreme 20.0 — Wave 1 memories from IEEE ENSIT Computer Society.">
+    <title>IEEEXtreme 20.0 — Wave 1 | IEEE ENSIT CS</title>
+    <link rel="stylesheet" href="extreme.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../../../../home/home.html"><img src="../../logo_global orange cs.png" alt="IEEE Computer Society ENSIT"><span>IEEE ENSIT / CS</span></a>
+        <a class="back-link" href="../../../../chapters/cs/cs.html">Back to CS <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">IEEE ENSIT Computer Society / Event archive</p>
+                <p class="wave">WAVE 1</p>
+                <h1>IEEEXtreme <em>20.0</em></h1>
+                <p class="intro">The coding marathon, the teamwork, the late-night energy, and the unforgettable moments.</p>
+                <a class="scroll-link" href="#gallery">Explore the memories <span aria-hidden="true">↓</span></a>
+            </div>
+            <figure class="hero-image">
+                <img src="890304804_1624981982445455_1767222178139797474_n.jpg" alt="Participants taking part in IEEEXtreme 20.0">
+                <figcaption>01 / 10 — The adventure begins</figcaption>
+            </figure>
+        </section>
+        <section class="story">
+            <p class="eyebrow">The first wave of memories</p>
+            <div class="story-content">
+                <h2>Every moment was part of the <em>adventure.</em></h2>
+                <p>Here's the first wave of memories capturing the spirit of IEEEXtreme 20.0. From intense problem-solving to shared laughs, every moment was part of the adventure.</p>
+            </div>
+        </section>
+        <section class="gallery-section" id="gallery" aria-labelledby="gallery-title">
+            <div class="section-heading"><p class="eyebrow">Captured in the moment</p><h2 id="gallery-title">Wave 1 <em>gallery.</em></h2></div>
+            <div class="gallery">
+                <button class="gallery-item gallery-item--wide" type="button" data-image="885729767_3383665868502901_7955543343052490928_n.jpg" aria-label="Open IEEEXtreme 20.0 photo"><img src="885729767_3383665868502901_7955543343052490928_n.jpg" alt="IEEEXtreme 20.0 participants collaborating"></button>
+                <button class="gallery-item" type="button" data-image="884691338_1168964605789302_4711131035941995553_n.jpg" aria-label="Open IEEEXtreme 20.0 photo"><img src="884691338_1168964605789302_4711131035941995553_n.jpg" alt="Students working during IEEEXtreme 20.0"></button>
+                <button class="gallery-item" type="button" data-image="886085648_1855043142168172_669693445389823736_n.jpg" aria-label="Open IEEEXtreme 20.0 photo"><img src="886085648_1855043142168172_669693445389823736_n.jpg" alt="Teamwork during the coding marathon"></button>
+                <button class="gallery-item gallery-item--tall" type="button" data-image="888576423_1871087547395720_6809034127656440715_n.jpg" aria-label="Open IEEEXtreme 20.0 photo"><img src="888576423_1871087547395720_6809034127656440715_n.jpg" alt="IEEEXtreme 20.0 event moment"></button>
+                <button class="gallery-item" type="button" data-image="889477457_1429235332113597_3094846946518877571_n.jpg" aria-label="Open IEEEXtreme 20.0 photo"><img src="889477457_1429235332113597_3094846946518877571_n.jpg" alt="Participants sharing a late-night coding session"></button>
+                <button class="gallery-item" type="button" data-image="890698815_1470664881836609_4512239021367322890_n.jpg" aria-label="Open IEEEXtreme 20.0 photo"><img src="890698815_1470664881836609_4512239021367322890_n.jpg" alt="IEEEXtreme 20.0 team photo"></button>
+                <button class="gallery-item gallery-item--wide" type="button" data-image="891512209_1112802775102472_7681101865611249236_n.jpg" aria-label="Open IEEEXtreme 20.0 photo"><img src="891512209_1112802775102472_7681101865611249236_n.jpg" alt="The IEEEXtreme 20.0 community"></button>
+            </div>
+        </section>
+    </main>
+    <dialog class="lightbox" aria-label="Expanded event photo"><button class="lightbox-close" type="button" aria-label="Close photo">×</button><img src="" alt=""></dialog>
+    <footer><span>IEEE ENSIT Computer Society</span><a href="../../../../home/home.html">Back to IEEE ENSIT <span aria-hidden="true">↗</span></a></footer>
+    <script>
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = lightbox.querySelector('img');
+        document.querySelectorAll('.gallery-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                const image = item.querySelector('img');
+                lightboxImage.src = item.dataset.image;
+                lightboxImage.alt = image.alt;
+                lightbox.showModal();
+            });
+        });
+        lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) lightbox.close();
+        });
+    </script>
+</body>
+</html>
