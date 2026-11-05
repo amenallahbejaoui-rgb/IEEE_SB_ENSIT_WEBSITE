@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Competitive Programming workshop by IEEE ENSIT Computer Society.">
+    <title>Competitive Programming Workshop | IEEE ENSIT CS</title>
+    <link rel="stylesheet" href="cp.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../../../../home/home.html"><img src="../../logo_global orange cs.png" alt="IEEE Computer Society ENSIT"><span>IEEE ENSIT / CS</span></a>
+        <a class="back-link" href="../../cs.html">Back to CS <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <p class="eyebrow">IEEE ENSIT Computer Society / Workshop</p>
+                <p class="wave">THINK. CODE. CONQUER.</p>
+                <h1>Competitive <em>Programming</em></h1>
+                <p class="intro">A hands-on workshop focused on problem-solving, algorithms, and the creative thinking behind great code.</p>
+                <a class="scroll-link" href="#gallery">Explore the workshop <span aria-hidden="true">↓</span></a>
+            </div>
+            <figure class="hero-image"><img src="847730291_3392788727559769_3389609493542761183_n.jfif" alt="Participants at the Competitive Programming workshop"><figcaption>01 / 04 — Code in action</figcaption></figure>
+        </section>
+        <section class="story">
+            <p class="eyebrow">Solve the challenge</p>
+            <div class="story-content"><h2>Every problem is a new <em>possibility.</em></h2><p>This workshop brought members together to sharpen their algorithmic thinking, discover efficient approaches, and build confidence through collaborative practice. Each challenge was a step toward becoming a better problem solver.</p></div>
+        </section>
+        <section class="gallery-section" id="gallery" aria-labelledby="gallery-title">
+            <div class="section-heading"><p class="eyebrow">Captured in the moment</p><h2 id="gallery-title">Workshop <em>gallery.</em></h2></div>
+            <div class="gallery">
+                <button class="gallery-item gallery-item--wide" type="button" data-image="847730291_3392788727559769_3389609493542761183_n.jfif" aria-label="Open Competitive Programming workshop photo"><img src="847730291_3392788727559769_3389609493542761183_n.jfif" alt="Competitive Programming workshop participants"></button>
+                <button class="gallery-item" type="button" data-image="847033065_1312534260898345_1888965830094668405_n.jfif" aria-label="Open Competitive Programming workshop photo"><img src="847033065_1312534260898345_1888965830094668405_n.jfif" alt="Participants solving programming challenges"></button>
+                <button class="gallery-item" type="button" data-image="845483733_2594479717732204_1188862746481426893_n.jfif" aria-label="Open Competitive Programming workshop photo"><img src="845483733_2594479717732204_1188862746481426893_n.jfif" alt="Collaborative programming workshop activity"></button>
+                <button class="gallery-item gallery-item--wide" type="button" data-image="843474595_2182577249306882_6450983525243432385_n.jfif" aria-label="Open Competitive Programming workshop photo"><img src="843474595_2182577249306882_6450983525243432385_n.jfif" alt="Competitive Programming workshop community"></button>
+            </div>
+        </section>
+    </main>
+    <dialog class="lightbox" aria-label="Expanded workshop photo"><button class="lightbox-close" type="button" aria-label="Close photo">×</button><img src="" alt=""></dialog>
+    <footer><span>IEEE ENSIT Computer Society</span><a href="../../../../home/home.html">Back to IEEE ENSIT <span aria-hidden="true">↗</span></a></footer>
+    <script>
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = lightbox.querySelector('img');
+        document.querySelectorAll('.gallery-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                const image = item.querySelector('img');
+                lightboxImage.src = item.dataset.image;
+                lightboxImage.alt = image.alt;
+                lightbox.showModal();
+            });
+        });
+        lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) lightbox.close();
+        });
+    </script>
+</body>
+</html>
