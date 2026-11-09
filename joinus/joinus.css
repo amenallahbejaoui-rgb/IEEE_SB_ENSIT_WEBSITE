@@ -74,17 +74,38 @@ body {
 }
 
 .joinusNavLinks a {
+  position: relative;
   padding: 10px 12px;
   border-radius: 10px;
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.joinusNavLinks a:not(.joinusNavCta)::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 5px;
+  left: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--blue-400);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
 }
 
 .joinusNavLinks a:hover,
 .joinusNavLinks a:focus-visible {
   color: var(--paper-100);
   background: rgba(245, 242, 236, 0.1);
+  transform: translateY(-2px);
+}
+
+.joinusNavLinks a:not(.joinusNavCta):hover::after,
+.joinusNavLinks a:not(.joinusNavCta):focus-visible::after {
+  transform: scaleX(1);
 }
 
 .joinusNavLinks .joinusNavCta {
@@ -96,6 +117,7 @@ body {
 .joinusNavLinks .joinusNavCta:focus-visible {
   color: var(--navy-950);
   background: var(--blue-400);
+  box-shadow: 0 6px 18px rgba(61, 139, 255, 0.35);
 }
 
 .joinus {
