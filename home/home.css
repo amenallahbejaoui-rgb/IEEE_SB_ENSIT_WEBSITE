@@ -2245,6 +2245,202 @@ body {
   background: #04050b;
 }
 
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-top: 1px solid rgba(125, 231, 255, 0.14);
+  background:
+    radial-gradient(circle at 85% 0%, rgba(111, 140, 255, 0.2), transparent 28%),
+    radial-gradient(circle at 18% 100%, rgba(125, 231, 255, 0.08), transparent 30%),
+    #05060d;
+}
+
+.footer::before {
+  content: "ENSIT";
+  position: absolute;
+  right: -0.02em;
+  bottom: -0.2em;
+  z-index: -1;
+  font-family: var(--font-display);
+  font-size: clamp(9rem, 24vw, 22rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.1em;
+  color: rgba(255, 255, 255, 0.025);
+  pointer-events: none;
+}
+
+.footerOverlay {
+  background: linear-gradient(90deg, transparent, rgba(125, 231, 255, 0.04), transparent);
+  opacity: 0.7;
+}
+
+.footerContainer {
+  position: relative;
+  z-index: 2;
+  max-width: 1360px;
+  padding: 92px 40px 72px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(150px, 0.65fr) minmax(230px, 0.85fr);
+  gap: clamp(48px, 8vw, 140px);
+}
+
+.footerBrand {
+  max-width: 430px;
+}
+
+.footerEyebrow,
+.footerColTitle,
+.footerContactLabel {
+  font-family: var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footerEyebrow {
+  margin: 0 0 22px;
+  color: var(--premium-cyan);
+  font-size: 0.62rem;
+}
+
+.footerLogoWrap {
+  margin: 0 0 22px;
+}
+
+.footerLogo {
+  width: min(250px, 80%);
+  height: auto;
+}
+
+.footerBrandText {
+  max-width: 350px;
+  margin: 0;
+  color: rgba(245, 247, 255, 0.58);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.footerEmail {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(125, 231, 255, 0.45);
+  color: var(--premium-text);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, border-color 0.2s ease, gap 0.2s ease;
+}
+
+.footerEmail span {
+  color: var(--premium-cyan);
+  font-size: 1rem;
+}
+
+.footerEmail:hover,
+.footerEmail:focus-visible {
+  gap: 17px;
+  border-color: var(--premium-text);
+  color: var(--premium-cyan);
+}
+
+.footerColTitle {
+  margin: 0 0 24px;
+  color: rgba(245, 247, 255, 0.48);
+  font-size: 0.62rem;
+  font-weight: 500;
+}
+
+.footerLinks li {
+  margin-bottom: 15px;
+}
+
+.footerLinks a {
+  color: var(--premium-text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footerLinks a:hover,
+.footerLinks a:focus-visible {
+  padding-left: 0;
+  color: var(--premium-cyan);
+  transform: translateX(4px);
+}
+
+.footerContactItem {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 20px;
+  color: rgba(245, 247, 255, 0.72);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.footerContactLabel {
+  color: var(--premium-cyan);
+  font-size: 0.57rem;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 22px 40px 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(245, 247, 255, 0.42);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footerBottomLine {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, rgba(125, 231, 255, 0.4), transparent);
+}
+
+@media (max-width: 900px) {
+  .footerContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footerBrand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footerContainer {
+    grid-template-columns: 1fr;
+    padding: 68px 24px 52px;
+  }
+
+  .footerBrand {
+    grid-column: auto;
+  }
+
+  .footerBottom {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px 24px 24px;
+  }
+
+  .footerBottomLine {
+    width: 100%;
+    flex: none;
+  }
+}
+
 @media (max-width: 900px) {
   .scene {
 	min-height: 920px;
