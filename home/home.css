@@ -419,7 +419,7 @@ a {
 
 .headline {
 	margin-top: 22px;
-	max-width: 15ch;
+	max-width: 17ch;
 	font-family: var(--font-display);
 	font-weight: 700;
 	font-size: clamp(2.1rem, 5.2vw, 3.6rem);
@@ -458,6 +458,41 @@ a {
 	flex-wrap: wrap;
 	opacity: 0;
 	animation: fade-up 0.8s ease 0.6s forwards;
+}
+
+.heroSignals {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(110px, 1fr));
+	gap: 1px;
+	width: min(100%, 520px);
+	margin-top: 38px;
+	border: 1px solid rgba(0, 85, 212, 0.16);
+	border-radius: 18px;
+	overflow: hidden;
+	background: rgba(0, 85, 212, 0.12);
+	opacity: 0;
+	animation: fade-up 0.8s ease 0.75s forwards;
+}
+
+.heroSignal {
+	display: grid;
+	gap: 5px;
+	padding: 14px 12px;
+	background: rgba(255, 255, 255, 0.72);
+}
+
+.heroSignal strong {
+	font-family: var(--font-display);
+	font-size: 1.15rem;
+	color: var(--blue);
+}
+
+.heroSignal span {
+	font-family: var(--font-mono);
+	font-size: 0.6rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--blue-muted);
 }
 
 .btn {
@@ -1487,6 +1522,10 @@ a {
 		flex-wrap: wrap;
 		gap: 14px;
 		font-size: 0.64rem;
+	}
+
+	.heroSignals {
+		margin-top: 30px;
 	}
 
 	.nav-dropdownMenu {

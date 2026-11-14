@@ -49,9 +49,10 @@
 					</a>
 					<nav class="nav-links" aria-label="Primary navigation">
 						<a href="#about">About</a>
+						<a href="#units">Chapters</a>
 						<div class="nav-dropdown">
 							<span class="nav-dropdownTrigger">
-								Chapters
+								Explore
 								<span class="nav-chevron" aria-hidden="true">⌄</span>
 							</span>
 							<div class="nav-dropdownMenu" id="chapterMenu" role="menu">
@@ -115,7 +116,7 @@
 				<div class="content">
 					<div class="badge">
 						<span class="badge-dot"></span>
-						IEEE STUDENT BRANCH â€” ENSIT
+						IEEE STUDENT BRANCH — ENSIT
 					</div>
 
 					<h1 class="headline">
@@ -136,7 +137,22 @@
 
 					<div class="cta-row">
 						<a href="#about" class="btn btn-light">Explore About Us</a>
-						<a href="#join" class="btn btn-dark">Join the Branch</a>
+						<a href="../joinus/joinus.html" class="btn btn-dark">Join the Branch</a>
+					</div>
+
+					<div class="heroSignals" aria-label="Student branch highlights">
+						<div class="heroSignal">
+							<strong>2013</strong>
+							<span>Founded</span>
+						</div>
+						<div class="heroSignal">
+							<strong>06</strong>
+							<span>Chapters</span>
+						</div>
+						<div class="heroSignal">
+							<strong>120+</strong>
+							<span>Members</span>
+						</div>
 					</div>
 				</div>
 
@@ -152,9 +168,9 @@
 					</p>
 					<div class="stats">
 						<span><strong>6</strong> Chapters</span>
-						<span class="stat-sep">Â·</span>
+						<span class="stat-sep">·</span>
 						<span><strong>500+</strong> Members</span>
-						<span class="stat-sep">Â·</span>
+						<span class="stat-sep">·</span>
 						<span><strong>IEEE</strong> Est. 1963</span>
 					</div>
 				</footer>
@@ -738,7 +754,7 @@
     const grid = document.getElementById("galleryGrid");
     const items = () => Array.from(grid.querySelectorAll(".galleryItem"));
 
-    // â”€â”€ lightbox â”€â”€
+    // Lightbox controls
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImg = document.getElementById("galleryLightboxImg");
     const lightboxClose = document.getElementById("galleryLightboxClose");
@@ -765,7 +781,7 @@
       if (e.key === "Escape") closeLightbox();
     });
 
-    // â”€â”€ shuffle â”€â”€
+    // Shuffle gallery items
     document.getElementById("galleryShuffleBtn").addEventListener("click", () => {
       const list = items();
       for (let i = list.length - 1; i > 0; i--) {
@@ -775,7 +791,7 @@
       list.forEach((el) => grid.appendChild(el));
     });
 
-    // â”€â”€ fullscreen â”€â”€
+    // Fullscreen gallery
     document.getElementById("galleryExpandBtn").addEventListener("click", () => {
       const section = document.getElementById("gallery");
       if (!document.fullscreenElement) {
@@ -797,7 +813,7 @@
       </h1>
       <p class="contactPlaceholder">
         Have a question about IEEE SB ENSIT, want to join a chapter, or looking
-        to partner with us? Reach out â€” we'd love to hear from you.
+        to partner with us? Reach out — we'd love to hear from you.
       </p>
     </div>
 
@@ -887,11 +903,11 @@
     <div class="footerCol">
       <h3 class="footerColTitle">Quick Links</h3>
       <ul class="footerLinks">
-        <li><a href="/">Home</a></li>
-        <li><a href="/team">Team</a></li>
-        <li><a href="/events">Events</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
 
@@ -900,26 +916,26 @@
       <h3 class="footerColTitle">Contact</h3>
 
       <div class="footerContactItem">
-        ðŸ“ 05 Ave Taha Hussein, Tunis 1008 â€“ ENSIT
+        📍 05 Ave Taha Hussein, Tunis 1008 – ENSIT
       </div>
 
       <div class="footerContactItem">
-        ðŸ“ž +216 58 187 043
+        ☎ +216 58 187 043
       </div>
 
       <div class="footerContactItem">
-        âœ‰ï¸ ieee.ensit.student.branch@gmail.com
+        ✉ ieee.ensit.student.branch@gmail.com
       </div>
 
       <div class="footerContactItem">
-        ðŸ“Œ Localisation
+        📌 Localisation
       </div>
     </div>
 
   </div>
 
   <div class="footerBottom">
-    Â© <span id="footerYear"></span> IEEE ENSIT Student Branch. All rights reserved.
+    © <span id="footerYear"></span> IEEE ENSIT Student Branch. All rights reserved.
   </div>
 </footer>
 
