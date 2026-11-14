@@ -2288,6 +2288,140 @@ body {
   border-bottom-color: var(--show-green);
 }
 
+/* Scroll and interaction system */
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 24px;
+}
+
+.homeSection,
+.numbers,
+.units,
+.team,
+.gallery,
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.homeSection > *,
+.numbers > *,
+.units > *,
+.team > *,
+.gallery > *,
+.contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+.revealItem {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.revealItem.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.aboutMedia,
+.aboutCopy,
+.eventCard,
+.numbersCard,
+.unitCardInner,
+.teamCard,
+.galleryItem {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.aboutMedia:hover,
+.aboutCopy:hover {
+  transform: translateY(-6px);
+}
+
+.eventCard:hover {
+  transform: translateY(-8px);
+}
+
+.numbersCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--show-green);
+}
+
+.unitCardInner:hover {
+  transform: translateY(-6px);
+}
+
+.teamCard:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.galleryItem:hover {
+  transform: translateY(-5px);
+}
+
+.eventCard::after,
+.numbersCard::after,
+.unitCardInner::after,
+.teamCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  border: 1px solid var(--show-green);
+  transition: opacity 0.35s ease;
+}
+
+.eventCard:hover::after,
+.numbersCard:hover::after,
+.unitCardInner:hover::after,
+.teamCard:hover::after {
+  opacity: 1;
+}
+
+.eventCard,
+.numbersCard,
+.unitCardInner,
+.teamCard {
+  isolation: isolate;
+}
+
+.eventCard > *,
+.numbersCard > *,
+.unitCardInner > *,
+.teamCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.galleryOverlay {
+  background: linear-gradient(to bottom, transparent 35%, rgba(17, 17, 17, 0.8) 100%);
+}
+
+.actionBtn:hover,
+.galleryCtrlBtn:hover {
+  background: var(--show-green);
+  border-color: var(--show-green);
+  color: var(--show-black);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revealItem {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @media (max-width: 900px) {
   .scene {
     min-height: 920px;

@@ -946,6 +946,32 @@
 </footer>
 
 <script>
+  (function () {
+    const revealItems = document.querySelectorAll(
+      ".homeSection > *, .numbers > *, .units > *, .team > *, .gallery > *, .contact > *"
+    );
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+      return;
+    }
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+    revealItems.forEach((item) => {
+      item.classList.add("revealItem");
+      revealObserver.observe(item);
+    });
+  })();
+</script>
+<script>
   document.getElementById("footerYear").textContent = new Date().getFullYear();
 </script>
 	</main>
