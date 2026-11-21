@@ -1625,15 +1625,15 @@ a {
 	width: min(calc(100% - 48px), 900px);
 	margin-top: 16px;
 	padding: 7px 9px 7px 14px;
-	border: 1px solid rgba(16, 17, 19, 0.14);
+	border: 1px solid rgba(255, 255, 255, 0.32);
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.86);
-	box-shadow: 0 8px 24px rgba(16, 17, 19, 0.06);
+	background: #0055d4;
+	box-shadow: 0 10px 28px rgba(0, 85, 212, 0.22);
 	backdrop-filter: blur(14px);
 }
 
 .heroShell .nav-brand {
-	color: #111;
+	color: #fff;
 }
 
 .heroShell .navLogo {
@@ -1649,7 +1649,7 @@ a {
 .heroShell .nav-links {
 	gap: 2px;
 	font-size: 0.65rem;
-	color: #4a4d50;
+	color: #fff;
 	text-transform: none;
 	letter-spacing: 0;
 }
@@ -1664,8 +1664,8 @@ a {
 .heroShell .nav-links > a:focus-visible,
 .heroShell .nav-dropdownTrigger:hover,
 .heroShell .nav-dropdownTrigger:focus-visible {
-	background: #f0f2f3;
-	color: #111;
+	background: rgba(255, 255, 255, 0.16);
+	color: #fff;
 	transform: none;
 }
 
@@ -1675,16 +1675,16 @@ a {
 }
 
 .heroShell .nav-cta {
-	border-color: #111;
+	border-color: #fff;
 	border-radius: 999px;
-	background: #111;
-	color: #fff !important;
+	background: #fff;
+	color: #0055d4 !important;
 }
 
 .heroShell .nav-cta:hover,
 .heroShell .nav-cta:focus-visible {
-	background: #0055d4;
-	color: #fff !important;
+	background: #eaf2ff;
+	color: #0055d4 !important;
 	box-shadow: none;
 }
 
