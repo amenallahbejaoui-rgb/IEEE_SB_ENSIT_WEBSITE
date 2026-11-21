@@ -9,9 +9,58 @@
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@1,500;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="../style.css" />
 	<link rel="stylesheet" href="home.css" />
-	<script src="../shared/site-navbar.js" defer></script>
+	<link rel="stylesheet" href="../shared/site-navbar.css" />
 </head>
 <body>
+	<header class="siteNav" aria-label="Main navigation">
+		<a href="home.html" class="siteNavBrand" aria-label="IEEE SB ENSIT home">
+			<img src="../public/logo white sb.png" alt="IEEE ENSIT Student Branch" class="siteNavLogo" />
+			<span class="siteNavBrandLabel">IEEE ENSIT</span>
+		</a>
+		<nav class="siteNavLinks" aria-label="Primary navigation">
+			<a href="home.html">Home</a>
+			<a href="#about">About</a>
+			<a href="#events">Events</a>
+			<a href="../gallerie/gallery.html">Gallery</a>
+			<div class="siteNavDropdown">
+				<span class="siteNavDropdownTrigger" tabindex="0">
+					Chapters
+					<span class="siteNavChevron" aria-hidden="true">⌄</span>
+				</span>
+				<div class="siteNavDropdownMenu" role="menu">
+					<a href="../chapters/aess/aess.html" class="siteNavChapterItem" role="menuitem">
+						<img src="../chapters/aess/images/logo.png" alt="" />
+						<span><strong>AESS</strong><small>Aerospace &amp; Electronic Systems</small></span>
+					</a>
+					<a href="../chapters/vts/vts.html" class="siteNavChapterItem" role="menuitem">
+						<img src="../chapters/vts/vts.png" alt="" />
+						<span><strong>VTS</strong><small>Vehicular Technology Society</small></span>
+					</a>
+					<a href="../chapters/iasxpes/iasxpes.html" class="siteNavChapterItem" role="menuitem">
+						<img src="../chapters/iasxpes/logo_IAS_PES_IES_white.png" alt="" />
+						<span><strong>IASxPES</strong><small>Industry, Electronics &amp; Energy</small></span>
+					</a>
+					<a href="../chapters/ras/ras.html" class="siteNavChapterItem" role="menuitem">
+						<img src="../chapters/ras/IMG_3431.PNG" alt="" />
+						<span><strong>RAS</strong><small>Robotics &amp; Automation Society</small></span>
+					</a>
+					<a href="../chapters/wie/wie.html" class="siteNavChapterItem" role="menuitem">
+						<img src="../chapters/wie/logo wie .png" alt="" />
+						<span><strong>WIE</strong><small>Women in Engineering</small></span>
+					</a>
+					<a href="../chapters/sight/sight.html" class="siteNavChapterItem" role="menuitem">
+						<img src="../public/logos/logo_SIGHT.png" alt="" />
+						<span><strong>SIGHT</strong><small>Humanitarian Technology</small></span>
+					</a>
+					<a href="../chapters/cs/cs.html" class="siteNavChapterItem" role="menuitem">
+						<img src="../public/logos/logo_global orange cs.png" alt="" />
+						<span><strong>CS</strong><small>Computer Society</small></span>
+					</a>
+				</div>
+			</div>
+			<a href="../joinus/joinus.html" class="siteNavCta">Join us <span aria-hidden="true">↗</span></a>
+		</nav>
+	</header>
 	<main class="homePage">
 		<section class="heroShell" id="hero">
 			<div class="scene">
