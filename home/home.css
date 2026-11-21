@@ -3320,14 +3320,15 @@ body {
   }
 }
 
-/* Modern Student Branch Events section */
-#events {
-  padding-top: 112px;
-  padding-bottom: 112px;
+/* Complete redesign of the Student Branch Events section */
+#events.eventsSection {
   background:
-	radial-gradient(circle at 12% 18%, rgba(125, 231, 255, 0.14), transparent 24%),
-	radial-gradient(circle at 88% 82%, rgba(111, 140, 255, 0.16), transparent 25%),
-	linear-gradient(135deg, #07142d 0%, #0b1020 54%, #10172b 100%);
+	linear-gradient(rgba(125, 231, 255, 0.055) 1px, transparent 1px),
+	linear-gradient(90deg, rgba(125, 231, 255, 0.055) 1px, transparent 1px),
+	linear-gradient(135deg, #07142d 0%, #0b1020 58%, #11172d 100%);
+  background-size: 36px 36px, 36px 36px, auto;
+  padding: 112px 24px;
+  color: #f5f7ff;
 }
 
 #events .eventsWrap {
@@ -3335,155 +3336,152 @@ body {
 }
 
 #events .eventsHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
   align-items: end;
-  margin-bottom: 8px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(125, 231, 255, 0.14);
+  gap: 48px;
+  margin-bottom: 36px;
 }
 
 #events .sectionKicker {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: #7de7ff;
 }
 
 #events .sectionKicker::before {
   content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+  width: 32px;
+  height: 1px;
   background: #7de7ff;
-  box-shadow: 0 0 14px #7de7ff;
+  box-shadow: 0 0 10px rgba(125, 231, 255, 0.8);
 }
 
 #events .eventsTitle {
-  max-width: 12ch;
-  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-  letter-spacing: -0.055em;
+  max-width: 11ch;
+  margin-top: 14px;
+  color: #f5f7ff;
+  font-size: clamp(2.7rem, 5vw, 4.7rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
 }
 
 #events .eventsLead {
-  max-width: 38ch;
-  padding: 18px 20px;
-  border-left: 1px solid rgba(125, 231, 255, 0.24);
+  max-width: none;
+  margin: 0 0 6px;
+  padding: 20px 22px;
+  border: 1px solid rgba(125, 231, 255, 0.16);
+  border-left: 3px solid #7de7ff;
+  border-radius: 12px;
+  background: rgba(125, 231, 255, 0.055);
   color: #adb5c9;
 }
 
 #events .eventsGrid {
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 #events .eventCard {
-  min-height: 330px;
-  padding: 28px;
+  position: relative;
+  min-height: 360px;
+  padding: 30px;
   border: 1px solid rgba(125, 231, 255, 0.16);
   border-radius: 18px;
   background:
-	linear-gradient(145deg, rgba(125, 231, 255, 0.055), transparent 42%),
-	rgba(14, 18, 34, 0.92);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+	radial-gradient(circle at 100% 0%, rgba(125, 231, 255, 0.10), transparent 28%),
+	rgba(14, 18, 34, 0.96);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
 }
 
 #events .eventCardFeatured {
+  transform: translateY(-14px);
+  border-color: rgba(125, 231, 255, 0.42);
   background:
-	radial-gradient(circle at 90% 0%, rgba(111, 140, 255, 0.26), transparent 28%),
-	linear-gradient(145deg, rgba(125, 231, 255, 0.09), transparent 44%),
-	rgba(14, 18, 34, 0.96);
-  border-color: rgba(125, 231, 255, 0.38);
+	radial-gradient(circle at 88% 12%, rgba(111, 140, 255, 0.28), transparent 28%),
+	linear-gradient(145deg, rgba(125, 231, 255, 0.10), transparent 42%),
+	#10172d;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
 }
 
 #events .eventCardAccent {
-  inset: auto 28px 0 28px;
-  height: 2px;
-  opacity: 0.7;
+  top: 0;
+  right: 30px;
+  left: 30px;
+  width: auto;
+  height: 3px;
   background: linear-gradient(90deg, #7de7ff, transparent);
 }
 
 #events .eventMeta {
-  padding-bottom: 14px;
+  padding-bottom: 16px;
   border-bottom: 1px solid rgba(125, 231, 255, 0.12);
 }
 
-#events .eventDate {
+#events .eventDate,
+#events .eventIndex {
   color: #7de7ff;
 }
 
 #events .eventTag {
   border-radius: 999px;
-  border-color: rgba(125, 231, 255, 0.24);
+  border: 1px solid rgba(125, 231, 255, 0.22);
   background: rgba(125, 231, 255, 0.07);
   color: #cbd5e1;
 }
 
 #events .eventName {
-  margin-top: 12px;
+  margin-top: 20px;
   color: #f5f7ff;
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
 }
 
 #events .eventDesc {
   color: #adb5c9;
+  line-height: 1.68;
 }
 
 #events .eventFooter {
-  border-top-color: rgba(125, 231, 255, 0.12);
-}
-
-#events .eventIndex {
-  color: #7de7ff;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  border-top: 1px solid rgba(125, 231, 255, 0.12);
 }
 
 #events .eventLink {
   border-radius: 999px;
-  border-color: rgba(125, 231, 255, 0.24);
+  border: 1px solid rgba(125, 231, 255, 0.28);
   background: rgba(125, 231, 255, 0.07);
   color: #7de7ff;
 }
 
 #events .eventLink:hover,
 #events .eventLink:focus-visible {
-  background: #7de7ff;
   border-color: #7de7ff;
+  background: #7de7ff;
   color: #07142d;
 }
 
 @media (max-width: 900px) {
-  #events {
-	padding-top: 88px;
-	padding-bottom: 88px;
+  #events.eventsSection {
+	padding: 88px 20px;
   }
 
   #events .eventsHeader {
-	align-items: start;
+	grid-template-columns: 1fr;
+	gap: 20px;
   }
 
   #events .eventsLead {
-	max-width: 52ch;
-  }
-}
-
-@media (max-width: 640px) {
-  #events {
-	padding-top: 72px;
-	padding-bottom: 72px;
+	max-width: 620px;
   }
 
-  #events .eventsHeader {
-	gap: 18px;
+  #events .eventsGrid {
+	grid-template-columns: 1fr;
   }
 
-  #events .eventsTitle {
-	font-size: 2.35rem;
-  }
-
-  #events .eventsLead {
-	max-width: none;
-  }
-
-  #events .eventCard {
+  #events .eventCard,
+  #events .eventCardFeatured {
 	min-height: 300px;
+	transform: none;
   }
 }
 
