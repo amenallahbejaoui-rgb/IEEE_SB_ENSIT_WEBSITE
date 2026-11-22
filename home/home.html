@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
@@ -7,7 +7,6 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@1,500;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="../style.css" />
 	<link rel="stylesheet" href="home.css" />
 	<link rel="stylesheet" href="../shared/site-navbar.css" />
 </head>
@@ -255,7 +254,7 @@
     <article class="numbersCard numbersCardPurple">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">+<span class="numberCounter" data-target="15">0</span></p>
+        <p class="numbersValue">+<span class="numberCounter">15</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">Projects (Innovation Driven)</p>
       </div>
@@ -264,7 +263,7 @@
     <article class="numbersCard numbersCardAmber">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">+<span class="numberCounter" data-target="220">0</span></p>
+        <p class="numbersValue">+<span class="numberCounter">220</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">Members (Growing Every Year)</p>
       </div>
@@ -273,7 +272,7 @@
     <article class="numbersCard numbersCardDark">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">+<span class="numberCounter" data-target="5">0</span></p>
+        <p class="numbersValue">+<span class="numberCounter">5</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">Partnerships Global Connections</p>
       </div>
@@ -282,53 +281,14 @@
     <article class="numbersCard numbersCardBlue">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">since <span class="numberCounter" data-target="2013">0</span></p>
+        <p class="numbersValue">since <span class="numberCounter">2013</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">13 Years Of Excellence</p>
       </div>
     </article>
   </div>
 </section>
-<script>
-  (function () {
-    const counters = document.querySelectorAll(".numberCounter");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function countUp(counter) {
-      const target = Number(counter.dataset.target);
-
-      if (reducedMotion) {
-        counter.textContent = String(target);
-        return;
-      }
-
-      const duration = 1400;
-      const start = performance.now();
-
-      function update(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const easedProgress = 1 - Math.pow(1 - progress, 3);
-        counter.textContent = String(Math.floor(easedProgress * target));
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        }
-      }
-
-      requestAnimationFrame(update);
-    }
-
-    const observer = new IntersectionObserver((entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        countUp(entry.target);
-        currentObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0.35 });
-
-    counters.forEach((counter) => observer.observe(counter));
-  })();
-</script>
 <section class="units" id="units">
   <span class="unitsEyebrow">Our Chapters</span>
   <h2 class="unitsHeading">Technical Units</h2>
@@ -444,41 +404,7 @@
   </div>
 </section>
 
-<script>
-  (function () {
-    const section = document.getElementById("units");
-    const dot = document.getElementById("unitsDot");
-    let ticking = false;
 
-    function updateDot() {
-      const rect = section.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const total = rect.height - vh; // distance the section travels past a fixed viewport
-      let progress;
-
-      if (total <= 0) {
-        progress = 0;
-      } else {
-        progress = (-rect.top) / total;
-      }
-
-      progress = Math.min(1, Math.max(0, progress));
-      dot.style.top = `${progress * 100}%`;
-      ticking = false;
-    }
-
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(updateDot);
-        ticking = true;
-      }
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    updateDot();
-  })();
-</script>
 		<section class="team" id="team">
 
   <!-- background layer: shadow icons -->
@@ -731,59 +657,7 @@
 
 </section>
 
-<script>
-  (function () {
-    const grid = document.getElementById("galleryGrid");
-    const items = () => Array.from(grid.querySelectorAll(".galleryItem"));
 
-    // Lightbox controls
-    const lightbox = document.getElementById("galleryLightbox");
-    const lightboxImg = document.getElementById("galleryLightboxImg");
-    const lightboxClose = document.getElementById("galleryLightboxClose");
-
-    grid.addEventListener("click", (e) => {
-      const item = e.target.closest(".galleryItem");
-      if (!item || e.target.closest(".actionBtn")) return;
-      const img = item.querySelector(".galleryImage");
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add("isOpen");
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove("isOpen");
-      lightboxImg.src = "";
-    }
-
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeLightbox();
-    });
-
-    // Shuffle gallery items
-    document.getElementById("galleryShuffleBtn").addEventListener("click", () => {
-      const list = items();
-      for (let i = list.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [list[i], list[j]] = [list[j], list[i]];
-      }
-      list.forEach((el) => grid.appendChild(el));
-    });
-
-    // Fullscreen gallery
-    document.getElementById("galleryExpandBtn").addEventListener("click", () => {
-      const section = document.getElementById("gallery");
-      if (!document.fullscreenElement) {
-        section.requestFullscreen?.();
-      } else {
-        document.exitFullscreen?.();
-      }
-    });
-  })();
-</script>
 <section class="contact" id="contact">
   <div class="contactContent">
 
@@ -846,22 +720,7 @@
   </div>
 </section>
 
-<script>
-  (function () {
-    const form = document.getElementById("contactForm");
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value,
-      };
-      console.log("Form submitted:", formData);
-      // Hook up your actual submission logic (fetch/EmailJS/API route) here
-    });
-  })();
-</script>
 <footer class="footer" id="footer">
   <div class="footerOverlay"></div>
 
@@ -912,41 +771,14 @@
   </div>
 
   <div class="footerBottom">
-    <span>© <span id="footerYear"></span> IEEE ENSIT Student Branch</span>
+    <span>© <span>2026</span> IEEE ENSIT Student Branch</span>
     <span class="footerBottomLine" aria-hidden="true"></span>
     <span>Innovation for humanity</span>
   </div>
 </footer>
 
-<script>
-  (function () {
-    const revealItems = document.querySelectorAll(
-      ".homeSection > *, .numbers > *, .units > *, .team > *, .gallery > *, .contact > *"
-    );
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (reducedMotion || !("IntersectionObserver" in window)) {
-      revealItems.forEach((item) => item.classList.add("is-visible"));
-      return;
-    }
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-
-    revealItems.forEach((item) => {
-      item.classList.add("revealItem");
-      revealObserver.observe(item);
-    });
-  })();
-</script>
-<script>
-  document.getElementById("footerYear").textContent = new Date().getFullYear();
-</script>
 	</main>
 </body>
 </html>
