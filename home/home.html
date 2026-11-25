@@ -62,100 +62,121 @@
 		</nav>
 	</header>
 	<main class="homePage">
-		<section class="heroShell" id="hero">
-			<div class="scene">
-				<div class="bg-grid" aria-hidden="true"></div>
-				<div class="bg-glow" aria-hidden="true"></div>
-                                <svg class="bg-circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
-                                        <g class="traces">
-                                                <path class="trace" d="M -20 120 H 180 V 40 H 420 V 160 H 640" />
-                                                <path class="trace" d="M 1460 90 H 1240 V 200 H 1010 V 60 H 860" />
-                                                <path class="trace" d="M -20 260 H 120 V 340 H 300 V 260 H 500 V 380" />
-                                                <path class="trace" d="M 1460 300 H 1300 V 200 H 1120 V 340 H 960" />
-                                                <path class="trace" d="M 60 -20 V 60 H 260" />
-                                                <path class="trace" d="M 1380 -20 V 90" />
-                                                <path class="trace" d="M 700 -20 V 100 H 780 V 40" />
-                                        </g>
-                                        <g class="nodes">
-                                                <circle class="node" cx="180" cy="120" r="4" />
-                                                <circle class="node" cx="420" cy="40" r="4" />
-                                                <circle class="node" cx="640" cy="160" r="4" />
-                                                <circle class="node" cx="1240" cy="90" r="4" />
-                                                <circle class="node" cx="1010" cy="200" r="4" />
-                                                <circle class="node" cx="860" cy="60" r="4" />
-                                                <circle class="node" cx="300" cy="340" r="4" />
-                                                <circle class="node" cx="500" cy="260" r="4" />
-                                                <circle class="node" cx="1120" cy="200" r="4" />
-                                                <circle class="node" cx="960" cy="340" r="4" />
-                                                <circle class="node" cx="780" cy="40" r="4" />
-                                        </g>
-                                </svg>
+		<section class="ieeeHero" id="hero" aria-labelledby="heroTitle">
+			<div class="ieeeHeroGrid" aria-hidden="true"></div>
+			<div class="ieeeHeroGlow ieeeHeroGlowOne" aria-hidden="true"></div>
+			<div class="ieeeHeroGlow ieeeHeroGlowTwo" aria-hidden="true"></div>
 
-				<div class="content">
-					<div class="badge">
-						<span class="badge-dot"></span>
-						IEEE ENSIT STUDENT BRANCH
-					</div>
-
-					<h1 class="headline">
-						<span class="line">
-							<span class="serif">Technology for</span>
-						</span>
-						<span class="line">
-							<span class="sans">Humanity.</span>
-						</span>
-					</h1>
-
-					<p class="subtext">
-						IEEE is a global community advancing technology for humanity. At ENSIT, our Student Branch brings that mission to life through technical chapters, hands-on projects, and opportunities to learn, lead, and connect.
+			<div class="ieeeHeroInner">
+				<div class="ieeeHeroCopy" data-aos="fade-up">
+					<p class="ieeeHeroEyebrow">
+						<span class="ieeeHeroStatus" aria-hidden="true"></span>
+						IEEE ENSIT STUDENT BRANCH <span>/</span> TUNISIA
 					</p>
 
-					<div class="cta-row">
-						<a href="#about" class="btn btn-dark">Discover IEEE at ENSIT</a>
+					<h1 class="ieeeHeroTitle" id="heroTitle">
+						<span>Technology for</span>
+						<em>humanity.</em>
+					</h1>
+
+					<p class="ieeeHeroLead">
+						IEEE is a global community of engineers, researchers, and students advancing technology for humanity.
+					</p>
+					<p class="ieeeHeroDescription">
+						At ENSIT, we turn that mission into practice: learning together, building through our technical chapters,
+						and creating opportunities to lead, collaborate, and make an impact.
+					</p>
+
+					<div class="ieeeHeroActions">
+						<a href="#about" class="ieeeHeroPrimary">
+							Discover IEEE ENSIT <span aria-hidden="true">↗</span>
+						</a>
+						<a href="#units" class="ieeeHeroSecondary">
+							Explore our chapters <span aria-hidden="true">↓</span>
+						</a>
 					</div>
 
-					<div class="heroSignals" aria-label="Student branch highlights">
-						<div class="heroSignal">
+					<div class="ieeeHeroStats" aria-label="IEEE ENSIT Student Branch at a glance">
+						<div class="ieeeHeroStat">
 							<strong>2013</strong>
-							<span>Founded</span>
+							<span>Established</span>
 						</div>
-						<div class="heroSignal">
+						<div class="ieeeHeroStat">
 							<strong>06</strong>
 							<span>Chapters</span>
 						</div>
-						<div class="heroSignal">
-							<strong>120+</strong>
+						<div class="ieeeHeroStat">
+							<strong>120<span>+</span></strong>
 							<span>Members</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="heroArt" aria-hidden="true">
-					<div class="heroArtFrame">
-						<img src="./6.jpg" alt="" />
-						<span class="heroArtStamp">ENSIT<br />TUNIS</span>
-						<span class="heroArtIndex">01 / 06</span>
+				<div class="ieeeHeroVisual" data-aos="fade-left" data-aos-delay="160">
+					<div class="ieeeHeroOrbit ieeeHeroOrbitOuter" aria-hidden="true"></div>
+					<div class="ieeeHeroOrbit ieeeHeroOrbitInner" aria-hidden="true"></div>
+					<div class="ieeeHeroObject" tabindex="0" role="img" aria-label="Interactive illustration of a connected global technology network">
+						<svg class="ieeeHeroGlobe" viewBox="0 0 480 480" aria-hidden="true">
+							<defs>
+								<radialGradient id="globeFill" cx="34%" cy="28%" r="72%">
+									<stop offset="0%" stop-color="#ffffff" />
+									<stop offset="58%" stop-color="#dcecff" />
+									<stop offset="100%" stop-color="#b9d6f7" />
+								</radialGradient>
+								<linearGradient id="globeStroke" x1="0" y1="0" x2="1" y2="1">
+									<stop offset="0%" stop-color="#2b8cff" />
+									<stop offset="100%" stop-color="#0055d4" />
+								</linearGradient>
+								<clipPath id="globeClip">
+									<circle cx="240" cy="226" r="151" />
+								</clipPath>
+							</defs>
+							<circle class="globeSurface" cx="240" cy="226" r="151" fill="url(#globeFill)" />
+							<g class="globeMap" clip-path="url(#globeClip)" fill="none" stroke="url(#globeStroke)">
+								<ellipse cx="240" cy="226" rx="72" ry="151" />
+								<ellipse cx="240" cy="226" rx="125" ry="151" />
+								<ellipse cx="240" cy="226" rx="151" ry="54" />
+								<ellipse cx="240" cy="226" rx="151" ry="105" />
+								<path d="M88 226h304M112 160h256M112 292h256M240 75v302" />
+								<path class="globeNetworkLine" d="M142 178 203 134 272 156 330 121M124 251l71-35 63 48 78-22M171 315l40-61 72-57 43 67" />
+							</g>
+							<g class="globeNodes">
+								<circle cx="142" cy="178" r="8" />
+								<circle cx="203" cy="134" r="7" />
+								<circle cx="272" cy="156" r="9" />
+								<circle cx="330" cy="121" r="7" />
+								<circle cx="124" cy="251" r="7" />
+								<circle cx="195" cy="216" r="10" />
+								<circle cx="258" cy="264" r="8" />
+								<circle cx="336" cy="242" r="9" />
+								<circle cx="171" cy="315" r="7" />
+								<circle cx="211" cy="254" r="8" />
+								<circle cx="283" cy="197" r="7" />
+								<circle cx="320" cy="264" r="6" />
+							</g>
+							<circle class="globeCore" cx="240" cy="226" r="13" />
+						</svg>
+						<span class="ieeeHeroObjectLabel">
+							<span class="ieeeHeroObjectDot" aria-hidden="true"></span>
+							IEEE GLOBAL NETWORK
+						</span>
 					</div>
-					<p class="heroArtCaption">Ideas in motion<br /><span>Since 2013</span></p>
+					<div class="ieeeHeroMission">
+						<span class="ieeeHeroMissionMark" aria-hidden="true">IEEE</span>
+						<div>
+							<span class="ieeeHeroMissionLabel">OUR SHARED MISSION</span>
+							<strong>Advancing technology<br />for humanity</strong>
+						</div>
+						<span class="ieeeHeroMissionArrow" aria-hidden="true">↗</span>
+					</div>
+					<span class="ieeeHeroCoordinates" aria-hidden="true">36°48' N&nbsp; / &nbsp;10°10' E</span>
 				</div>
-
-				<svg class="waveform" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-					<path class="wave-path" d="M -100 40 C -50 5, 0 5, 50 40 S 150 75, 200 40 S 300 5, 350 40 S 450 75, 500 40 S 600 5, 650 40 S 750 75, 800 40 S 900 5, 950 40 S 1050 75, 1100 40 S 1200 5, 1250 40 S 1350 75, 1400 40 S 1500 5, 1550 40" />
-				</svg>
-
-				<footer class="bottom-band">
-					<div class="partnerStrip" aria-label="IEEE ENSIT communities">
-						<span class="partnerName">DocZip</span>
-						<span class="partnerName">B-com</span>
-						<span class="partnerName">GO-main</span>
-						<span class="partnerName">loreip</span>
-						<span class="partnerName partnerBold">Artifacts</span>
-						<span class="partnerName">Refers</span>
-						<span class="partnerName">dashed</span>
-						<span class="partnerName">Zimn</span>
-					</div>
-				</footer>
 			</div>
+
+			<a href="#about" class="ieeeHeroScroll">
+				<span class="ieeeHeroScrollLine" aria-hidden="true"></span>
+				Scroll to explore
+			</a>
 		</section>
 
 		<section id="about" class="homeSection">
