@@ -113,63 +113,34 @@
 				</div>
 
 				<div class="ieeeHeroVisual" data-aos="fade-left" data-aos-delay="160">
-					<div class="ieeeHeroOrbit ieeeHeroOrbitOuter" aria-hidden="true"></div>
-					<div class="ieeeHeroOrbit ieeeHeroOrbitInner" aria-hidden="true"></div>
-					<div class="ieeeHeroObject" tabindex="0" role="img" aria-label="Interactive illustration of a connected global technology network">
-						<svg class="ieeeHeroGlobe" viewBox="0 0 480 480" aria-hidden="true">
+					<div class="ieeeHeroEngineering">
+						<svg class="ieeeHeroSignal" viewBox="0 0 640 500" role="img" aria-labelledby="engineeringTitle engineeringDescription">
 							<defs>
-								<radialGradient id="globeFill" cx="34%" cy="28%" r="72%">
-									<stop offset="0%" stop-color="#ffffff" />
-									<stop offset="58%" stop-color="#dcecff" />
-									<stop offset="100%" stop-color="#b9d6f7" />
-								</radialGradient>
-								<linearGradient id="globeStroke" x1="0" y1="0" x2="1" y2="1">
-									<stop offset="0%" stop-color="#2b8cff" />
-									<stop offset="100%" stop-color="#0055d4" />
+								<linearGradient id="signalStroke" x1="0" y1="0" x2="1" y2="0">
+									<stop offset="0%" stop-color="#64b5ff" />
+									<stop offset="52%" stop-color="#8de5e0" />
+									<stop offset="100%" stop-color="#5ca8ff" />
 								</linearGradient>
-								<clipPath id="globeClip">
-									<circle cx="240" cy="226" r="151" />
-								</clipPath>
+								<pattern id="signalGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+									<path d="M32 0H0V32" fill="none" stroke="#90bce8" stroke-opacity=".14" stroke-width="1" />
+								</pattern>
+								<filter id="signalGlow" x="-30%" y="-50%" width="160%" height="200%">
+									<feGaussianBlur stdDeviation="7" result="blur" />
+									<feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+								</filter>
 							</defs>
-							<circle class="globeSurface" cx="240" cy="226" r="151" fill="url(#globeFill)" />
-							<g class="globeMap" clip-path="url(#globeClip)" fill="none" stroke="url(#globeStroke)">
-								<ellipse cx="240" cy="226" rx="72" ry="151" />
-								<ellipse cx="240" cy="226" rx="125" ry="151" />
-								<ellipse cx="240" cy="226" rx="151" ry="54" />
-								<ellipse cx="240" cy="226" rx="151" ry="105" />
-								<path d="M88 226h304M112 160h256M112 292h256M240 75v302" />
-								<path class="globeNetworkLine" d="M142 178 203 134 272 156 330 121M124 251l71-35 63 48 78-22M171 315l40-61 72-57 43 67" />
-							</g>
-							<g class="globeNodes">
-								<circle cx="142" cy="178" r="8" />
-								<circle cx="203" cy="134" r="7" />
-								<circle cx="272" cy="156" r="9" />
-								<circle cx="330" cy="121" r="7" />
-								<circle cx="124" cy="251" r="7" />
-								<circle cx="195" cy="216" r="10" />
-								<circle cx="258" cy="264" r="8" />
-								<circle cx="336" cy="242" r="9" />
-								<circle cx="171" cy="315" r="7" />
-								<circle cx="211" cy="254" r="8" />
-								<circle cx="283" cy="197" r="7" />
-								<circle cx="320" cy="264" r="6" />
-							</g>
-							<circle class="globeCore" cx="240" cy="226" r="13" />
+							<title id="engineeringTitle">Engineering signal diagram</title>
+							<desc id="engineeringDescription">A glowing oscilloscope waveform runs through a fine technical grid, branching into circuit traces.</desc>
+							<rect x="36" y="46" width="568" height="408" rx="22" fill="url(#signalGrid)" />
+							<path class="signalFrame" d="M68 104V76a12 12 0 0 1 12-12h30M572 104V76a12 12 0 0 0-12-12h-30M68 396v28a12 12 0 0 0 12 12h30M572 396v28a12 12 0 0 1-12 12h-30" />
+							<path class="signalAxis" d="M84 270H556M320 104V418" />
+							<path class="signalCircuit" d="M68 164h56l24-24h82M68 366h74l24-24h56M572 174h-48l-24 24h-70M572 358h-72l-24-24h-46" />
+							<path class="signalCircuit signalCircuitFine" d="M130 112v28m58-24v48m324 70h-52m-310 96h-42m374-158v-40m-270 244v-28" />
+							<path class="signalEcho" d="M84 270h72l18-14 17 20 20-30 20 19 18-11h142l18 11 18-20 20 27 19-16h90" />
+							<path class="signalTraceGlow" d="M84 270h72l18-14 17 20 20-30 20 19 18-11h72l24 0 18-46 22 96 24-142 25 176 25-92 20 24h54l18-17 18 24 20-32 19 25 18-12h42" />
+							<path class="signalTrace" d="M84 270h72l18-14 17 20 20-30 20 19 18-11h72l24 0 18-46 22 96 24-142 25 176 25-92 20 24h54l18-17 18 24 20-32 19 25 18-12h42" />
 						</svg>
-						<span class="ieeeHeroObjectLabel">
-							<span class="ieeeHeroObjectDot" aria-hidden="true"></span>
-							IEEE GLOBAL NETWORK
-						</span>
 					</div>
-					<div class="ieeeHeroMission">
-						<span class="ieeeHeroMissionMark" aria-hidden="true">IEEE</span>
-						<div>
-							<span class="ieeeHeroMissionLabel">OUR SHARED MISSION</span>
-							<strong>Advancing technology<br />for humanity</strong>
-						</div>
-						<span class="ieeeHeroMissionArrow" aria-hidden="true">↗</span>
-					</div>
-					<span class="ieeeHeroCoordinates" aria-hidden="true">36°48' N&nbsp; / &nbsp;10°10' E</span>
 				</div>
 			</div>
 
