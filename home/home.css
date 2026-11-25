@@ -5995,93 +5995,70 @@ body {
 	padding: 0;
 }
 
-.ieeeHeroGlowOne {
+.ieeeHeroGlowOne,
+.ieeeHeroGlowTwo {
 	display: none;
 }
 
 .ieeeHeroEngineering {
 	position: relative;
 	width: 100%;
+	overflow: hidden;
+	border: 1px solid rgba(100, 178, 242, 0.24);
+	border-radius: 20px;
+	background: #020711;
+	box-shadow: 0 28px 72px rgba(0, 20, 42, 0.3);
 	transform: translateY(0);
-	transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+	transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s ease;
 }
 
 .ieeeHeroSignal {
 	display: block;
 	width: 100%;
 	height: auto;
-	overflow: visible;
-	filter: drop-shadow(0 26px 34px rgba(0, 47, 94, 0.22));
-	transition: filter 0.4s ease;
+	overflow: hidden;
 }
 
 .ieeeHeroVisual:hover .ieeeHeroEngineering {
 	transform: translateY(-5px);
+	box-shadow: 0 36px 86px rgba(0, 20, 42, 0.42), 0 0 38px rgba(34, 138, 225, 0.12);
 }
 
-.ieeeHeroVisual:hover .ieeeHeroSignal {
-	filter: drop-shadow(0 32px 42px rgba(0, 47, 94, 0.3));
-}
-
-.signalFrame,
-.signalAxis,
-.signalCircuit,
-.signalCircuitFine,
-.signalEcho,
-.signalTraceGlow,
-.signalTrace {
+.horizonStars {
 	fill: none;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	vector-effect: non-scaling-stroke;
-}
-
-.signalFrame {
-	stroke: rgba(139, 199, 244, 0.42);
-	stroke-width: 1.3;
-}
-
-.signalAxis {
-	stroke: rgba(148, 193, 231, 0.2);
-	stroke-width: 1;
-	stroke-dasharray: 2 9;
-}
-
-.signalCircuit {
-	stroke: rgba(102, 174, 231, 0.42);
-	stroke-width: 1.5;
-}
-
-.signalCircuitFine {
-	stroke: rgba(102, 174, 231, 0.22);
-	stroke-width: 1;
-}
-
-.signalEcho {
-	stroke: rgba(113, 190, 225, 0.25);
+	stroke: rgba(215, 241, 255, 0.72);
 	stroke-width: 1.2;
-	stroke-dasharray: 3 8;
+	stroke-linecap: round;
 }
 
-.signalTraceGlow {
-	stroke: #73dcd9;
-	stroke-width: 9;
-	opacity: 0.35;
-	filter: url(#signalGlow);
+.horizonSurface {
+	fill: none;
+	stroke: rgba(91, 159, 211, 0.14);
+	stroke-width: 1;
+	stroke-linecap: round;
 }
 
-.signalTrace {
-	stroke: url(#signalStroke);
-	stroke-width: 3;
-	stroke-dasharray: 1200;
-	stroke-dashoffset: 1200;
-	animation: signal-trace-draw 2.4s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.horizonAtmosphere {
+	fill: none;
+	stroke: #218cdb;
+	stroke-width: 18;
+	opacity: 0.62;
+	filter: url(#horizonBlur);
 }
 
-@keyframes signal-trace-draw {
-	to {
-		stroke-dashoffset: 0;
-	}
+.horizonGlow {
+	fill: none;
+	stroke: #69c7ff;
+	stroke-width: 5;
+	opacity: 0.72;
+	filter: url(#horizonBlur);
+}
+
+.horizonRim {
+	fill: none;
+	stroke: url(#horizonStroke);
+	stroke-width: 1.7;
+	filter: drop-shadow(0 0 5px rgba(160, 226, 255, 0.85));
 }
 
 @media (max-width: 760px) {
@@ -6089,16 +6066,109 @@ body {
 		width: min(100%, 500px);
 		padding: 0;
 	}
+
+	.ieeeHeroEngineering {
+		border-radius: 16px;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.ieeeHeroEngineering,
-	.ieeeHeroSignal {
+	.ieeeHeroEngineering {
 		transition-duration: 0.01ms !important;
 	}
+}
 
-	.signalTrace {
-		animation: none !important;
-		stroke-dashoffset: 0;
-	}
+.ieeeHero {
+	color: #f3f7fc;
+	background:
+		radial-gradient(ellipse at 82% 58%, rgba(12, 72, 122, 0.22), transparent 34%),
+		radial-gradient(ellipse at 7% 100%, rgba(0, 43, 82, 0.2), transparent 40%),
+		linear-gradient(115deg, #020408 0%, #050a11 54%, #03070d 100%);
+}
+
+.ieeeHeroGrid {
+	background-image:
+		linear-gradient(rgba(179, 213, 244, 0.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(179, 213, 244, 0.035) 1px, transparent 1px);
+}
+
+.ieeeHeroEyebrow {
+	color: #a9bacd;
+}
+
+.ieeeHeroEyebrow > span:last-child {
+	color: #72859c;
+}
+
+.ieeeHeroStatus {
+	background: #62bdff;
+	box-shadow: 0 0 0 5px rgba(98, 189, 255, 0.12), 0 0 16px rgba(98, 189, 255, 0.6);
+}
+
+.ieeeHeroTitle {
+	color: #f5f8fc;
+}
+
+.ieeeHeroTitle em {
+	color: #79bfff;
+}
+
+.ieeeHeroLead {
+	color: #e1eaf4;
+}
+
+.ieeeHeroDescription {
+	color: #9cadc0;
+}
+
+.ieeeHeroPrimary {
+	border-color: #1677e8;
+	background: #1677e8;
+	color: #fff;
+	box-shadow: 0 10px 28px rgba(22, 119, 232, 0.22);
+}
+
+.ieeeHeroPrimary:hover,
+.ieeeHeroPrimary:focus-visible {
+	border-color: #3a98ff;
+	background: #3a98ff;
+	color: #fff;
+}
+
+.ieeeHeroSecondary {
+	color: #c4d2e1;
+}
+
+.ieeeHeroSecondary:hover,
+.ieeeHeroSecondary:focus-visible {
+	color: #83c7ff;
+}
+
+.ieeeHeroStats {
+	border-top-color: rgba(215, 231, 248, 0.18);
+}
+
+.ieeeHeroStat strong {
+	color: #f4f8fc;
+}
+
+.ieeeHeroStat strong span {
+	color: #79bfff;
+}
+
+.ieeeHeroStat > span {
+	color: #98aabd;
+}
+
+.ieeeHeroScroll {
+	color: #9bafc4;
+}
+
+.ieeeHeroScroll:hover,
+.ieeeHeroScroll:focus-visible {
+	color: #f3f7fc;
+}
+
+.ieeeHeroScrollLine {
+	background: #65bfff;
 }

@@ -114,31 +114,42 @@
 
 				<div class="ieeeHeroVisual" data-aos="fade-left" data-aos-delay="160">
 					<div class="ieeeHeroEngineering">
-						<svg class="ieeeHeroSignal" viewBox="0 0 640 500" role="img" aria-labelledby="engineeringTitle engineeringDescription">
+						<svg class="ieeeHeroSignal" viewBox="0 0 640 400" role="img" aria-labelledby="engineeringTitle engineeringDescription">
 							<defs>
-								<linearGradient id="signalStroke" x1="0" y1="0" x2="1" y2="0">
-									<stop offset="0%" stop-color="#64b5ff" />
-									<stop offset="52%" stop-color="#8de5e0" />
-									<stop offset="100%" stop-color="#5ca8ff" />
+								<linearGradient id="spaceFill" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="0%" stop-color="#020711" />
+									<stop offset="70%" stop-color="#06182a" />
+									<stop offset="100%" stop-color="#0b2941" />
 								</linearGradient>
-								<pattern id="signalGrid" width="32" height="32" patternUnits="userSpaceOnUse">
-									<path d="M32 0H0V32" fill="none" stroke="#90bce8" stroke-opacity=".14" stroke-width="1" />
-								</pattern>
-								<filter id="signalGlow" x="-30%" y="-50%" width="160%" height="200%">
-									<feGaussianBlur stdDeviation="7" result="blur" />
-									<feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+								<linearGradient id="planetFill" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="0%" stop-color="#123d5d" />
+									<stop offset="32%" stop-color="#081b2d" />
+									<stop offset="100%" stop-color="#030810" />
+								</linearGradient>
+								<linearGradient id="horizonStroke" x1="0" y1="0" x2="1" y2="0">
+									<stop offset="0%" stop-color="#568bd5" />
+									<stop offset="48%" stop-color="#d8fbff" />
+									<stop offset="100%" stop-color="#4ca8f5" />
+								</linearGradient>
+								<clipPath id="planetClip">
+									<path d="M-20 248 Q320 64 660 248 V420 H-20Z" />
+								</clipPath>
+								<filter id="horizonBlur" x="-30%" y="-100%" width="160%" height="300%">
+									<feGaussianBlur stdDeviation="12" />
 								</filter>
 							</defs>
-							<title id="engineeringTitle">Engineering signal diagram</title>
-							<desc id="engineeringDescription">A glowing oscilloscope waveform runs through a fine technical grid, branching into circuit traces.</desc>
-							<rect x="36" y="46" width="568" height="408" rx="22" fill="url(#signalGrid)" />
-							<path class="signalFrame" d="M68 104V76a12 12 0 0 1 12-12h30M572 104V76a12 12 0 0 0-12-12h-30M68 396v28a12 12 0 0 0 12 12h30M572 396v28a12 12 0 0 1-12 12h-30" />
-							<path class="signalAxis" d="M84 270H556M320 104V418" />
-							<path class="signalCircuit" d="M68 164h56l24-24h82M68 366h74l24-24h56M572 174h-48l-24 24h-70M572 358h-72l-24-24h-46" />
-							<path class="signalCircuit signalCircuitFine" d="M130 112v28m58-24v48m324 70h-52m-310 96h-42m374-158v-40m-270 244v-28" />
-							<path class="signalEcho" d="M84 270h72l18-14 17 20 20-30 20 19 18-11h142l18 11 18-20 20 27 19-16h90" />
-							<path class="signalTraceGlow" d="M84 270h72l18-14 17 20 20-30 20 19 18-11h72l24 0 18-46 22 96 24-142 25 176 25-92 20 24h54l18-17 18 24 20-32 19 25 18-12h42" />
-							<path class="signalTrace" d="M84 270h72l18-14 17 20 20-30 20 19 18-11h72l24 0 18-46 22 96 24-142 25 176 25-92 20 24h54l18-17 18 24 20-32 19 25 18-12h42" />
+							<title id="engineeringTitle">Blue planetary horizon</title>
+							<desc id="engineeringDescription">A thin, luminous blue atmosphere curves above a dark planet against a quiet star field.</desc>
+							<rect width="640" height="400" rx="20" fill="url(#spaceFill)" />
+							<path class="horizonStars" d="M98 82v6m-3-3h6M192 116v5m-2.5-2.5h5M455 78v6m-3-3h6M540 132v5m-2.5-2.5h5M365 95v4m-2-2h4" />
+							<path d="M-20 248 Q320 64 660 248 V420 H-20Z" fill="url(#planetFill)" />
+							<g clip-path="url(#planetClip)" class="horizonSurface">
+								<path d="M-10 282 Q320 116 650 282M-10 314 Q320 151 650 314M-10 352 Q320 190 650 352" />
+								<path d="M52 400 Q320 210 588 400M150 420 Q320 278 490 420" />
+							</g>
+							<path class="horizonAtmosphere" d="M-20 248 Q320 64 660 248" />
+							<path class="horizonGlow" d="M-20 248 Q320 64 660 248" />
+							<path class="horizonRim" d="M-20 248 Q320 64 660 248" />
 						</svg>
 					</div>
 				</div>
