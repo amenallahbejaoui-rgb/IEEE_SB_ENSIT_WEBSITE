@@ -6,9 +6,10 @@
 	<title>IEEE SB ENSIT | Home</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@1,500;1,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="home.css" />
 	<link rel="stylesheet" href="../shared/site-navbar.css" />
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 <body>
 	<header class="siteNav" aria-label="Main navigation">
@@ -60,35 +61,35 @@
 			<a href="../joinus/joinus.html" class="siteNavCta">Join us <span aria-hidden="true">↗</span></a>
 		</nav>
 	</header>
-	<svg class="bg-circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
-		<g class="traces">
-			<path class="trace" d="M -20 120 H 180 V 40 H 420 V 160 H 640" />
-			<path class="trace" d="M 1460 90 H 1240 V 200 H 1010 V 60 H 860" />
-			<path class="trace" d="M -20 260 H 120 V 340 H 300 V 260 H 500 V 380" />
-			<path class="trace" d="M 1460 300 H 1300 V 200 H 1120 V 340 H 960" />
-			<path class="trace" d="M 60 -20 V 60 H 260" />
-			<path class="trace" d="M 1380 -20 V 90" />
-			<path class="trace" d="M 700 -20 V 100 H 780 V 40" />
-		</g>
-		<g class="nodes">
-			<circle class="node" cx="180" cy="120" r="4" />
-			<circle class="node" cx="420" cy="40" r="4" />
-			<circle class="node" cx="640" cy="160" r="4" />
-			<circle class="node" cx="1240" cy="90" r="4" />
-			<circle class="node" cx="1010" cy="200" r="4" />
-			<circle class="node" cx="860" cy="60" r="4" />
-			<circle class="node" cx="300" cy="340" r="4" />
-			<circle class="node" cx="500" cy="260" r="4" />
-			<circle class="node" cx="1120" cy="200" r="4" />
-			<circle class="node" cx="960" cy="340" r="4" />
-			<circle class="node" cx="780" cy="40" r="4" />
-		</g>
-	</svg>
 	<main class="homePage">
 		<section class="heroShell" id="hero">
 			<div class="scene">
 				<div class="bg-grid" aria-hidden="true"></div>
 				<div class="bg-glow" aria-hidden="true"></div>
+                                <svg class="bg-circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+                                        <g class="traces">
+                                                <path class="trace" d="M -20 120 H 180 V 40 H 420 V 160 H 640" />
+                                                <path class="trace" d="M 1460 90 H 1240 V 200 H 1010 V 60 H 860" />
+                                                <path class="trace" d="M -20 260 H 120 V 340 H 300 V 260 H 500 V 380" />
+                                                <path class="trace" d="M 1460 300 H 1300 V 200 H 1120 V 340 H 960" />
+                                                <path class="trace" d="M 60 -20 V 60 H 260" />
+                                                <path class="trace" d="M 1380 -20 V 90" />
+                                                <path class="trace" d="M 700 -20 V 100 H 780 V 40" />
+                                        </g>
+                                        <g class="nodes">
+                                                <circle class="node" cx="180" cy="120" r="4" />
+                                                <circle class="node" cx="420" cy="40" r="4" />
+                                                <circle class="node" cx="640" cy="160" r="4" />
+                                                <circle class="node" cx="1240" cy="90" r="4" />
+                                                <circle class="node" cx="1010" cy="200" r="4" />
+                                                <circle class="node" cx="860" cy="60" r="4" />
+                                                <circle class="node" cx="300" cy="340" r="4" />
+                                                <circle class="node" cx="500" cy="260" r="4" />
+                                                <circle class="node" cx="1120" cy="200" r="4" />
+                                                <circle class="node" cx="960" cy="340" r="4" />
+                                                <circle class="node" cx="780" cy="40" r="4" />
+                                        </g>
+                                </svg>
 
 				<div class="content">
 					<div class="badge">
@@ -185,7 +186,7 @@
 
     <section id="events" class="homeSection eventsSection homeSectionAlt">
       <div class="eventsWrap">
-        <div class="eventsHeader">
+        <div class="eventsHeader" data-aos="fade-up">
           <div>
             <p class="sectionKicker">Student Branch Events</p>
             <h2 class="eventsTitle">Moments that shaped the branch.</h2>
@@ -196,7 +197,7 @@
         </div>
 
         <div class="eventsGrid">
-          <article class="eventCard">
+          <article class="eventCard" data-aos="fade-up" data-aos-delay="0">
             <div class="eventCardAccent" aria-hidden="true"></div>
             <div class="eventMeta">
               <span class="eventDate">11 Sep 2024</span>
@@ -212,7 +213,7 @@
             </div>
           </article>
 
-          <article class="eventCard eventCardFeatured">
+          <article class="eventCard eventCardFeatured" data-aos="fade-up" data-aos-delay="120">
             <div class="eventCardAccent" aria-hidden="true"></div>
             <div class="eventMeta">
               <span class="eventDate">5 Oct 2024</span>
@@ -228,7 +229,7 @@
             </div>
           </article>
 
-          <article class="eventCard">
+          <article class="eventCard" data-aos="fade-up" data-aos-delay="240">
             <div class="eventCardAccent" aria-hidden="true"></div>
             <div class="eventMeta">
               <span class="eventDate">9 Apr 2024</span>
@@ -247,40 +248,40 @@
       </div>
     </section>
         <section class="numbers" aria-labelledby="key-numbers-heading">
-  <h1 id="key-numbers-heading" class="numbersHeading">Key numbers</h1>
+  <h1 id="key-numbers-heading" class="numbersHeading" data-aos="fade-up">Key numbers</h1>
 
   <div class="numbersGrid">
-    <article class="numbersCard numbersCardPurple">
+    <article class="numbersCard numbersCardPurple" data-aos="zoom-in" data-aos-delay="0">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">+<span class="numberCounter">15</span></p>
+        <p class="numbersValue">+<span class="numberCounter" data-count="15">0</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">Projects (Innovation Driven)</p>
       </div>
     </article>
 
-    <article class="numbersCard numbersCardAmber">
+    <article class="numbersCard numbersCardAmber" data-aos="zoom-in" data-aos-delay="100">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">+<span class="numberCounter">220</span></p>
+        <p class="numbersValue">+<span class="numberCounter" data-count="220">0</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">Members (Growing Every Year)</p>
       </div>
     </article>
 
-    <article class="numbersCard numbersCardDark">
+    <article class="numbersCard numbersCardDark" data-aos="zoom-in" data-aos-delay="200">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">+<span class="numberCounter">5</span></p>
+        <p class="numbersValue">+<span class="numberCounter" data-count="5">0</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">Partnerships Global Connections</p>
       </div>
     </article>
 
-    <article class="numbersCard numbersCardBlue">
+    <article class="numbersCard numbersCardBlue" data-aos="zoom-in" data-aos-delay="300">
       <div class="numbersCardGlow" aria-hidden="true"></div>
       <div class="numbersCardContent">
-        <p class="numbersValue">since <span class="numberCounter">2013</span></p>
+        <p class="numbersValue">since <span class="numberCounter" data-count="2013">0</span></p>
         <span class="numbersDivider" aria-hidden="true"></span>
         <p class="numbersLabel">13 Years Of Excellence</p>
       </div>
@@ -289,8 +290,8 @@
 </section>
 
 <section class="units" id="units">
-  <span class="unitsEyebrow">Our Chapters</span>
-  <h2 class="unitsHeading">Technical Units</h2>
+  <span class="unitsEyebrow" data-aos="fade-up">Our Chapters</span>
+  <h2 class="unitsHeading" data-aos="fade-up">Technical Units</h2>
 
   <div class="unitsBody">
     <!-- center scroll track -->
@@ -301,7 +302,7 @@
 
     <div class="unitsList">
 
-      <article class="unitCard unitCardLeft" style="--accent:#f6bb5c">
+      <article class="unitCard unitCardLeft" data-aos="fade-right" style="--accent:#f6bb5c">
         <span class="unitNode"></span>
         <div class="unitCardInner">
           <div class="unitLogoWrap">
@@ -315,7 +316,7 @@
         </div>
       </article>
 
-      <article class="unitCard unitCardRight" style="--accent:#3D1448">
+      <article class="unitCard unitCardRight" data-aos="fade-left" style="--accent:#3D1448">
         <span class="unitNode"></span>
         <div class="unitCardInner">
           <div class="unitLogoWrap">
@@ -329,7 +330,7 @@
         </div>
       </article>
 
-      <article class="unitCard unitCardLeft" style="--accent:#56b5ed">
+      <article class="unitCard unitCardLeft" data-aos="fade-right" style="--accent:#56b5ed">
         <span class="unitNode"></span>
         <div class="unitCardInner">
           <div class="unitLogoWrap">
@@ -343,7 +344,7 @@
         </div>
       </article>
 
-      <article class="unitCard unitCardRight" style="--accent:#9C27B0">
+      <article class="unitCard unitCardRight" data-aos="fade-left" style="--accent:#9C27B0">
         <span class="unitNode"></span>
         <div class="unitCardInner">
           <div class="unitLogoWrap">
@@ -357,7 +358,7 @@
         </div>
       </article>
 
-      <article class="unitCard unitCardLeft" style="--accent:#f83a3a">
+      <article class="unitCard unitCardLeft" data-aos="fade-right" style="--accent:#f83a3a">
         <span class="unitNode"></span>
         <div class="unitCardInner">
           <div class="unitLogoWrap">
@@ -371,7 +372,7 @@
         </div>
       </article>
 
-      <article class="unitCard unitCardRight" style="--accent:#5ad219">
+      <article class="unitCard unitCardRight" data-aos="fade-left" style="--accent:#5ad219">
         <span class="unitNode"></span>
         <div class="unitCardInner">
           <div class="unitLogoWrap">
@@ -385,7 +386,7 @@
         </div>
       </article>
 
-      <article class="unitCard unitCardLeft" style="--accent:#369ef4">
+      <article class="unitCard unitCardLeft" data-aos="fade-right" style="--accent:#369ef4">
         <span class="unitNode"></span>
         <div class="unitCardInner">
           <div class="unitLogoWrap">
@@ -779,42 +780,78 @@
 
 
 	</main>
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 	<script>
-		(function () {
-			var circuit = document.querySelector(".bg-circuit");
-			if (!circuit) return;
-			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+		if (window.AOS) {
+			AOS.init({
+				duration: 750,
+				easing: "ease-out-cubic",
+				offset: 80,
+				once: true
+			});
+		}
 
-			var current = 0;
-			var running = false;
+		const counters = document.querySelectorAll(".numberCounter[data-count]");
+		const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		const counterObserver = new IntersectionObserver((entries, observer) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
 
-			function destination() {
-				var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-				var limit = Math.max(window.innerHeight * 0.72, 280);
-				return Math.min(Math.max(scrollY, 0) * 0.62, limit);
-			}
-
-			function frame() {
-				var target = destination();
-				current += (target - current) * 0.14;
-				if (Math.abs(target - current) < 0.4) current = target;
-				circuit.style.transform = "translate3d(0," + current.toFixed(2) + "px,0)";
-				if (current !== target) {
-					requestAnimationFrame(frame);
-				} else {
-					running = false;
+				const counter = entry.target;
+				const target = Number(counter.dataset.count);
+				if (!Number.isFinite(target)) {
+					observer.unobserve(counter);
+					return;
 				}
-			}
 
-			function requestTick() {
-				if (running) return;
-				running = true;
-				requestAnimationFrame(frame);
-			}
+				if (prefersReducedMotion) {
+					counter.textContent = target.toLocaleString();
+					observer.unobserve(counter);
+					return;
+				}
 
-			window.addEventListener("scroll", requestTick, { passive: true });
-			window.addEventListener("resize", requestTick);
-		})();
+				const duration = 1500;
+				const startTime = performance.now();
+				const animateCount = (now) => {
+					const progress = Math.min((now - startTime) / duration, 1);
+					const easedProgress = 1 - Math.pow(1 - progress, 3);
+					counter.textContent = Math.round(target * easedProgress).toLocaleString();
+
+					if (progress < 1) {
+						requestAnimationFrame(animateCount);
+					} else {
+						observer.unobserve(counter);
+					}
+				};
+
+				requestAnimationFrame(animateCount);
+			});
+		}, { threshold: 0.45 });
+
+		counters.forEach((counter) => {
+			counter.textContent = "0";
+			counterObserver.observe(counter);
+		});
+
+		const unitsBody = document.querySelector(".unitsBody");
+		const unitsDot = document.getElementById("unitsDot");
+		let unitsDotFrame = 0;
+
+		const updateUnitsDot = () => {
+			if (!unitsBody || !unitsDot) return;
+			const bounds = unitsBody.getBoundingClientRect();
+			const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.5 - bounds.top) / bounds.height));
+			unitsDot.style.top = `${progress * 100}%`;
+			unitsDotFrame = 0;
+		};
+
+		const scheduleUnitsDotUpdate = () => {
+			if (!unitsDotFrame) unitsDotFrame = requestAnimationFrame(updateUnitsDot);
+		};
+
+		window.addEventListener("scroll", scheduleUnitsDotUpdate, { passive: true });
+		window.addEventListener("resize", scheduleUnitsDotUpdate);
+		scheduleUnitsDotUpdate();
 	</script>
 </body>
 </html>
