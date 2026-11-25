@@ -60,36 +60,35 @@
 			<a href="../joinus/joinus.html" class="siteNavCta">Join us <span aria-hidden="true">↗</span></a>
 		</nav>
 	</header>
+	<svg class="bg-circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+		<g class="traces">
+			<path class="trace" d="M -20 120 H 180 V 40 H 420 V 160 H 640" />
+			<path class="trace" d="M 1460 90 H 1240 V 200 H 1010 V 60 H 860" />
+			<path class="trace" d="M -20 260 H 120 V 340 H 300 V 260 H 500 V 380" />
+			<path class="trace" d="M 1460 300 H 1300 V 200 H 1120 V 340 H 960" />
+			<path class="trace" d="M 60 -20 V 60 H 260" />
+			<path class="trace" d="M 1380 -20 V 90" />
+			<path class="trace" d="M 700 -20 V 100 H 780 V 40" />
+		</g>
+		<g class="nodes">
+			<circle class="node" cx="180" cy="120" r="4" />
+			<circle class="node" cx="420" cy="40" r="4" />
+			<circle class="node" cx="640" cy="160" r="4" />
+			<circle class="node" cx="1240" cy="90" r="4" />
+			<circle class="node" cx="1010" cy="200" r="4" />
+			<circle class="node" cx="860" cy="60" r="4" />
+			<circle class="node" cx="300" cy="340" r="4" />
+			<circle class="node" cx="500" cy="260" r="4" />
+			<circle class="node" cx="1120" cy="200" r="4" />
+			<circle class="node" cx="960" cy="340" r="4" />
+			<circle class="node" cx="780" cy="40" r="4" />
+		</g>
+	</svg>
 	<main class="homePage">
 		<section class="heroShell" id="hero">
 			<div class="scene">
 				<div class="bg-grid" aria-hidden="true"></div>
 				<div class="bg-glow" aria-hidden="true"></div>
-
-				<svg class="bg-circuit" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
-					<g class="traces">
-						<path class="trace" d="M -20 120 H 180 V 40 H 420 V 160 H 640" />
-						<path class="trace" d="M 1460 90 H 1240 V 200 H 1010 V 60 H 860" />
-						<path class="trace" d="M -20 260 H 120 V 340 H 300 V 260 H 500 V 380" />
-						<path class="trace" d="M 1460 300 H 1300 V 200 H 1120 V 340 H 960" />
-						<path class="trace" d="M 60 -20 V 60 H 260" />
-						<path class="trace" d="M 1380 -20 V 90" />
-						<path class="trace" d="M 700 -20 V 100 H 780 V 40" />
-					</g>
-					<g class="nodes">
-						<circle class="node" cx="180" cy="120" r="4" />
-						<circle class="node" cx="420" cy="40" r="4" />
-						<circle class="node" cx="640" cy="160" r="4" />
-						<circle class="node" cx="1240" cy="90" r="4" />
-						<circle class="node" cx="1010" cy="200" r="4" />
-						<circle class="node" cx="860" cy="60" r="4" />
-						<circle class="node" cx="300" cy="340" r="4" />
-						<circle class="node" cx="500" cy="260" r="4" />
-						<circle class="node" cx="1120" cy="200" r="4" />
-						<circle class="node" cx="960" cy="340" r="4" />
-						<circle class="node" cx="780" cy="40" r="4" />
-					</g>
-				</svg>
 
 				<div class="content">
 					<div class="badge">
@@ -780,5 +779,42 @@
 
 
 	</main>
+	<script>
+		(function () {
+			var circuit = document.querySelector(".bg-circuit");
+			if (!circuit) return;
+			if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+			var current = 0;
+			var running = false;
+
+			function destination() {
+				var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+				var limit = Math.max(window.innerHeight * 0.72, 280);
+				return Math.min(Math.max(scrollY, 0) * 0.62, limit);
+			}
+
+			function frame() {
+				var target = destination();
+				current += (target - current) * 0.14;
+				if (Math.abs(target - current) < 0.4) current = target;
+				circuit.style.transform = "translate3d(0," + current.toFixed(2) + "px,0)";
+				if (current !== target) {
+					requestAnimationFrame(frame);
+				} else {
+					running = false;
+				}
+			}
+
+			function requestTick() {
+				if (running) return;
+				running = true;
+				requestAnimationFrame(frame);
+			}
+
+			window.addEventListener("scroll", requestTick, { passive: true });
+			window.addEventListener("resize", requestTick);
+		})();
+	</script>
 </body>
 </html>

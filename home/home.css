@@ -4495,3 +4495,27 @@ body {
 		padding: 11px 8px;
 	}
 }
+
+/* Circuit traces follow the scroll, then ease back on the way up */
+.bg-circuit {
+	position: fixed;
+	top: 12%;
+	left: 0;
+	width: 100%;
+	height: 72%;
+	z-index: 4;
+	opacity: 0.9;
+	pointer-events: none;
+	mask-image: linear-gradient(90deg, black 0%, black 19%, transparent 43%, transparent 57%, black 81%, black 100%);
+	will-change: transform;
+}
+
+.bg-circuit .trace {
+	stroke: #9a9a9a;
+	stroke-width: 1.15;
+	opacity: 0.55;
+}
+
+.bg-circuit .node {
+	fill: #8d8d8d;
+}

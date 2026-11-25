@@ -235,3 +235,218 @@ h2 {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* Shared presentation for the older AESS event markup. */
+body #spinner,
+body > .container-fluid.sticky-top,
+body > .footer {
+	display: none !important;
+}
+
+body .event-back-link {
+	display: block;
+	max-width: 1072px;
+	margin: 28px auto 0;
+	padding: 0 24px;
+	color: var(--ink);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+body .event-back-link:hover,
+body .event-back-link:focus-visible {
+	color: var(--blue);
+}
+
+body .event-card {
+	max-width: 1120px;
+	margin: clamp(70px, 12vw, 150px) auto 130px;
+	padding: 0 24px;
+}
+
+body .event-card::before {
+	display: block;
+	margin: 0 0 18px 4px;
+	color: var(--blue);
+	content: "IEEE ENSIT AESS EVENT";
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+}
+
+body .event-content {
+	display: grid;
+	grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+	align-items: center;
+	gap: clamp(40px, 8vw, 100px);
+}
+
+body .event-image {
+	width: 100% !important;
+	height: 520px;
+	object-fit: cover;
+	display: block;
+	border: 10px solid rgba(255, 255, 255, 0.86);
+	border-radius: 28px;
+	box-shadow: 0 20px 45px rgba(11, 31, 58, 0.18);
+}
+
+body .event-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0;
+}
+
+body .event-kicker {
+	margin-bottom: 16px;
+	color: var(--blue);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+
+body .event-text h1 {
+	margin: 0 0 26px;
+	color: var(--ink);
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: clamp(2.5rem, 5vw, 5rem);
+	font-weight: 400;
+	line-height: 0.98;
+	letter-spacing: -0.05em;
+}
+
+body .event-text h1::after {
+	display: block;
+	width: 54px;
+	height: 3px;
+	margin-top: 20px;
+	border-radius: 999px;
+	background: var(--blue);
+	content: "";
+}
+
+body .event-info {
+	padding-top: 8px;
+}
+
+body .event-description p {
+	margin: 0;
+	color: var(--muted);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+
+body [class*="thumbnail-container"] {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+	gap: 12px;
+	max-height: 250px;
+	margin-top: 20px;
+	padding: 18px;
+	overflow-y: auto;
+	border-top: 1px solid var(--line);
+	background: rgba(255, 255, 255, 0.5);
+}
+
+body [class*="thumbnail-container"] .thumbnail {
+	width: 100%;
+	height: 78px !important;
+	object-fit: cover;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+body [class*="thumbnail-container"] .thumbnail:hover,
+body [class*="thumbnail-container"] .thumbnail:focus-visible {
+	border-color: var(--blue);
+	transform: translateY(-2px);
+}
+
+@media (max-width: 800px) {
+	body .event-content {
+		grid-template-columns: 1fr;
+	}
+
+	body .event-image {
+		height: min(520px, 72vw);
+	}
+}
+
+/* Clean standalone presentation for Astronomica 5.0 and Education Week. */
+body .event-card {
+	max-width: 1120px;
+}
+
+body .event-media {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 28px;
+	background: transparent;
+	box-shadow: none;
+}
+
+body .event-media .event-image {
+	height: 520px;
+	border: 10px solid rgba(255, 255, 255, 0.86);
+	border-radius: 28px;
+	box-shadow: 0 20px 45px rgba(11, 31, 58, 0.18);
+}
+
+body .event-media [class*="thumbnail-container"] {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	max-height: none;
+	margin-top: 16px;
+	padding: 16px 0 0;
+	border-top: 1px solid var(--line);
+	background: transparent;
+}
+
+body .event-highlight {
+	max-width: 560px;
+	margin-top: 24px;
+	padding: 18px 20px;
+	border: 0;
+	border-left: 3px solid var(--blue);
+	border-radius: 12px;
+	background: rgba(0, 85, 212, 0.07);
+	color: var(--ink);
+	font-weight: 600;
+	line-height: 1.65;
+}
+
+body .event-description strong {
+	display: block;
+	margin-bottom: 2px;
+	color: var(--ink);
+	font-size: 1.08rem;
+}
+
+@media (max-width: 800px) {
+	body .event-media .event-image {
+		height: min(460px, 72vw);
+	}
+
+	body .event-media [class*="thumbnail-container"] {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 520px) {
+	body .event-card {
+		margin-top: 54px;
+		padding: 0 16px;
+	}
+
+	body .event-media [class*="thumbnail-container"] {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
