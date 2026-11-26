@@ -6277,3 +6277,75 @@ body {
 .footer {
         background: #020408;
 }
+
+.gallery {
+        color: #f3f7fc;
+        background-color: #020408;
+        background-image:
+                radial-gradient(ellipse at 82% 8%, rgba(22, 91, 148, 0.16), transparent 38%),
+                linear-gradient(rgba(179, 213, 244, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(179, 213, 244, 0.025) 1px, transparent 1px);
+        background-size: auto, 80px 80px, 80px 80px;
+}
+
+.galleryHeader {
+        border-bottom-color: rgba(215, 231, 248, 0.14);
+}
+
+.galleryEyebrow {
+        color: #79bfff;
+}
+
+.galleryTitle {
+        color: #f5f8fc;
+}
+
+.galleryGrid .galleryItem:nth-child(n + 7) {
+        display: none;
+}
+
+.galleryOverlay {
+        background: linear-gradient(to bottom, transparent 35%, rgba(2, 7, 14, 0.86) 100%);
+}
+
+.galleryCtrlBtn {
+        border-color: rgba(121, 191, 255, 0.22);
+        background: rgba(8, 14, 23, 0.9);
+        color: #a9d5ff;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
+}
+
+.galleryCtrlBtn:hover {
+        border-color: #1677e8;
+        background: #1677e8;
+        color: #fff;
+}
+
+.galleryMoreLink {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: 12px;
+        margin: 28px auto 0;
+        padding: 12px 18px;
+        border: 1px solid rgba(121, 191, 255, 0.42);
+        border-radius: 999px;
+        color: #b7dcff;
+        font-size: 0.84rem;
+        font-weight: 600;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.galleryMoreLink:hover,
+.galleryMoreLink:focus-visible {
+        transform: translateY(-2px);
+        border-color: #79bfff;
+        background: #1677e8;
+        color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+        .galleryMoreLink {
+                transition: none;
+        }
+}

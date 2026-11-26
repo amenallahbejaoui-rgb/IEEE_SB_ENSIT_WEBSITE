@@ -39,6 +39,7 @@
 
   <!-- ───────── Grid ───────── -->
   <section class="galleryGrid" id="galleryGrid" aria-label="Photo gallery"></section>
+  <button class="galleryLoadMore" id="galleryLoadMore" type="button" hidden>Show more photos</button>
 
   <!-- empty state -->
   <p class="galleryEmpty" id="galleryEmpty" hidden>No photos in this category yet.</p>
@@ -179,24 +180,31 @@
     const grid = document.getElementById("galleryGrid");
     const emptyState = document.getElementById("galleryEmpty");
     const filterBtns = document.querySelectorAll(".galleryFilterBtn");
+    const loadMoreBtn = document.getElementById("galleryLoadMore");
+    const imageBatchSize = 12;
 
     let currentFilter = "all";
     let currentIndex = 0;
-    let visibleImages = galleryImages;
+    let visibleImages = [];
+    let filteredImages = galleryImages;
+    let displayLimit = imageBatchSize;
 
     function renderGrid() {
-      visibleImages =
+      filteredImages =
         currentFilter === "all"
           ? galleryImages
           : galleryImages.filter((img) => img.category === currentFilter);
+      visibleImages = filteredImages.slice(0, displayLimit);
 
       grid.innerHTML = "";
 
       if (visibleImages.length === 0) {
         emptyState.hidden = false;
+        loadMoreBtn.hidden = true;
         return;
       }
       emptyState.hidden = true;
+      loadMoreBtn.hidden = visibleImages.length >= filteredImages.length;
 
       visibleImages.forEach((img, index) => {
         const item = document.createElement("div");
@@ -212,11 +220,17 @@
       });
     }
 
+    loadMoreBtn.addEventListener("click", () => {
+      displayLimit += imageBatchSize;
+      renderGrid();
+    });
+
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         filterBtns.forEach((b) => b.classList.remove("isActive"));
         btn.classList.add("isActive");
         currentFilter = btn.dataset.filter;
+        displayLimit = imageBatchSize;
         renderGrid();
       });
     });
