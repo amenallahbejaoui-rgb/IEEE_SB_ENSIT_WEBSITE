@@ -193,3 +193,272 @@ footer {
 .eventCard p {
         color: #6d6175;
 }
+
+.heroVisual {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 520px;
+        min-height: 450px;
+        justify-self: center;
+        padding: 22px;
+        border: 1px solid rgba(218, 195, 242, 0.2);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.035);
+}
+
+.visualHeader,
+.visualFooter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        color: #c4b0d3;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+}
+
+.visualHeader {
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(218, 195, 242, 0.16);
+}
+
+.visualHeader span:last-child {
+        color: var(--pink);
+}
+
+.networkMap {
+        position: relative;
+        width: 100%;
+        height: 310px;
+}
+
+.networkLine {
+        position: absolute;
+        z-index: 0;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(196, 155, 233, 0.25), rgba(240, 168, 211, 0.72));
+        transform-origin: left center;
+}
+
+.networkLineOne {
+        top: 23%;
+        left: 14%;
+        width: 41%;
+        transform: rotate(27deg);
+}
+
+.networkLineTwo {
+        top: 23%;
+        right: 14%;
+        width: 41%;
+        transform: rotate(153deg);
+}
+
+.networkLineThree {
+        top: 90%;
+        left: 50%;
+        width: 40%;
+        transform: rotate(-90deg);
+}
+
+.networkHub {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 124px;
+        height: 124px;
+        border: 1px solid rgba(218, 195, 242, 0.5);
+        border-radius: 26px;
+        background: #2a1938;
+        box-shadow: 0 0 0 9px rgba(196, 155, 233, 0.07);
+        transform: translate(-50%, -50%);
+}
+
+.networkHub strong {
+        color: #fbf8ff;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: -0.09em;
+}
+
+.networkHub small {
+        margin-top: 4px;
+        color: var(--lavender);
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+}
+
+.networkNode {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 142px;
+        min-height: 64px;
+        padding: 13px;
+        border: 1px solid rgba(218, 195, 242, 0.22);
+        border-radius: 12px;
+        background: #21152d;
+}
+
+.networkNode span {
+        color: var(--pink);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+}
+
+.networkNode strong {
+        color: #f8f3ff;
+        font-size: 0.8rem;
+        font-weight: 600;
+}
+
+.networkNodeOne {
+        top: 4%;
+        left: 0;
+}
+
+.networkNodeTwo {
+        top: 4%;
+        right: 0;
+}
+
+.networkNodeThree {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+}
+
+.visualFooter {
+        padding-top: 14px;
+        border-top: 1px solid rgba(218, 195, 242, 0.16);
+        color: #a999b7;
+        font-size: 0.56rem;
+}
+
+@media (max-width: 560px) {
+        .heroVisual {
+                min-height: 380px;
+                padding: 16px;
+                transform: none;
+                margin: 0;
+        }
+
+        .networkMap {
+                height: 275px;
+        }
+
+        .networkNode {
+                width: 43%;
+                min-height: 58px;
+                gap: 8px;
+                padding: 10px;
+        }
+
+        .networkNodeOne,
+        .networkNodeTwo {
+                top: 4%;
+        }
+
+        .networkHub {
+                width: 92px;
+                height: 92px;
+                border-radius: 20px;
+        }
+
+        .networkHub strong {
+                font-size: 2rem;
+        }
+
+        .networkLineOne {
+                top: 24%;
+                left: 19%;
+                width: 32%;
+                transform: rotate(38deg);
+        }
+
+        .networkLineTwo {
+                top: 24%;
+                right: 19%;
+                width: 32%;
+                transform: rotate(142deg);
+        }
+
+        .networkLineThree {
+                top: 90%;
+                left: 50%;
+                width: 40%;
+        }
+
+        .visualHeader,
+        .visualFooter {
+                font-size: 0.52rem;
+                letter-spacing: 0.1em;
+        }
+}
+
+.purposeStatement {
+        position: relative;
+        z-index: 1;
+        max-width: 440px;
+        margin: auto 0;
+}
+
+.purposeIndex {
+        display: block;
+        margin-bottom: 22px;
+        color: var(--pink);
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+}
+
+.purposeTitle {
+        max-width: 10ch;
+        color: #fbf8ff;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.8rem, 4.2vw, 4.1rem);
+        font-weight: 600;
+        line-height: 0.98;
+        letter-spacing: -0.065em;
+}
+
+.purposeTitle em {
+        color: var(--pink);
+        font-style: normal;
+}
+
+.purposeCopy {
+        max-width: 34ch;
+        margin-top: 20px;
+        color: #c2b5ce;
+        font-size: 0.9rem;
+        line-height: 1.65;
+}
+
+@media (max-width: 560px) {
+        .purposeTitle {
+                font-size: clamp(2.3rem, 10vw, 3rem);
+        }
+
+        .purposeIndex {
+                margin-bottom: 17px;
+        }
+
+        .purposeCopy {
+                margin-top: 15px;
+        }
+}
