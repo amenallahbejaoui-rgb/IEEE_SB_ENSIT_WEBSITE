@@ -6206,3 +6206,74 @@ body {
 		padding-top: 164px;
 	}
 }
+
+/* Carry the hero's dark, understated blue palette through the other blue sections. */
+.eventsSection,
+.units,
+.contact {
+        isolation: isolate;
+        color: #f3f7fc;
+        background-color: #020408;
+        background-image:
+                radial-gradient(ellipse at 82% 10%, rgba(22, 91, 148, 0.16), transparent 38%),
+                linear-gradient(rgba(179, 213, 244, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(179, 213, 244, 0.025) 1px, transparent 1px);
+        background-size: auto, 80px 80px, 80px 80px;
+}
+
+.aboutCopy {
+        background: linear-gradient(135deg, #080d15, #03060b);
+        border-color: rgba(121, 191, 255, 0.2);
+}
+
+.eventCard,
+.eventCardFeatured {
+        border-color: rgba(121, 191, 255, 0.16);
+        background: linear-gradient(145deg, #0a111b, #05090f);
+        color: #f3f7fc;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+}
+
+.eventCardFeatured {
+        background: linear-gradient(145deg, #0b1724, #05090f);
+}
+
+.eventCard .eventDate {
+        color: #91a8bf;
+}
+
+.eventCard .eventTag {
+        border-color: rgba(121, 191, 255, 0.22);
+        background: rgba(121, 191, 255, 0.07);
+        color: #a9d5ff;
+}
+
+.eventCard .eventName {
+        color: #f5f8fc;
+}
+
+.eventCard .eventDesc {
+        color: #a8b6c6;
+}
+
+.eventCard .eventLink {
+        border-color: rgba(121, 191, 255, 0.42);
+        background: rgba(22, 119, 232, 0.16);
+        color: #a9d5ff;
+}
+
+.eventCard .eventLink:hover,
+.eventCard .eventLink:focus-visible {
+        border-color: #79bfff;
+        background: #1677e8;
+        color: #fff;
+}
+
+.unitCardInner {
+        border-color: rgba(121, 191, 255, 0.14);
+        background: #080d14;
+}
+
+.footer {
+        background: #020408;
+}
