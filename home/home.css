@@ -6172,3 +6172,37 @@ body {
 .ieeeHeroScrollLine {
 	background: #65bfff;
 }
+
+.siteNav {
+	position: absolute;
+	top: 18px;
+	left: 50%;
+	width: min(calc(100% - 48px), 1320px);
+	margin: 0;
+	transform: translateX(-50%);
+	border-color: rgba(215, 231, 248, 0.14);
+	background: rgba(4, 9, 17, 0.9);
+	box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32);
+}
+
+.ieeeHero {
+	min-height: 100svh;
+	padding-top: clamp(132px, 11vw, 164px);
+}
+
+@media (max-width: 760px) {
+	.siteNav {
+		top: 12px;
+		width: calc(100% - 24px);
+	}
+
+	.ieeeHero {
+		padding-top: 152px;
+	}
+}
+
+@media (max-width: 480px) {
+	.ieeeHero {
+		padding-top: 164px;
+	}
+}
