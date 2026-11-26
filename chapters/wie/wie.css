@@ -82,3 +82,114 @@ h2 { font-size: clamp(2.5rem, 5vw, 5rem); line-height: .9; letter-spacing: -.08e
 footer { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding-bottom: 90px; }footer h2 { margin-top: 18px; }
 @media (max-width: 900px) { .aurora { width: 55vw; height: 480px; }.wieNav nav a:not(.navButton) { display: none; }.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }.heroVisual { min-height: 390px; }.about { grid-template-columns: 1fr; gap: 35px; }.cards { grid-template-columns: repeat(2, 1fr); }.eventsGrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .wieNav { padding: 18px 20px; }.brand img { width: 110px; }.brand span { display: none; }.aurora { width: 85vw; height: 340px; opacity: .9; }.hero { padding: 55px 22px 90px; }.chapterLogo { width: 100%; }.heroVisual { min-height: 330px; transform: scale(.78); margin: -35px -45px; }.orbitCore { width: 210px; height: 210px; }.about, .section { padding-top: 82px; padding-bottom: 82px; }.heading, .eventsHeading { display: block; }.heading h2 { margin-top: 25px; }.cards, .eventsGrid { grid-template-columns: 1fr; }.team { grid-template-columns: repeat(2, 1fr); }.teamCard, .teamCard:nth-child(4), .teamCard:nth-child(5) { grid-column: auto; }.eventsSection { padding-top: 82px; padding-bottom: 100px; }.eventsHeading > p:last-child { margin-top: 22px; }.eventsGrid { gap: 18px; }footer { align-items: flex-start; flex-direction: column; padding-top: 82px; padding-bottom: 70px; } }
+
+:root {
+        --paper: #fbf8ff;
+        --paper-dark: #24172f;
+        --ink: #f8f3ff;
+        --purple: #c49be9;
+        --purple-dark: #241331;
+        --lavender: #d9c6ef;
+        --pink: #f0a8d3;
+        --orange: #d5b7fa;
+        --muted: #c2b5ce;
+}
+
+body {
+        background: #100a17;
+        color: var(--ink);
+}
+
+.wiePage {
+        background:
+                radial-gradient(ellipse at 82% 8%, rgba(129, 75, 168, 0.26), transparent 30%),
+                radial-gradient(ellipse at 12% 48%, rgba(89, 49, 121, 0.2), transparent 34%),
+                linear-gradient(135deg, #100a17 0%, #1d1229 52%, #100a17 100%);
+}
+
+.wiePage::before {
+        opacity: 0.14;
+        background-image: radial-gradient(rgba(211, 179, 244, 0.65) 0.7px, transparent 0.7px);
+}
+
+.aurora {
+        background: radial-gradient(ellipse, rgba(130, 76, 169, 0.3), transparent 70%);
+        clip-path: none;
+        opacity: 1;
+}
+
+.brand img {
+        filter: brightness(0) invert(1);
+}
+
+.wieNav nav a {
+        color: #e5d9ef;
+}
+
+.navButton,
+.button {
+        border: 1px solid rgba(208, 176, 243, 0.62);
+        background: #d1b0ef;
+        color: #241331 !important;
+}
+
+.navButton:hover,
+.button:hover,
+.navButton:focus-visible,
+.button:focus-visible {
+        background: var(--pink) !important;
+        color: #241331 !important;
+}
+
+.chapterLogo {
+        padding: 10px;
+        border-radius: 8px;
+        background: #fbf8ff;
+        mix-blend-mode: normal;
+}
+
+.about,
+.section,
+footer {
+        border-color: rgba(218, 195, 242, 0.2);
+}
+
+.focusCard {
+        border-color: rgba(205, 174, 239, 0.22);
+        background: rgba(255, 255, 255, 0.055);
+        box-shadow: 0 16px 35px rgba(5, 2, 10, 0.2);
+}
+
+.focusCard:hover {
+        border-color: var(--purple);
+        background: #593572;
+}
+
+.teamCard {
+        border-color: rgba(205, 174, 239, 0.2);
+        background: var(--paper-dark);
+        box-shadow: 0 16px 35px rgba(5, 2, 10, 0.24);
+}
+
+.teamCard img {
+        background: rgba(216, 194, 255, 0.12);
+}
+
+.eventsSection {
+        background: #21112f;
+}
+
+.eventCard {
+        border-color: rgba(211, 177, 239, 0.45);
+        background: #fbf8ff;
+        color: #2c2034;
+}
+
+.eventCard span,
+.eventCard strong {
+        color: #63397c;
+}
+
+.eventCard p {
+        color: #6d6175;
+}

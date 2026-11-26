@@ -48,3 +48,64 @@ h2 { font-size: clamp(2.1rem, 4vw, 4.2rem); line-height: .98; letter-spacing: -.
 footer { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding-bottom: 90px; }footer h2 { margin-top: 18px; }
 @media (max-width: 900px) { .rasNav nav a:not(.navButton) { display: none; }.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 76px; }.robotVisual { min-height: 350px; }.about { grid-template-columns: 1fr; gap: 35px; }.cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }.eventsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .rasNav { padding: 18px 20px; }.brand img { width: 112px; }.brand span { display: none; }.hero { padding: 62px 22px 80px; }.titleRow { gap: 16px; }.chapterLogo { width: 72px; height: 72px; padding: 7px; border-radius: 14px; }h1 { font-size: clamp(3rem, 16vw, 5rem); }.kicker { font-size: .68rem; }.intro { font-size: .96rem; }.robotVisual { transform: scale(.8); margin: -20px -30px; }.about, .section { padding-top: 80px; padding-bottom: 80px; }.cards, .eventsGrid { grid-template-columns: 1fr; }.team { grid-template-columns: repeat(2, minmax(0, 1fr)); }.teamCard, .teamCard:nth-child(4), .teamCard:nth-child(5) { grid-column: auto; }.teamCard img { aspect-ratio: .9; }footer { align-items: flex-start; flex-direction: column; padding-top: 80px; padding-bottom: 70px; } }
+
+:root {
+        --ink: #f7f2ff;
+        --navy: #0b0814;
+        --deep: #171025;
+        --teal: #b998ff;
+        --lime: #e0caff;
+        --muted: #b9aecb;
+        --line: rgba(190, 151, 255, 0.2);
+}
+
+.rasPage {
+        background:
+                radial-gradient(circle at 84% 10%, rgba(150, 103, 235, 0.2), transparent 27%),
+                radial-gradient(circle at 7% 42%, rgba(116, 76, 181, 0.14), transparent 29%),
+                linear-gradient(135deg, #090711 0%, #1a1129 52%, #0b0814 100%);
+}
+
+.rasPage::before {
+        background-image:
+                linear-gradient(rgba(190, 151, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(190, 151, 255, 0.07) 1px, transparent 1px);
+}
+
+.navButton,
+.button {
+        border-color: rgba(185, 152, 255, 0.78);
+}
+
+.robotCore {
+        border-color: rgba(232, 216, 255, 0.48);
+        background: rgba(68, 43, 105, 0.86);
+        box-shadow: 0 0 0 18px rgba(185, 152, 255, 0.08), 0 0 70px rgba(151, 102, 220, 0.38);
+}
+
+.signal {
+        border-color: rgba(185, 152, 255, 0.38);
+}
+
+.node {
+        box-shadow: 0 0 18px rgba(185, 152, 255, 0.42);
+}
+
+.focusCard,
+.teamCard,
+.eventCard {
+        border-color: rgba(190, 151, 255, 0.22);
+}
+
+.focusCard:hover {
+        background: rgba(151, 105, 220, 0.15);
+}
+
+.icon {
+        border-color: rgba(185, 152, 255, 0.32);
+        background: rgba(185, 152, 255, 0.1);
+}
+
+.teamCard img {
+        background: rgba(216, 194, 255, 0.16);
+}
