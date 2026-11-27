@@ -20,7 +20,7 @@ body { background: var(--lavender); color: var(--ink); font-family: "DM Sans", s
 .wieNav, .hero, .about, .section, footer, .eventsSection { position: relative; z-index: 1; }
 .wieNav { display: flex; align-items: center; justify-content: space-between; max-width: 1380px; margin: auto; padding: 25px clamp(24px, 6vw, 86px); }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); font: 700 .78rem "Space Grotesk"; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
-.brand img { width: 125px; height: 42px; object-fit: contain; }
+.brand img { width: 132px; height: 46px; padding: 5px 10px; border-radius: 10px; object-fit: contain; }
 .wieNav nav { display: flex; align-items: center; gap: 27px; }
 .wieNav nav a { color: var(--ink); font-size: .68rem; font-weight: 700; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
 .wieNav nav a:hover, .wieNav nav a:focus-visible { color: var(--pink); }
