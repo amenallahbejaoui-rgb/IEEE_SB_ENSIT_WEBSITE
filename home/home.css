@@ -6349,3 +6349,23 @@ body {
                 transition: none;
         }
 }
+
+/* Let the planetary horizon sit directly in the hero instead of inside a card. */
+.ieeeHeroEngineering {
+	overflow: visible;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	transform: none;
+	transition: none;
+}
+
+.ieeeHeroSignal {
+	filter: drop-shadow(0 0 34px rgba(33, 140, 219, 0.16));
+}
+
+.ieeeHeroVisual:hover .ieeeHeroEngineering {
+	transform: none;
+	box-shadow: none;
+}
