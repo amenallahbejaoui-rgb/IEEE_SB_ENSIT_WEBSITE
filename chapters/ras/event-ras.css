@@ -1,0 +1,17 @@
+/* RAS event-page theme — keeps the chapter's teal identity. */
+@import url("../../shared/event-page.css");
+
+:root {
+	--ev-bg: #041015;
+	--ev-bg-2: #082a32;
+	--ev-glow: rgba(34, 224, 192, 0.2);
+	--ev-grid: rgba(75, 222, 198, 0.06);
+	--ev-ink: #f5fbff;
+	--ev-muted: #9bbbc0;
+	--ev-accent: #22e0c0;
+	--ev-line: rgba(135, 230, 216, 0.2);
+	--ev-surface: rgba(255, 255, 255, 0.08);
+	--ev-card: rgba(255, 255, 255, 0.05);
+	--ev-shadow: rgba(1, 12, 16, 0.45);
+	--ev-label: "IEEE ENSIT RAS EVENT";
+}

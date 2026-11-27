@@ -1,0 +1,17 @@
+/* SIGHT event-page theme — keeps the chapter's red identity. */
+@import url("../../shared/event-page.css");
+
+:root {
+	--ev-bg: #1b060c;
+	--ev-bg-2: #310915;
+	--ev-glow: rgba(215, 22, 61, 0.24);
+	--ev-grid: rgba(255, 145, 164, 0.06);
+	--ev-ink: #fff7f8;
+	--ev-muted: #e6cbd0;
+	--ev-accent: #d7163d;
+	--ev-line: rgba(255, 145, 164, 0.24);
+	--ev-surface: rgba(255, 255, 255, 0.08);
+	--ev-card: rgba(255, 255, 255, 0.05);
+	--ev-shadow: rgba(0, 0, 0, 0.42);
+	--ev-label: "IEEE ENSIT SIGHT EVENT";
+}

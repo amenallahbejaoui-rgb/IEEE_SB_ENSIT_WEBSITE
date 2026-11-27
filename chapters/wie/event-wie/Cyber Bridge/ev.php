@@ -38,6 +38,7 @@
     <!-- Template Stylesheet -->
     <link href="../../../../css/style.css" rel="stylesheet">
     <link href="../../stylewie.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../event-wie.css" />
 </head>
 <body>
     <!-- Spinner Start -->
@@ -47,6 +48,7 @@
     <!-- Spinner End -->
 
     <?php include(__DIR__ . '/../../components/navbar.php'); ?>
+    <a class="event-back-link" href="../../wie.html#events">← IEEE ENSIT WIE</a>
     <div class="event-card">
         <div class="event-content">
             <img src="1.jpg" alt="Event Image" class="event-image" id="mainEventImage" style="width: 100%;">

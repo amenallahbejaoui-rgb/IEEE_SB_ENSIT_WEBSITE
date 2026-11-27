@@ -1,0 +1,17 @@
+/* WIE event-page theme — keeps the chapter's purple identity. */
+@import url("../../shared/event-page.css");
+
+:root {
+	--ev-bg: #47145f;
+	--ev-bg-2: #241331;
+	--ev-glow: rgba(233, 135, 182, 0.24);
+	--ev-grid: rgba(217, 185, 226, 0.06);
+	--ev-ink: #f9f5ee;
+	--ev-muted: #d9b9e2;
+	--ev-accent: #f4a261;
+	--ev-line: rgba(217, 185, 226, 0.25);
+	--ev-surface: rgba(255, 255, 255, 0.1);
+	--ev-card: rgba(255, 255, 255, 0.07);
+	--ev-shadow: rgba(20, 5, 30, 0.38);
+	--ev-label: "IEEE ENSIT WIE EVENT";
+}

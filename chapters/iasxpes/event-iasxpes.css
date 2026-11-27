@@ -1,0 +1,17 @@
+/* IASxPES event-page theme — keeps the chapter's green identity. */
+@import url("../../shared/event-page.css");
+
+:root {
+	--ev-bg: #03100d;
+	--ev-bg-2: #0a3326;
+	--ev-glow: rgba(83, 242, 187, 0.16);
+	--ev-grid: rgba(83, 242, 187, 0.05);
+	--ev-ink: #f5f8f4;
+	--ev-muted: #a8beb3;
+	--ev-accent: #53f2bb;
+	--ev-line: rgba(137, 224, 184, 0.22);
+	--ev-surface: rgba(255, 255, 255, 0.08);
+	--ev-card: rgba(12, 46, 35, 0.72);
+	--ev-shadow: rgba(0, 0, 0, 0.38);
+	--ev-label: "IEEE ENSIT IASxPES EVENT";
+}
