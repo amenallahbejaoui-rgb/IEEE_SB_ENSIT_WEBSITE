@@ -20,8 +20,8 @@
 
 	const chapters = [
 		["AESS", "Aerospace & Electronic Systems", "chapters/aess/aess.html", "chapters/aess/images/logo.png"],
-		["VTS", "Vehicular Technology Society", "chapters/vts/vts.html", "chapters/vts/vts.png"],
-		["IASxPES", "Industry, Electronics & Energy", "chapters/iasxpes/iasxpes.html", "chapters/iasxpes/logo_IAS_PES_IES_white.png"],
+		["VTS", "Vehicular Technology Society", "chapters/vts/vts.html", "public/logos/VTS.png"],
+		["IASxPES", "Industry, Electronics & Energy", "chapters/iasxpes/iasxpes.html", "public/logos/logo_IAS_PES_IES.png"],
 		["RAS", "Robotics & Automation Society", "chapters/ras/ras.html", "chapters/ras/IMG_3431.PNG"],
 		["WIE", "Women in Engineering", "chapters/wie/wie.html", "chapters/wie/logo wie .png"],
 		["SIGHT", "Humanitarian Technology", "chapters/sight/sight.html", "public/logos/logo_SIGHT.png"],
