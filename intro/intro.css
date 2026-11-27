@@ -315,12 +315,12 @@ body {
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: clamp(30px, 6vh, 60px);
+	bottom: clamp(6px, 1.4vh, 14px);
 	z-index: 5;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: clamp(16px, 2.6vh, 26px);
+	gap: clamp(8px, 1.4vh, 14px);
 	padding: 0 24px;
 }
 
@@ -514,3 +514,4 @@ body {
 	.introEmblem {
 		margin-bottom: 22px;
 	}
+}

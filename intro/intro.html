@@ -72,11 +72,11 @@
 			// The opening stays on screen until the visitor enters.
 			// Auto-advance shortly after the loading bar completes.
 			progressBar.addEventListener("animationend", function () {
-				window.setTimeout(goHome, 700);
+				window.setTimeout(goHome, 1200);
 			});
 
 			// Safety net in case the animation event does not fire.
-			window.setTimeout(goHome, 7000);
+			window.setTimeout(goHome, 13000);
 
 			enterButton.addEventListener("click", goHome);
 			document.addEventListener("keydown", function (event) {
