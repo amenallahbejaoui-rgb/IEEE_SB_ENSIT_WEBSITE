@@ -5,13 +5,16 @@
 }
 
 body {
-	background: var(--lavender);
+	background: #100a17;
 }
 
 .eventPage {
 	min-height: 100vh;
 	padding: 0 clamp(24px, 6vw, 86px);
-	background: var(--lavender);
+	background:
+		radial-gradient(ellipse at 82% 8%, rgba(129, 75, 168, 0.26), transparent 30%),
+		radial-gradient(ellipse at 12% 48%, rgba(89, 49, 121, 0.2), transparent 34%),
+		linear-gradient(135deg, #100a17 0%, #1d1229 52%, #100a17 100%);
 	color: var(--ink);
 }
 
