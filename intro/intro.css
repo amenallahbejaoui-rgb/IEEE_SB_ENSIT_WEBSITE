@@ -1,0 +1,516 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--navy-900: #03081a;
+	--navy-800: #060f27;
+	--navy-700: #0a1a3d;
+	--blue: #0055d4;
+	--blue-bright: #3d8bff;
+	--cyan: #74d6ff;
+	--ink: #eaf2ff;
+	--ink-muted: #8ea6cc;
+	--font-display: "Space Grotesk", system-ui, sans-serif;
+	--font-body: "Inter", system-ui, sans-serif;
+	--font-mono: "JetBrains Mono", monospace;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background: var(--navy-900);
+	color: var(--ink);
+	font-family: var(--font-body);
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+.intro {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	isolation: isolate;
+	background:
+		radial-gradient(ellipse 80% 70% at 50% 40%, #0d2350 0%, rgba(6, 15, 39, 0) 62%),
+		linear-gradient(180deg, #03081a 0%, #061027 55%, #020613 100%);
+	transition: opacity 0.9s ease, transform 1s ease;
+}
+
+.intro.isLeaving {
+	opacity: 0;
+	transform: scale(1.04);
+}
+
+/* ---------- Background layers ---------- */
+
+.introGrid {
+	position: absolute;
+	inset: -2px;
+	z-index: 0;
+	background-image:
+		linear-gradient(to right, rgba(77, 141, 255, 0.12) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(77, 141, 255, 0.12) 1px, transparent 1px);
+	background-size: 54px 54px;
+	mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, black 12%, transparent 78%);
+	-webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, black 12%, transparent 78%);
+	opacity: 0;
+	animation: gridIn 1.6s ease 0.05s forwards;
+}
+
+.introGlow {
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(70px);
+	z-index: 0;
+	opacity: 0;
+	animation: glowIn 2s ease 0.2s forwards;
+}
+
+.introGlowOne {
+	width: 46vw;
+	height: 46vw;
+	top: -14vw;
+	left: -10vw;
+	background: radial-gradient(circle, rgba(0, 85, 212, 0.55), transparent 68%);
+	animation: glowIn 2s ease 0.2s forwards, driftOne 16s ease-in-out infinite alternate;
+}
+
+.introGlowTwo {
+	width: 40vw;
+	height: 40vw;
+	bottom: -16vw;
+	right: -8vw;
+	background: radial-gradient(circle, rgba(116, 214, 255, 0.32), transparent 68%);
+	animation: glowIn 2s ease 0.35s forwards, driftTwo 18s ease-in-out infinite alternate;
+}
+
+.introBeam {
+	position: absolute;
+	top: -20%;
+	left: 50%;
+	width: 60vw;
+	height: 140%;
+	transform: translateX(-50%) rotate(8deg);
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		rgba(116, 214, 255, 0.1) 48%,
+		rgba(255, 255, 255, 0.14) 50%,
+		rgba(116, 214, 255, 0.1) 52%,
+		transparent 100%
+	);
+	filter: blur(2px);
+	opacity: 0;
+	z-index: 0;
+	animation: beamIn 1.4s ease 0.3s forwards, beamSweep 9s ease-in-out 1s infinite;
+}
+
+.introScan {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	pointer-events: none;
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.028) 0px,
+		rgba(255, 255, 255, 0.028) 1px,
+		transparent 1px,
+		transparent 4px
+	);
+	mix-blend-mode: overlay;
+	opacity: 0.7;
+}
+
+.introParticles {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.introVignette {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	pointer-events: none;
+	background: radial-gradient(ellipse 78% 70% at 50% 46%, transparent 40%, rgba(2, 6, 19, 0.82) 100%);
+}
+
+/* ---------- Core content ---------- */
+
+.introCore {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 0 24px;
+	transform: translateY(-2vh);
+}
+
+.introEmblem {
+	position: relative;
+	display: grid;
+	place-items: center;
+	width: clamp(150px, 20vw, 210px);
+	height: clamp(150px, 20vw, 210px);
+	margin-bottom: clamp(26px, 4vh, 44px);
+}
+
+.emblemRing {
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	border: 1px solid rgba(116, 214, 255, 0.28);
+}
+
+.emblemRing::before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	left: 50%;
+	width: 6px;
+	height: 6px;
+	margin-left: -3px;
+	border-radius: 50%;
+	background: var(--cyan);
+	box-shadow: 0 0 12px 3px rgba(116, 214, 255, 0.8);
+}
+
+.emblemRingOne {
+	animation: ringSpin 14s linear infinite;
+}
+
+.emblemRingTwo {
+	inset: 14px;
+	border-color: rgba(61, 139, 255, 0.22);
+	border-style: dashed;
+	animation: ringSpin 22s linear infinite reverse;
+}
+
+.emblemRingThree {
+	inset: -18px;
+	border-color: rgba(0, 85, 212, 0.3);
+	animation: emblemPulse 3.4s ease-in-out infinite;
+}
+
+.emblemHalo {
+	position: absolute;
+	inset: 8%;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(61, 139, 255, 0.4), transparent 68%);
+	filter: blur(14px);
+	animation: haloPulse 3.4s ease-in-out infinite;
+}
+
+.emblemLogo {
+	position: relative;
+	width: 74%;
+	max-width: 160px;
+	object-fit: contain;
+	filter: drop-shadow(0 6px 26px rgba(61, 139, 255, 0.55));
+	opacity: 0;
+	transform: scale(0.82);
+	animation: logoIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+.introEyebrow {
+	font-family: var(--font-mono);
+	font-size: clamp(10px, 1.1vw, 12.5px);
+	letter-spacing: 0.44em;
+	text-transform: uppercase;
+	color: var(--ink-muted);
+	margin-bottom: clamp(14px, 2.4vh, 22px);
+	opacity: 0;
+	animation: riseIn 0.9s ease 1.05s forwards;
+}
+
+.introEyebrow span {
+	color: var(--cyan);
+}
+
+.introTitle {
+	font-family: var(--font-display);
+	font-weight: 700;
+	line-height: 0.94;
+	letter-spacing: -0.02em;
+	font-size: clamp(46px, 10vw, 132px);
+}
+
+.introTitle .line {
+	display: block;
+	overflow: hidden;
+}
+
+.introTitle .line > span {
+	display: inline-block;
+	background: linear-gradient(180deg, #ffffff 0%, #cfe2ff 46%, #6ea8ff 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	transform: translateY(105%);
+	animation: lineRise 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.introTitle .lineOne > span {
+	animation-delay: 1.15s;
+}
+
+.introTitle .lineTwo > span {
+	animation-delay: 1.32s;
+}
+
+.introTitle .lineTwo {
+	font-size: 0.72em;
+	letter-spacing: 0.02em;
+}
+
+.introTitle .lineTwo > span {
+	background: linear-gradient(180deg, #9cc6ff 0%, #3d8bff 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+.introTagline {
+	margin-top: clamp(18px, 3vh, 28px);
+	font-family: var(--font-display);
+	font-size: clamp(13px, 1.7vw, 20px);
+	font-weight: 400;
+	letter-spacing: 0.06em;
+	color: var(--ink);
+	opacity: 0;
+	animation: riseIn 0.9s ease 1.65s forwards;
+}
+
+.introTagline em {
+	font-style: normal;
+	color: var(--cyan);
+}
+
+.introSubline {
+	margin-top: clamp(10px, 1.6vh, 16px);
+	font-family: var(--font-mono);
+	font-size: clamp(9.5px, 1vw, 11.5px);
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	color: var(--ink-muted);
+	opacity: 0;
+	animation: riseIn 0.9s ease 1.85s forwards;
+}
+
+/* ---------- Footer / loader ---------- */
+
+.introFooter {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: clamp(30px, 6vh, 60px);
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: clamp(16px, 2.6vh, 26px);
+	padding: 0 24px;
+}
+
+.introProgress {
+	position: relative;
+	width: min(280px, 60vw);
+	height: 2px;
+	border-radius: 999px;
+	background: rgba(146, 176, 227, 0.16);
+	overflow: hidden;
+	opacity: 0;
+	animation: riseIn 0.7s ease 2s forwards;
+}
+
+.introProgress span {
+	display: block;
+	height: 100%;
+	width: 0;
+	border-radius: inherit;
+	background: linear-gradient(90deg, var(--blue), var(--cyan));
+	box-shadow: 0 0 14px rgba(116, 214, 255, 0.7);
+}
+
+.introProgressFill {
+	animation: loadFill 6.5s cubic-bezier(0.4, 0, 0.2, 1) 3.4s forwards;
+}
+
+.introEnter {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 13px 30px;
+	font-family: var(--font-body);
+	font-size: 13.5px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	border: 1px solid rgba(116, 214, 255, 0.42);
+	border-radius: 999px;
+	background: linear-gradient(180deg, rgba(61, 139, 255, 0.22), rgba(0, 85, 212, 0.22));
+	backdrop-filter: blur(8px);
+	cursor: pointer;
+	opacity: 0;
+	transform: translateY(14px);
+	transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+	animation: riseIn 0.8s ease 2.15s forwards;
+}
+
+.introEnter:hover {
+	transform: translateY(-2px);
+	background: linear-gradient(180deg, rgba(61, 139, 255, 0.34), rgba(0, 85, 212, 0.34));
+	box-shadow: 0 14px 34px rgba(0, 85, 212, 0.4);
+}
+
+.introEnter:active {
+	transform: translateY(0) scale(0.985);
+}
+
+.introEnter span {
+	font-size: 15px;
+	line-height: 1;
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes gridIn {
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes glowIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes beamIn {
+	to {
+		opacity: 0.9;
+	}
+}
+
+@keyframes beamSweep {
+	0%,
+	100% {
+		transform: translateX(-50%) translateX(-6vw) rotate(8deg);
+	}
+	50% {
+		transform: translateX(-50%) translateX(6vw) rotate(8deg);
+	}
+}
+
+@keyframes driftOne {
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(6vw, 5vh);
+	}
+}
+
+@keyframes driftTwo {
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(-6vw, -5vh);
+	}
+}
+
+@keyframes logoIn {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes riseIn {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes lineRise {
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes ringSpin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes emblemPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 0.55;
+	}
+	50% {
+		transform: scale(1.08);
+		opacity: 1;
+	}
+}
+
+@keyframes haloPulse {
+	0%,
+	100% {
+		opacity: 0.5;
+		transform: scale(0.94);
+	}
+	50% {
+		opacity: 0.95;
+		transform: scale(1.05);
+	}
+}
+
+@keyframes loadFill {
+	0% {
+		width: 0;
+	}
+	62% {
+		width: 68%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.intro *,
+	.intro *::before,
+	.intro *::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.introTitle .lineTwo {
+		font-size: 0.66em;
+	}
+	.introEmblem {
+		margin-bottom: 22px;
+	}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>IEEE SB ENSIT</title>
+	<meta name="description" content="Official opening of IEEE Student Branch ENSIT — Advancing technology for humanity." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="intro.css" />
+</head>
+<body>
+	<main class="intro" id="intro">
+		<div class="introGrid" aria-hidden="true"></div>
+		<div class="introBeam" aria-hidden="true"></div>
+		<div class="introGlow introGlowOne" aria-hidden="true"></div>
+		<div class="introGlow introGlowTwo" aria-hidden="true"></div>
+		<canvas class="introParticles" id="particles" aria-hidden="true"></canvas>
+		<div class="introVignette" aria-hidden="true"></div>
+		<div class="introScan" aria-hidden="true"></div>
+
+		<section class="introCore" aria-label="IEEE SB ENSIT opening">
+			<div class="introEmblem" aria-hidden="true">
+				<span class="emblemHalo"></span>
+				<span class="emblemRing emblemRingThree"></span>
+				<span class="emblemRing emblemRingOne"></span>
+				<span class="emblemRing emblemRingTwo"></span>
+				<img class="emblemLogo" src="../public/logo white sb.png" alt="IEEE ENSIT Student Branch" />
+			</div>
+
+			<p class="introEyebrow">Student Branch <span>/</span> ENSIT <span>/</span> Tunisia</p>
+
+			<h1 class="introTitle">
+				<span class="line lineOne"><span>IEEE ENSIT</span></span>
+				<span class="line lineTwo"><span>Student Branch</span></span>
+			</h1>
+
+			<p class="introTagline">Advancing <em>technology</em> for humanity.</p>
+			<p class="introSubline">Est. 2013 &nbsp;·&nbsp; 6 Chapters &nbsp;·&nbsp; 120+ Members</p>
+		</section>
+
+		<footer class="introFooter">
+			<div class="introProgress" aria-hidden="true">
+				<span id="progressBar" class="introProgressFill"></span>
+			</div>
+			<button class="introEnter" id="enterButton" type="button" aria-label="Enter the website">
+				Enter the website <span aria-hidden="true">↗</span>
+			</button>
+		</footer>
+	</main>
+
+	<script>
+		(function () {
+			"use strict";
+
+			var intro = document.getElementById("intro");
+			var enterButton = document.getElementById("enterButton");
+			var progressBar = document.getElementById("progressBar");
+			var homeUrl = "../home/home.html";
+			var hasLeft = false;
+
+			function goHome() {
+				if (hasLeft) return;
+				hasLeft = true;
+				intro.classList.add("isLeaving");
+				window.setTimeout(function () {
+					window.location.href = homeUrl;
+				}, 850);
+			}
+
+			// The opening stays on screen until the visitor enters.
+			// Auto-advance shortly after the loading bar completes.
+			progressBar.addEventListener("animationend", function () {
+				window.setTimeout(goHome, 700);
+			});
+
+			// Safety net in case the animation event does not fire.
+			window.setTimeout(goHome, 7000);
+
+			enterButton.addEventListener("click", goHome);
+			document.addEventListener("keydown", function (event) {
+				if (event.key === "Enter" || event.key === " " || event.key === "Escape") {
+					goHome();
+				}
+			});
+
+			/* ---------- Lightweight particle field ---------- */
+			var canvas = document.getElementById("particles");
+			var ctx = canvas.getContext("2d");
+			var particles = [];
+			var dpr = Math.min(window.devicePixelRatio || 1, 2);
+			var width = 0;
+			var height = 0;
+			var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+			function resize() {
+				width = canvas.clientWidth;
+				height = canvas.clientHeight;
+				canvas.width = width * dpr;
+				canvas.height = height * dpr;
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			}
+
+			function buildParticles() {
+				var count = Math.round((width * height) / 26000);
+				count = Math.max(28, Math.min(count, 90));
+				particles = [];
+				for (var i = 0; i < count; i++) {
+					particles.push({
+						x: Math.random() * width,
+						y: Math.random() * height,
+						r: Math.random() * 1.6 + 0.4,
+						vx: (Math.random() - 0.5) * 0.18,
+						vy: (Math.random() - 0.5) * 0.18,
+						a: Math.random() * 0.5 + 0.15
+					});
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, width, height);
+
+				for (var i = 0; i < particles.length; i++) {
+					var p = particles[i];
+					p.x += p.vx;
+					p.y += p.vy;
+
+					if (p.x < 0) p.x = width;
+					if (p.x > width) p.x = 0;
+					if (p.y < 0) p.y = height;
+					if (p.y > height) p.y = 0;
+
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = "rgba(140, 196, 255, " + p.a + ")";
+					ctx.fill();
+				}
+
+				// Connect nearby particles with faint lines.
+				for (var j = 0; j < particles.length; j++) {
+					for (var k = j + 1; k < particles.length; k++) {
+						var dx = particles[j].x - particles[k].x;
+						var dy = particles[j].y - particles[k].y;
+						var dist = Math.sqrt(dx * dx + dy * dy);
+						if (dist < 130) {
+							ctx.beginPath();
+							ctx.moveTo(particles[j].x, particles[j].y);
+							ctx.lineTo(particles[k].x, particles[k].y);
+							ctx.strokeStyle = "rgba(90, 150, 255, " + (0.14 * (1 - dist / 130)) + ")";
+							ctx.lineWidth = 0.6;
+							ctx.stroke();
+						}
+					}
+				}
+
+				if (!hasLeft) {
+					requestAnimationFrame(draw);
+				}
+			}
+
+			function start() {
+				resize();
+				buildParticles();
+				if (reduceMotion) {
+					// Static field for reduced motion.
+					for (var i = 0; i < particles.length; i++) {
+						ctx.beginPath();
+						ctx.arc(particles[i].x, particles[i].y, particles[i].r, 0, Math.PI * 2);
+						ctx.fillStyle = "rgba(140, 196, 255, " + particles[i].a + ")";
+						ctx.fill();
+					}
+					return;
+				}
+				draw();
+			}
+
+			window.addEventListener("resize", function () {
+				resize();
+				buildParticles();
+			});
+
+			start();
+		})();
+	</script>
+</body>
+</html>
